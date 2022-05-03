@@ -14,6 +14,11 @@ class Address(models.Model):
     def __str__(self):
         return f"{self.street}, {self.street_no}"
 
+class Gender(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default='')
@@ -21,7 +26,7 @@ class UserProfile(models.Model):
     # email = models.CharField(max_length=255)
     phone = models.CharField(max_length=30, blank=True)
     rating = models.FloatField(blank=True, null=True)
-    gender = models.CharField(max_length=10, blank=True)
+    gender = models.ForeignKey(Gender, on_delete=models.SET_NULL, blank=True, null=True)
     description = models.CharField(max_length=9999, blank=True)
     ssn = models.CharField(max_length=10, blank=True)
     bank = models.CharField(max_length=10, blank=True)
