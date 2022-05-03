@@ -1,4 +1,13 @@
+body{
+    background-color: lightgray;
+}
+
 .ads{
     background-color: gray;
-    border: solid 4px red;
+    border: solid 4px green;
+}
+.categoriesContainer{
+    background-color: blue;
+    height: 500px;
+    width: 200px;
 }
