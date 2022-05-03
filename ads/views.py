@@ -10,3 +10,6 @@ adv = [
 def advertisements(request):
     context = {'adv':adv}
     return render(request, 'ads.html', context)
+
+def create_ad(request):
+    pass

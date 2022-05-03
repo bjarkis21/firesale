@@ -14,3 +14,15 @@ class ProfileForm(ModelForm):
             'description': widgets.TextInput(attrs={'class': 'form-control'}),
             'profile_image': widgets.TextInput(attrs={'class': 'form-control'})
         }
+
+
+class BankInfoForm(ModelForm):
+    class Meta:
+        model = UserProfile
+        exclude = ['id', 'user', 'name', 'phone', 'rating', 'gender', 'description', 'address', 'profile_image']
+        widgets = {
+            'ssn': widgets.TextInput(attrs={'class': 'form-control'}),
+            'bank': widgets.TextInput(attrs={'class': 'form-control'}),
+            'hb': widgets.TextInput(attrs={'class': 'form-control'}),
+            'account_no': widgets.TextInput(attrs={'class': 'form-control'})
+        }

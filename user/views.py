@@ -1,7 +1,8 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
-from user.forms.profile_forms import ProfileForm
+from user.forms.profile_forms import ProfileForm, BankInfoForm
 from user.models import UserProfile
 
 # Create your views here.
@@ -18,6 +19,7 @@ def register(request):
         'form': UserCreationForm()
     })
 
+@login_required
 def profile(request):
     profile = UserProfile.objects.filter(user=request.user).first()
     if request.method == 'POST':
@@ -29,4 +31,16 @@ def profile(request):
             return redirect('profile')
     return render(request, 'user/profile.html', {
         'form': ProfileForm(instance=profile)
+    })
+
+@login_required
+def bank_info(request):
+    profile = UserProfile.objects.filter(user=request.user).first()
+    if request.method == 'POST':
+        form = BankInfoForm(instance=profile, data=request.POST)
+        if form.is_valid():
+            profile = form.save()
+            return redirect('profile')
+    return render(request, 'user/bank_info.html', {
+        'form': BankInfoForm(instance=profile)
     })
