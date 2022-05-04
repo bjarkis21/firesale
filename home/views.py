@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 
 # Create your views here.
 from ads.models import Category
@@ -13,7 +14,3 @@ def home(request):
     categories = Category.objects.all()
     context = {'categories': categories}
     return render(request, 'home.html', context)
-
-def ads(request):
-    context = {'adv':adv}
-    return render(request, 'ads.html', context)
