@@ -37,13 +37,13 @@ def profile(request):
     })
 
 @login_required
-def bank_info(request):
+def bank_info(request, redirect_url='profile'):
     profile = UserProfile.objects.filter(user=request.user).first()
     if request.method == 'POST':
         form = BankInfoForm(instance=profile, data=request.POST)
         if form.is_valid():
             profile = form.save()
-            return redirect('profile')
+            return redirect(redirect_url)
     return render(request, 'user/bank_info.html', {
         'form': BankInfoForm(instance=profile)
     })
