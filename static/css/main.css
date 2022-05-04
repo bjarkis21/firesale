@@ -2,3 +2,15 @@
     box-sizing: border-box;
 }
 
+
+.ads{
+    background-color: gray;
+    border: solid 4px green;
+}
+
+.categoriesContainer{
+    background-color: blue;
+    height: 500px;
+    width: 200px;
+}
+
