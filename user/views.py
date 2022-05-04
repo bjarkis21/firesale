@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
+from ads.models import Category
 from user.forms.profile_forms import ProfileForm, BankInfoForm
 from user.models import UserProfile
 
@@ -16,7 +17,8 @@ def register(request):
             form.save()
             return redirect('login')
     return render(request, 'user/register.html', {
-        'form': UserCreationForm()
+        'form': UserCreationForm(),
+        'categories': Category.objects.all()
     })
 
 @login_required
@@ -30,7 +32,8 @@ def profile(request):
             profile.save()
             return redirect('profile')
     return render(request, 'user/profile.html', {
-        'form': ProfileForm(instance=profile)
+        'form': ProfileForm(instance=profile),
+        'categories': Category.objects.all()
     })
 
 @login_required
