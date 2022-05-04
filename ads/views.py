@@ -35,5 +35,6 @@ def create_ad2(request):
             return redirect('home')
 
     return render(request, 'ads/create_ad.html', {
-        'form': AdsForm()
+        'form': AdsForm(),
+        'categories': Category.objects.all()
     })

@@ -13,7 +13,7 @@
 </head>
 <body>
     {%include 'navbar.html'%}
-    <button class="create-ad-btn">Skrá auglýsingu</button>
+    <a class="create-ad-btn" href="/ads/create_ad1">Skrá auglýsingu</a>
     <div class="categories-container">
     {% for category in categories %}
         <a href="#" class="category-link">{{ category.name }}</a>

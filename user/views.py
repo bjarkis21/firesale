@@ -45,5 +45,6 @@ def bank_info(request, redirect_url='profile'):
             profile = form.save()
             return redirect(redirect_url)
     return render(request, 'user/bank_info.html', {
-        'form': BankInfoForm(instance=profile)
+        'form': BankInfoForm(instance=profile),
+        'categories': Category.objects.all()
     })
