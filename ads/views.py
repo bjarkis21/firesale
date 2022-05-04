@@ -1,5 +1,9 @@
+import datetime
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+
+from ads.forms.ads_forms import AdsForm
 from user.views import bank_info
 
 # Create your views here.
@@ -22,4 +26,14 @@ def create_ad1(request):
 
 @login_required
 def create_ad2(request):
-    return redirect('profile')
+    if request.method == 'POST':
+        form = AdsForm(data=request.POST)
+        if form.is_valid():
+            d = form.save(commit=False)
+            d.seller = request.user
+            d.save()
+            return redirect('home')
+
+    return render(request, 'ads/create_ad.html', {
+        'form': AdsForm()
+    })

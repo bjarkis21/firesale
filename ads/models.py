@@ -1,5 +1,7 @@
+from django.contrib.auth.models import User
 from django.db import models
 from user.models import UserProfile
+from datetime import datetime
 
 
 # Create your models here.
@@ -18,13 +20,13 @@ class Advertisement(models.Model):
     condition = models.CharField(max_length=255)
     image = models.CharField(max_length=500, blank=True)
     reserve = models.IntegerField(blank=True, null=True)
-    seller = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='seller')
-    creation_date = models.DateTimeField()
-    buyer = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, blank=True, related_name='buyer', null=True)
+    seller = models.ForeignKey(User, on_delete=models.CASCADE, related_name='seller')
+    creation_date = models.DateTimeField(default=datetime.now)
+    buyer = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, related_name='buyer', null=True)
     rating = models.FloatField(blank=True, null=True)
     buy_date = models.DateTimeField(blank=True, null=True)
-    isPaid = models.BooleanField()
-    isSold = models.BooleanField()
+    isPaid = models.BooleanField(default=False)
+    isSold = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
