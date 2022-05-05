@@ -19,6 +19,13 @@ body{
     background-color: darkgray;
     border: solid 4px green;
 }
+.container{
+    display: flex;
+    align-content: center;
+}
+.ads-container{
+    border:solid 3px black;
+}
 
 .singleAd{
     height: 100px;
