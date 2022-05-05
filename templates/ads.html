@@ -1,21 +1,16 @@
-{% extends 'main.html' %}
+{% load static %}
 
-{% block content %}
+
 <h1>Ads template</h1>
 
-<div>
-    <div class ="ads">
-    
-        {% for ad in adv %}
 
-            <div>
-                <h4>{{ad.id}} -- {{ad.title}} -- {{ad.price}}</h4>
+<div class="ads-container">
+        {% for ad in all_ads %}
+            <div class="ad">
+                <h2 class="ad-title">{{ ad.title }}</h2>
+                <p class="ad-short-description">{{ ad.short_description }}</p>
+                <p class="ad-creation-date">{{ ad.creation_date }}</p>
+                <img src="{{ ad.image }}" class="ad-img" alt="Image of product"/>
             </div>
-        <!-- ef við viljum lista af linkum á ads kannski sleppa title-->
-        <!--<li>
-            <a href="/ads/{{ad.id}}">{{ad.title}}</a>
-        </li>-->
         {% endfor %}
-    </div>
 </div>
-{% endblock content %}
