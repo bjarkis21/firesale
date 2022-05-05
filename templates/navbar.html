@@ -11,7 +11,7 @@
             <img src="{{ user.userprofile.profile_image }}" alt="Profile" class="profile-image"
             width="60" height="60">
             </a>
-        <a href="{% url 'logout' %}" class="nav-link nav-profile">--Logout--</a>
+        <a href="{% url 'logout' %}" class="nav-link nav-profile">--Útskrá--</a>
     {% else %}
         <a href="{% url 'login' %}" class="nav-link nav-login">--Innskrá--</a>
         <a href="{% url 'register' %}" class="nav-link nav-register">--Nýskrá--</a>
