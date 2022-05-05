@@ -7,7 +7,7 @@ from ads.forms.ads_forms import AdsForm
 from user.views import bank_info
 
 # Create your views here.
-from ads.models import Category
+from ads.models import Category, Advertisement
 
 adv = [
     {'id':1, 'title':'First ad', 'price':'$100'},
@@ -15,10 +15,11 @@ adv = [
     {'id':3, 'title':'Third ad', 'price':'$300'},
 ]
 
-def home(request):
-    categories = Category.objects.all()
-    context = {'categories': categories}
-    return render(request, 'home.html', context)
+def ads(request):
+    return render(request, 'home.html', {
+        'categories': Category.objects.all(),
+        'all_ads': Advertisement.objects.all()
+    })
 
 @login_required
 def create_ad1(request):
