@@ -19,7 +19,7 @@ adv = [
 def ads(request):
     return render(request, 'ads.html', {
         'categories': Category.objects.all(),
-        'all_ads': Advertisement.objects.all()
+        'all_ads': Advertisement.objects.all().order_by('-creation_date')
     })
 
 def get_ad_by_id(request, id):
