@@ -24,12 +24,14 @@ body{
     align-content: center;
 }
 .ads-container{
+    margin-left: 20%;
     border:solid 3px black;
 }
 
-.singleAd{
-    height: 100px;
-    width: 400px;
+.ad{
+    margin: 0 auto;
+    height: 200px;
+    width: 500px;
     border: solid 3px black;
 }
 .categoriesContainer{
