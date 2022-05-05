@@ -1,5 +1,9 @@
 body{
-    background-color: lightgray;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    color: #444444;
+    font-size: 9pt;
+    background-color: #FAFAFA;
+
 }
 
 .ads {
@@ -50,6 +54,7 @@ body{
     border-radius: 25px;
 }
 .navLinksContainer{
+    float: left;
     height: 50px;
     width: 200px;
     color: white;
@@ -67,12 +72,14 @@ body{
     width: 200px;
 }
 .registerAdContainer{
+    display: flex;
     color: white;
     text-decoration: none;
     height: 100px;
     width: 100px;
     background-color: blue;
     margin-left: 15%;
+    float: left;
 
 }
 .registerAdContainer a{
