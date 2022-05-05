@@ -11,11 +11,13 @@
     <p class="single-ad-long-description">{{ ad.long_description }}</p>
     <p class="single-ad-condition">{{ ad.condition }}</p>
     <p class="single-ad-creation-date">{{ ad.creation_date }}</p>
-    <img src="{{ ad.image }}" class="single-ad-image" alt="Image of product" height="100px" width="100px"/>
+    <img src="{{ ad.image }}" class="single-ad-image" alt="Image of product"/>
     <p class="single-ad-highest-bid-label">Hæsta boð: </p>
     <p class="single-ad-highest-bid">1000 kr.</p>
     <p class="single-ad-seller-name">{{ seller.name }}</p>
-    <img class="single-ad-seller-image" src="{{ seller.profile_image }}" alt="Image of seller">
+    <div class="profile-image-wrapper">
+    <img class="profile-image" src="{{ seller.profile_image }}" alt="Image of seller">
+    </div>
 </div>
 
 
