@@ -1,8 +1,8 @@
 {% load static %}
 
 <nav class="navbar">
-    <img src="{% static 'images/logo.png'%}" alt="Image of logo" class="logo-img">
-    <div class="nav-links-container">
+    <!--<img src="{% static 'images/logo.png'%}" alt="Image of logo" class="logo-img"> -->
+    <div class="navLinksContainer">
     {% if user.is_authenticated %}
             <a href="{% url 'profile' %}" class="nav-link nav-profile">Profile</a>
             <a href="{% url 'logout' %}" class="nav-link nav-profile">Logout</a>

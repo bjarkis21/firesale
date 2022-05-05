@@ -1,16 +1,74 @@
-* {
-    box-sizing: border-box;
+body{
+    background-color: lightgray;
 }
 
-
-.ads{
-    background-color: gray;
+.ads {
+    background-color: darkgray;
     border: solid 4px green;
 }
 
+.singleAd{
+    height: 100px;
+    width: 400px;
+    border: solid 3px black;
+}
 .categoriesContainer{
-    background-color: blue;
+    font-size: large;
+    background-color: black;
+    height: 500px;
+    width: 200px;
+    margin-left: 15%;
+    margin-top: 2%;
+    border-radius: 25px;
+    position: absolute;
+    text-align: center;
+}
+.categoriesContainer a{
+    color: white;
+    text-decoration:none;
+}
+
+.bankInfoContainer{
+    height: 500px;
+    width: 240px;
+    margin: 0 auto;
+}
+
+.navbar{
+    height: 100px;
+    width: 75%;
+    background-color: black;
+    font-size: 20px;
+    margin: 0 auto;
+    border-radius: 25px;
+}
+.navLinksContainer{
+    height: 50px;
+    width: 200px;
+    color: white;
+    margin: 0 auto;
+}
+.navLinksContainer a{
+
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+}
+.profileContainer{
+    margin:0 auto;
     height: 500px;
     width: 200px;
 }
+.registerAdContainer{
+    color: white;
+    text-decoration: none;
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+    margin-left: 15%;
 
+}
+.registerAdContainer a{
+    color: white;
+    text-decoration: none;
+}

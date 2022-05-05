@@ -1,9 +1,12 @@
 {% extends 'main.html' %}
 {% block content %}
+
+    <div class="bankInfoContainer">
     <h1>Reikningsupplýsingar</h1>
-    <form class="form form-horizontal" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" class="btn btn-primary" value="Update">
-    </form>
+        <form class="form form-horizontal" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" class="btn btn-primary" value="Update">
+        </form>
+    </div>
 {% endblock %}
