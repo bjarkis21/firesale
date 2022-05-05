@@ -1,21 +1,18 @@
 {% extends 'main.html' %}
 
-
 <h1>Ads template</h1>
 
 {% block content %}
 <div class="ads-container">
         {% for ad in all_ads %}
-            <a href="/ads/{{ ad.id }}">
             <div class="ad">
-                <h1 class="ad-title1">{{ ad.title }}</h1>
+                <h1 class="ad-title">{{ ad.title }}</h1>
                 <p class="ad-short-description">{{ ad.short_description }}</p>
                 <p class="ad-creation-date">{{ ad.creation_date }}</p>
                 <img src="{{ ad.image }}" class="ad-image" alt="Image of product" height="100px" width="100px"/>
                 <p class="ad-highest-bid-label">Hæsta boð: </p>
                 <p class="ad-highest-bid">1000 kr.</p>
             </div>
-            </a>
         {% endfor %}
 </div>
 {% endblock %}

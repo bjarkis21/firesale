@@ -21,6 +21,13 @@ def ads(request):
         'all_ads': Advertisement.objects.all()
     })
 
+def get_ad_by_id(request, id):
+    ad = Advertisement.objects.all().filter(pk=id)
+    return render(request, 'single_ad.html', {
+        'categories': Category.objects.all(),
+        'ad': ad
+    })
+
 @login_required
 def create_ad1(request):
     return bank_info(request, 'create-ad2')
