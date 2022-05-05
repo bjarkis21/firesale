@@ -24,14 +24,14 @@ body{
     align-content: center;
 }
 .ads-container{
-    margin-left: 20%;
+    margin-left: 10%;
     border:solid 3px black;
 }
 
 .ad{
     margin: 0 auto;
     height: 200px;
-    width: 500px;
+    width: 750px;
     border: solid 3px black;
 }
 .categoriesContainer{
@@ -70,9 +70,9 @@ body{
 }
 
 .bankInfoContainer{
-    height: 500px;
+    height: 550px;
     width: 240px;
-    margin: 0 auto;
+    margin-left: 20%;
 }
 
 .navbar{
@@ -120,9 +120,9 @@ body{
 }
 
 .createAdContainer{
-    height: 500px;
+    height: 550px;
     width: 150px;
-    margin: 0 auto;
+    margin-left: 20%;
 }
 
 .homeContainer{
@@ -132,13 +132,14 @@ body{
 }
 
 .loginContainer{
-    height: 100px;
+    margin-top:3%;
+    height: 550px;
     width: 500px;
-    margin: 0 auto;
+    margin-left: 20%;
 }
 
 .registerUserContainer{
-    height: 500px;
+    height: 550px;
     width: 500px;
     margin: 0 auto;
 }
