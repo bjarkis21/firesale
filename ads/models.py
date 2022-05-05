@@ -33,7 +33,7 @@ class Advertisement(models.Model):
 
 
 class BidsOn(models.Model):
-    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     advertisement = models.ForeignKey(Advertisement, on_delete=models.CASCADE)
     amount = models.IntegerField()
     bid_date = models.DateTimeField()

@@ -1,7 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-
 from ads.models import Category
 from user.forms.profile_forms import ProfileForm, BankInfoForm
 from user.models import UserProfile
@@ -39,6 +38,11 @@ def profile(request):
 @login_required
 def bank_info(request, redirect_url='profile'):
     profile = UserProfile.objects.filter(user=request.user).first()
+    if profile == None:
+        profile = UserProfile()
+        # profile.save(commit=False)
+        profile.user = request.user
+        profile.save()
     if request.method == 'POST':
         form = BankInfoForm(instance=profile, data=request.POST)
         if form.is_valid():
