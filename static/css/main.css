@@ -18,8 +18,8 @@ body{
 .ads {
     background-color: darkgray;
     border: solid 4px green;
-}
 
+}
 h1.ad-title1{
     float: right;
 }
@@ -35,6 +35,7 @@ p.ad-highest-bid{
     font-weight: bold;
 }
 p.ad-highest-bid-label{
+    margin-left: 20%;
     float: right;
 }
 .container{
@@ -42,7 +43,16 @@ p.ad-highest-bid-label{
     align-content: center;
 }
 .ads-container{
+    text-decoration: none;
     margin-left: 10%;
+}
+
+
+.ads-container a{
+    text-decoration: none;
+
+}.ads-container p{
+    margin-left: 15%;
 }
 
 .ad{
