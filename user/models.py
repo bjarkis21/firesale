@@ -20,7 +20,7 @@ class Gender(models.Model):
         return self.name
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default='')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default='', related_name='userprofile')
     name = models.CharField(max_length=255, blank=True)
     # email = models.CharField(max_length=255)
     phone = models.CharField(max_length=30, blank=True)

@@ -1,9 +1,10 @@
 import datetime
 
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from ads.forms.ads_forms import AdsForm
+from user.models import UserProfile
 from user.views import bank_info
 
 # Create your views here.
@@ -22,10 +23,12 @@ def ads(request):
     })
 
 def get_ad_by_id(request, id):
-    ad = Advertisement.objects.all().filter(pk=id)
-    return render(request, 'single_ad.html', {
+    ad = get_object_or_404(Advertisement, pk=id)
+    seller = ad.seller.userprofile
+    return render(request, 'ads/single_ad.html', {
         'categories': Category.objects.all(),
-        'ad': ad
+        'ad': ad,
+        'seller': seller
     })
 
 @login_required
