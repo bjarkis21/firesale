@@ -7,9 +7,12 @@
     <div class="navLinksContainer">
     <input type="text" placeholder="Search..">
     {% if user.is_authenticated %}
+
             <a href="{% url 'profile' %}">
-            <img src="{{ user.userprofile.profile_image }}" alt="Profile" class="profile-image"
-            width="60" height="60">
+            <div class="profile-image-wrapper">
+                <img src="{{ user.userprofile.profile_image }}" alt="Profile" class="profile-image"
+                            width="60" height="60">
+                </div>
             </a>
         <a href="{% url 'logout' %}" class="nav-link nav-profile">--Útskrá--</a>
     {% else %}
