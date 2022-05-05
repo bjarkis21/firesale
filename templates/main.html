@@ -13,16 +13,18 @@
 </head>
 <body>
     {%include 'navbar.html'%}
-
+    <div class="registerAdContainer">
+        <a class="create-ad-btn" href="/ads/create_ad1">Skrá auglýsingu</a>
+    </div>
     <div class="categoriesContainer">
     {% for category in categories %}
         <div class="singleCategory"><a href="#" class="category-link">{{ category.name }}</a></div>
     {% endfor %}
     </div>
     <div class="container">
-        {% block content %}
-        {% endblock %}
+        {% include 'ads.html' %}
     </div>
+
     {% include 'footer.html' %}
 {#    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>#}
 </body>

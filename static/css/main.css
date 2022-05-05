@@ -5,7 +5,16 @@ body{
     background-color: #FAFAFA;
 
 }
+.footer{
+    height: 100px;
+    width: 75%;
+    background-color: black;
+    font-size: 7px;
+    margin: 0 auto;
+    border-radius: 25px;
+    color:white;
 
+}
 .ads {
     background-color: darkgray;
     border: solid 4px green;
@@ -31,11 +40,23 @@ body{
     color: white;
     text-decoration:none;
 }
+.categoriesContainer a:hover{
+    color: black;
+    text-decoration:none;
+}
 
 .singleCategory{
     width: 200px;
     height: 70px;
-    margin:0 auto;
+    margin: 0 auto;
+    margin-top: 8px;
+}
+.singleCategory:hover{
+    background-color: white;
+    color: black;
+    width: 200px;
+    height: 70px;
+    margin: 0 auto;
     margin-top: 8px;
 }
 
@@ -54,7 +75,6 @@ body{
     border-radius: 25px;
 }
 .navLinksContainer{
-    float: left;
     height: 50px;
     width: 200px;
     color: white;
@@ -76,20 +96,23 @@ body{
     color: white;
     text-decoration: none;
     height: 100px;
-    width: 100px;
+    width: 199px;
     background-color: blue;
-    margin-left: 15%;
+    margin-left: 15.2%;
     float: left;
+    font-size: 20px;
+
 
 }
 .registerAdContainer a{
     color: white;
     text-decoration: none;
+
 }
 
 .createAdContainer{
     height: 500px;
-    width: 200px;
+    width: 150px;
     margin: 0 auto;
 }
 
