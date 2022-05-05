@@ -1,9 +1,9 @@
-{% load static %}
+{% extends 'main.html' %}
 
 
 <h1>Ads template</h1>
 
-
+{% block content %}
 <div class="ads-container">
         {% for ad in all_ads %}
             <div class="ad">
@@ -14,3 +14,4 @@
             </div>
         {% endfor %}
 </div>
+{% endblock %}
