@@ -76,6 +76,9 @@ p.ad-highest-bid-label{
     border-radius: 25px;
     position: absolute;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 .categoriesContainer a{
     color: white;

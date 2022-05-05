@@ -18,7 +18,7 @@
     </div>
     <div class="categoriesContainer">
         {% for category in categories %}
-            <div class="singleCategory"><a href="#" class="category-link">{{ category.name }}</a></div>
+            {% comment %}<div class="singleCategory">{% endcomment %}<a href="/ads?filterby={{ category.name }}" class="category-link">{{ category.name }}</a>{% comment %}</div>{% endcomment %}
         {% endfor %}
     </div>
     <div class="container">
