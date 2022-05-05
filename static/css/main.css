@@ -20,12 +20,19 @@ body{
     border: solid 4px green;
 }
 
+h1.ad-title1{
+    float: right;
+}
+
 p.ad-short-description{
     font-size: 15px;
 }
 
 p.ad-highest-bid{
     float:right;
+    color:orange;
+    font-size: 20px;
+    font-weight: bold;
 }
 p.ad-highest-bid-label{
     float: right;
@@ -36,14 +43,18 @@ p.ad-highest-bid-label{
 }
 .ads-container{
     margin-left: 10%;
-    border:solid 3px black;
 }
 
 .ad{
+    background-color: #80827d;
+    text-decoration: none;
+    color: black;
     margin: 0 auto;
+    margin-top:10px;
     height: 200px;
     width: 750px;
-    border: solid 3px black;
+    border: solid 1px #80827d;
+    border-radius: 25px;
 }
 .categoriesContainer{
     font-size: large;
