@@ -5,7 +5,7 @@
     <img src="{% static 'images/logo.png'%}" alt="Image of logo" class="logo-img">
     </a>
     <div class="navLinksContainer">
-
+    <input type="text" placeholder="Search..">
     {% if user.is_authenticated %}
             <a href="{% url 'profile' %}">
             <img src="{{ user.userprofile.profile_image }}" alt="Profile" class="profile-image"

@@ -99,6 +99,7 @@ p.ad-highest-bid-label{
     width: 400px;
     color: white;
     margin: 0 auto;
+    float: right;
 }
 .navLinksContainer a{
 
@@ -166,5 +167,6 @@ p.ad-highest-bid-label{
     margin: 0 auto;
     height: 50px;
     width: 50px;
+    border-radius: 50%;
 }
 
