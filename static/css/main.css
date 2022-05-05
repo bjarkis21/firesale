@@ -19,6 +19,17 @@ body{
     background-color: darkgray;
     border: solid 4px green;
 }
+
+p.ad-short-description{
+    font-size: 15px;
+}
+
+p.ad-highest-bid{
+    float:right;
+}
+p.ad-highest-bid-label{
+    float: right;
+}
 .container{
     display: flex;
     align-content: center;
@@ -85,7 +96,7 @@ body{
 }
 .navLinksContainer{
     height: 50px;
-    width: 200px;
+    width: 400px;
     color: white;
     margin: 0 auto;
 }
