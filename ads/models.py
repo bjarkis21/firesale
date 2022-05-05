@@ -27,6 +27,7 @@ class Advertisement(models.Model):
     buy_date = models.DateTimeField(blank=True, null=True)
     isPaid = models.BooleanField(default=False)
     isSold = models.BooleanField(default=False)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, default='')
 
     def __str__(self):
         return self.title
