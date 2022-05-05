@@ -6,6 +6,7 @@ body{
 
 }
 .footer{
+    text-align: center;
     height: 100px;
     width: 75%;
     background-color: black;
@@ -14,6 +15,10 @@ body{
     border-radius: 25px;
     color:white;
 
+}
+
+.footer h1{
+    text-align: center;
 }
 .ads {
     background-color: darkgray;
