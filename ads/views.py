@@ -16,7 +16,7 @@ adv = [
 ]
 
 def ads(request):
-    return render(request, 'home.html', {
+    return render(request, 'ads.html', {
         'categories': Category.objects.all(),
         'all_ads': Advertisement.objects.all()
     })

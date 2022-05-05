@@ -1,16 +1,17 @@
-{% load static %}
+{% extends 'main.html' %}
 
 
 <h1>Ads template</h1>
 
-
+{% block content %}
 <div class="ads-container">
         {% for ad in all_ads %}
             <div class="ad">
-                <h2 class="ad-title">{{ ad.title }}</h2>
+                <h1 class="ad-title">{{ ad.title }}</h1>
                 <p class="ad-short-description">{{ ad.short_description }}</p>
                 <p class="ad-creation-date">{{ ad.creation_date }}</p>
-                <img src="{{ ad.image }}" class="ad-imgage" alt="Image of product"/>
+                <img src="{{ ad.image }}" class="ad-imgage" alt="Image of product" height="100px" width="100px"/>
             </div>
         {% endfor %}
 </div>
+{% endblock %}
