@@ -67,7 +67,7 @@ body{
     color: white;
 }
 .profileContainer{
-    margin:0 auto;
+    margin: 0 auto;
     height: 500px;
     width: 200px;
 }
@@ -109,5 +109,18 @@ body{
     height: 500px;
     width: 500px;
     margin: 0 auto;
+}
+
+.logo-img{
+    height: 100px;
+    width: 100px;
+    margin: 0 auto;
+    float: left;
+}
+
+.profile-image{
+    margin: 0 auto;
+    height: 50px;
+    width: 50px;
 }
 
