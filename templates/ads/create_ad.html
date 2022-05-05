@@ -1,9 +1,12 @@
 {% extends "main.html" %}
 {% block content %}
-    <h1>Skrá auglýsingu</h1>
-    <form class="form form-horizontal" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" class="btn btn-primary" value="Staðfesta">
-    </form>
+    <div class="createAdContainer">
+        <h1>Skrá auglýsingu</h1>
+        <form class="form form-horizontal" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" class="btn btn-primary" value="Staðfesta">
+        </form>
+    </div>
+
 {% endblock %}

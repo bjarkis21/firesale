@@ -28,6 +28,13 @@ body{
     text-decoration:none;
 }
 
+.singleCategory{
+    width: 200px;
+    height: 70px;
+    margin:0 auto;
+    margin-top: 8px;
+}
+
 .bankInfoContainer{
     height: 500px;
     width: 240px;
@@ -72,3 +79,28 @@ body{
     color: white;
     text-decoration: none;
 }
+
+.createAdContainer{
+    height: 500px;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.homeContainer{
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.loginContainer{
+    height: 100px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.registerUserContainer{
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+}
+
