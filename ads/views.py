@@ -17,9 +17,15 @@ adv = [
 ]
 
 def ads(request):
+    if 'filterby' in request.GET:
+        filterby = request.GET.get('filterby')
+        category = Category.objects.get(name=filterby)
+        all_ads = Advertisement.objects.filter(category=category).order_by('-creation_date')
+    else:
+        all_ads = Advertisement.objects.all().order_by('-creation_date')
     return render(request, 'ads.html', {
         'categories': Category.objects.all(),
-        'all_ads': Advertisement.objects.all().order_by('-creation_date')
+        'all_ads': all_ads
     })
 
 def get_ad_by_id(request, id):
