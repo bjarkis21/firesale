@@ -190,10 +190,10 @@ p.ad-highest-bid-label{
     margin-left: 15%;
     display: block;
     float: right;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     overflow: hidden;
-    border-radius: 100px;
+    border-radius: 50%;
 }
 
 .profile-image{
