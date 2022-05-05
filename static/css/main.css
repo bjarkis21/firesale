@@ -184,11 +184,15 @@ p.ad-highest-bid-label{
     float: left;
 }
 
+
 .profile-image-wrapper {
     position: relative;
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
+    margin-left: 15%;
+    display: block;
+    float: right;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
     border-radius: 100px;
 }
 
