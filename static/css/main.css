@@ -27,10 +27,13 @@ body{
 }
 h1.ad-title1{
     float: right;
+    position: absolute;
 }
 
 p.ad-short-description{
     font-size: 15px;
+
+
 }
 
 p.ad-highest-bid{
