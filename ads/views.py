@@ -3,10 +3,12 @@ from django.http import JsonResponse
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.paginator import Paginator
 
 from ads.forms.ads_forms import AdsForm
 from user.models import UserProfile
 from user.views import bank_info
+#from ads.models import ads
 
 # Create your views here.
 from ads.models import Category, Advertisement
@@ -59,3 +61,11 @@ def create_ad2(request):
         'form': AdsForm(),
         'categories': Category.objects.all()
     })
+#def listing(request):
+   # adslist = ads.objects.all()
+    #paginator = Paginator(adslist)
+
+    #page_number = request.GET.get('page')
+    #page_obj = paginator.get_page(page_number)
+    #return render(request, ads.html,{'page_obj': page_obj})
+

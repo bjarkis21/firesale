@@ -25,6 +25,13 @@ class ProfileForm(ModelForm):
 
 
 class BankInfoForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['ssn'].required = True
+        self.fields['bank'].required = True
+        self.fields['hb'].required = True
+        self.fields['account_no'].required = True
+
     class Meta:
         model = UserProfile
         exclude = ['id', 'user', 'name', 'phone', 'rating', 'gender', 'description', 'address', 'profile_image']

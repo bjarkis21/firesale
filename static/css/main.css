@@ -1,18 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
 body{
     font-family: 'Helvetica', 'Arial', sans-serif;
     color: #444444;
     font-size: 9pt;
     background-color: #FAFAFA;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0;
+    width: 85%;
 
 }
+main {
+    display: flex;
+}
+
 .footer{
     text-align: center;
     height: 100px;
-    width: 75%;
-    background-color: black;
+    width: 100%;
+    background-color: #2F2929;
     font-size: 7px;
-    margin: 0 auto;
-    border-radius: 25px;
+    /*margin: 0 auto;*/
+    /*border-radius: 25px;*/
     color:white;
 
 }
@@ -20,42 +32,55 @@ body{
 .footer h1{
     text-align: center;
 }
-.ads {
+/*.ads {
     background-color: darkgray;
     border: solid 4px green;
 
-}
-h1.ad-title1{
+}*/
+
+/*h1.ad-title1{
     float: right;
-}
+    position: absolute;
+}*/
 
-p.ad-short-description{
+/*p.ad-short-description{
     font-size: 15px;
-}
+}*/
 
-p.ad-highest-bid{
+/*p.ad-highest-bid{
     float:right;
     color:orange;
     font-size: 20px;
     font-weight: bold;
-}
-p.ad-highest-bid-label{
+}*/
+/*p.ad-highest-bid-label{
     margin-left: 20%;
     float: right;
-}
+}*/
 .container{
-    display: flex;
-    align-content: center;
+    /*display: flex;
+    align-content: center;*/
+    flex-grow: 3;
 }
 .ads-container{
     text-decoration: none;
-    margin-left: 10%;
+    /*margin-left: 10%;*/
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    flex-gap: 15px;
 }
 
 .ads-container a{
     text-decoration: none;
+    height: 200px;
+    width: 100%;
+    display: block;
+    box-shadow: 0 20px 30px 0 rgba(0,0,0, 0.1);
 
-}.ads-container p{
+}
+
+.ads-container p{
     margin-left: 15%;
 }
 
@@ -65,7 +90,7 @@ p.ad-highest-bid-label{
 }
 
 .ad{
-    background-color: #80827d;
+    /*background-color: #80827d;
     text-decoration: none;
     color: black;
     margin: 0 auto;
@@ -73,28 +98,53 @@ p.ad-highest-bid-label{
     height: 200px;
     width: 750px;
     border: solid 1px #80827d;
-    border-radius: 25px;
+    border-radius: 25px;*/
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.ad-image-wrapper {
+    height: 130px;
+    width: 130px;
+    display: flex;
+    mix-blend-mode: multiply;
+}
+
+.ad-image {
+
+    height: 100%;
+    max-width: 130px;
+    object-fit: scale-down;
+
 }
 .categoriesContainer{
     font-size: large;
-    background-color: black;
+    background-color: #2F2929;
     height: 500px;
     width: 200px;
-    margin-left: 15%;
-    margin-top: 5%;
+    /*margin-left: 15%;
+    margin-top: 5%;*/
     border-radius: 25px;
-    position: absolute;
+    /*position: absolute;*/
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+}
+
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
 }
 .categoriesContainer a{
     color: white;
     text-decoration:none;
 }
 .categoriesContainer a:hover{
-    color: black;
+    color: blue;
     text-decoration:none;
 }
 
@@ -121,10 +171,10 @@ p.ad-highest-bid-label{
 
 .navbar{
     height: 100px;
-    width: 75%;
-    background-color: black;
+    width: 100%;
+    background-color: #2F2929;
     font-size: 20px;
-    margin: 0 auto;
+    margin-bottom: 30px;
     border-radius: 25px;
 }
 .navLinksContainer{
@@ -152,7 +202,8 @@ p.ad-highest-bid-label{
     height: 75px;
     width: 199px;
     background-color: lightblue;
-    margin-left: 15.2%;
+    /*margin-left: 15.2%;*/
+    margin-bottom: 30px;
     float: left;
     font-size: 20px;
     border-radius: 25px;
@@ -200,19 +251,31 @@ p.ad-highest-bid-label{
 
 .logo-img{
     height: 100px;
-    width: 200px;
+    width: 400px;
     margin:0 auto;
     float: left;
+    margin-left: 50px;
+}
+
+.envelope-img{
+
+    height: 50px;
+    width: 50px;
+    margin:0 auto;
+    float: right;
+    margin-right: 50px;
 }
 
 
 .profile-image-wrapper {
+    margin-right: 15px;
+    margin-top: 12px;
     position: relative;
     margin-left: 15%;
     display: block;
     float: right;
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     overflow: hidden;
     border-radius: 50%;
 }
@@ -229,4 +292,22 @@ p.ad-highest-bid-label{
 
 }
 
+.single-ad-image{
+    margin-left: 15%;
+    height: 300px;
+    width: 300px;
+}
+.bid-button{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 
+.ad-anchor1, .ad-anchor1:visited, .ad-anchor1:hover, .ad-anchor1:active {
+  color: inherit;
+}

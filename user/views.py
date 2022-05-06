@@ -13,7 +13,10 @@ def register(request):
     if request.method == 'POST':
         form = CustomUserForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            profile = UserProfile()
+            profile.user = user
+            profile.save()
             return redirect('login')
     return render(request, 'user/register.html', {
         'form': CustomUserForm(),
