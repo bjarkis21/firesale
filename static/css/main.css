@@ -9,7 +9,7 @@ body{
     text-align: center;
     height: 100px;
     width: 75%;
-    background-color: black;
+    background-color: #2F2929;
     font-size: 7px;
     margin: 0 auto;
     border-radius: 25px;
@@ -73,7 +73,7 @@ p.ad-highest-bid-label{
 }
 .categoriesContainer{
     font-size: large;
-    background-color: black;
+    background-color: #2F2929;
     height: 500px;
     width: 200px;
     margin-left: 15%;
@@ -118,7 +118,7 @@ p.ad-highest-bid-label{
 .navbar{
     height: 100px;
     width: 75%;
-    background-color: black;
+    background-color: #2F2929;
     font-size: 20px;
     margin: 0 auto;
     border-radius: 25px;
@@ -196,19 +196,22 @@ p.ad-highest-bid-label{
 
 .logo-img{
     height: 100px;
-    width: 200px;
+    width: 400px;
     margin:0 auto;
     float: left;
+    margin-left: 50px;
 }
 
 
 .profile-image-wrapper {
+    margin-right: 15px;
+    margin-top: 12px;
     position: relative;
     margin-left: 15%;
     display: block;
     float: right;
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     overflow: hidden;
     border-radius: 50%;
 }
