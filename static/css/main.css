@@ -170,7 +170,7 @@ main {
     width: 100%;
     background-color: #2F2929;
     font-size: 20px;
-
+    margin-bottom: 30px;
     border-radius: 25px;
 }
 .navLinksContainer{
@@ -199,6 +199,7 @@ main {
     width: 199px;
     background-color: lightblue;
     /*margin-left: 15.2%;*/
+    margin-bottom: 30px;
     float: left;
     font-size: 20px;
     border-radius: 25px;
