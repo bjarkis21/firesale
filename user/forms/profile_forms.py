@@ -5,13 +5,27 @@ from django.contrib.auth.models import User
 from user.models import UserProfile
 
 class CustomUserForm(UserCreationForm):
-    email = EmailField(required=True)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['email'].label = "Netfang"
+        self.fields['username'].label = "Notandanafn"
+        self.fields['password1'].label = "Lykilorð"
+        self.fields['password2'].label = "Staðfesta lykilorð"
 
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
 class ProfileForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['name'].label = "Nafn"
+        self.fields['phone'].label = "Símanúmer"
+        self.fields['gender'].label = "Kyn"
+        self.fields['description'].label = "Lýsing"
+        self.fields['profile_image'].label = "prófílmynd"
+
+
     class Meta:
         model = UserProfile
         exclude = ['id', 'user', 'ssn', 'bank', 'hb', 'account_no', 'address', 'rating']
@@ -27,10 +41,10 @@ class ProfileForm(ModelForm):
 class BankInfoForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['ssn'].required = True
-        self.fields['bank'].required = True
-        self.fields['hb'].required = True
-        self.fields['account_no'].required = True
+        self.fields['ssn'].label = "Kennitala"
+        self.fields['bank'].label = "Banki"
+        self.fields['hb'].label = "Höfuðbók"
+        self.fields['account_no'].label = "Reikningsnúmer"
 
     class Meta:
         model = UserProfile
