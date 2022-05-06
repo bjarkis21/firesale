@@ -104,10 +104,13 @@ main {
     height: 130px;
     width: 130px;
     display: flex;
+    mix-blend-mode: multiply;
 }
 
 .ad-image {
-    object-fit: scale-down;
+
+    height: 100%;
+
 }
 .categoriesContainer{
     font-size: large;
