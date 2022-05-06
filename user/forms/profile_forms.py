@@ -23,7 +23,7 @@ class ProfileForm(ModelForm):
         self.fields['phone'].label = "Símanúmer"
         self.fields['gender'].label = "Kyn"
         self.fields['description'].label = "Lýsing"
-        self.fields['profile_image'].label = "prófílmynd"
+        self.fields['profile_image'].label = "Prófílmynd"
 
 
     class Meta:
