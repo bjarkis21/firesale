@@ -102,7 +102,7 @@ main {
 
 .ad-image-wrapper {
     height: 130px;
-    /*width: 130px;*/
+    width: 130px;
     display: flex;
     mix-blend-mode: multiply;
 }
@@ -110,6 +110,8 @@ main {
 .ad-image {
 
     height: 100%;
+    max-width: 130px;
+    object-fit: scale-down;
 
 }
 .categoriesContainer{
