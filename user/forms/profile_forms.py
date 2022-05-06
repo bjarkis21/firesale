@@ -16,6 +16,8 @@ class CustomUserForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
+
+
 class ProfileForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -38,6 +40,7 @@ class ProfileForm(ModelForm):
         }
 
 
+
 class BankInfoForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -55,3 +58,4 @@ class BankInfoForm(ModelForm):
             'hb': widgets.TextInput(attrs={'class': 'form-control'}),
             'account_no': widgets.TextInput(attrs={'class': 'form-control'})
         }
+
