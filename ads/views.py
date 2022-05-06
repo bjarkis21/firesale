@@ -1,4 +1,5 @@
 import datetime
+from django.http import JsonResponse
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
@@ -27,7 +28,8 @@ def ads(request):
             'id': x.id,
             'title': x.title,
             'short_description': x.short_description,
-        } for x in Ads.objects.filter(title__icontains=search_filter) ]
+            'image': x.image,
+        } for x in Advertisement.objects.filter(title__icontains=search_filter) ]
         return JsonResponse({ 'data': ads })
     else:
         all_ads = Advertisement.objects.all().order_by('-creation_date')
