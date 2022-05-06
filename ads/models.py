@@ -16,7 +16,7 @@ class Category(models.Model):
 class Advertisement(models.Model):
     title = models.CharField(max_length=255)
     short_description = models.CharField(max_length=255)
-    long_description = models.CharField(max_length=9999)
+    long_description = models.TextField()
     condition = models.CharField(max_length=255)
     image = models.CharField(max_length=500, blank=True)
     reserve = models.IntegerField(blank=True, null=True)
