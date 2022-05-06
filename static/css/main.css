@@ -90,7 +90,10 @@ main {
 .search-box{
     text-decoration: none;
     margin-top: 1.5%;
+    width: 500px;
+    height: 30px;
 }
+
 
 .ad{
     /*background-color: #80827d;
