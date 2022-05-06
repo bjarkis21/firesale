@@ -84,7 +84,7 @@ main {
     margin-left: 15%;
 }
 
-.form-control{
+.search-box{
     text-decoration: none;
     margin-top: 1.5%;
 }
@@ -311,3 +311,29 @@ main {
 .ad-anchor1, .ad-anchor1:visited, .ad-anchor1:hover, .ad-anchor1:active {
   color: inherit;
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  float: right;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  margin-top: 100%;
+  right: 0
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.show {display:block;}
