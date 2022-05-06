@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from ads.models import Category
-from user.forms.profile_forms import ProfileForm, BankInfoForm
+from user.forms.profile_forms import ProfileForm, BankInfoForm, CustomUserForm
 from user.models import UserProfile
 
 # Create your views here.
@@ -11,12 +11,12 @@ from user.models import UserProfile
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(data=request.POST)
+        form = CustomUserForm(data=request.POST)
         if form.is_valid():
             form.save()
             return redirect('login')
     return render(request, 'user/register.html', {
-        'form': UserCreationForm(),
+        'form': CustomUserForm(),
         'categories': Category.objects.all()
     })
 

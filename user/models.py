@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Address(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='address', primary_key=True, default='')
     country = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
     postcode = models.CharField(max_length=20)
@@ -20,9 +21,8 @@ class Gender(models.Model):
         return self.name
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default='', related_name='userprofile')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default='', related_name='userprofile', primary_key=True)
     name = models.CharField(max_length=255, blank=True)
-    # email = models.CharField(max_length=255)
     phone = models.CharField(max_length=30, blank=True)
     rating = models.FloatField(blank=True, null=True)
     gender = models.ForeignKey(Gender, on_delete=models.SET_NULL, blank=True, null=True)
@@ -31,7 +31,6 @@ class UserProfile(models.Model):
     bank = models.CharField(max_length=10, blank=True)
     hb = models.CharField(max_length=10, blank=True)
     account_no = models.CharField(max_length=20, blank=True)
-    address = models.ForeignKey(Address, on_delete=models.SET_NULL, blank=True, null=True)
     profile_image = models.CharField(max_length=9999, blank=True)
 
     def __str__(self):
