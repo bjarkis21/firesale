@@ -1,18 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
 body{
     font-family: 'Helvetica', 'Arial', sans-serif;
     color: #444444;
     font-size: 9pt;
     background-color: #FAFAFA;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0;
+    width: 85%;
 
 }
+
+main {
+    display: flex;
+}
+
 .footer{
     text-align: center;
     height: 100px;
-    width: 75%;
+    width: 100%;
     background-color: black;
     font-size: 7px;
-    margin: 0 auto;
-    border-radius: 25px;
+    /*margin: 0 auto;*/
+    /*border-radius: 25px;*/
     color:white;
 
 }
@@ -20,48 +33,60 @@ body{
 .footer h1{
     text-align: center;
 }
-.ads {
+/*.ads {
     background-color: darkgray;
     border: solid 4px green;
 
-}
-h1.ad-title1{
+}*/
+
+/*h1.ad-title1{
     float: right;
-}
+}*/
 
-p.ad-short-description{
+/*p.ad-short-description{
     font-size: 15px;
-}
+}*/
 
-p.ad-highest-bid{
+/*p.ad-highest-bid{
     float:right;
     color:orange;
     font-size: 20px;
     font-weight: bold;
-}
-p.ad-highest-bid-label{
+}*/
+
+/*p.ad-highest-bid-label{
     margin-left: 20%;
     float: right;
-}
+}*/
+
 .container{
-    display: flex;
-    align-content: center;
+    /*display: flex;
+    align-content: center;*/
+    flex-grow: 3;
 }
 .ads-container{
     text-decoration: none;
-    margin-left: 10%;
+    /*margin-left: 10%;*/
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    flex-gap: 15px;
 }
 
 
 .ads-container a{
     text-decoration: none;
+    height: 200px;
+    width: 100%;
+    display: block;
+    box-shadow: 0 20px 30px 0 rgba(0,0,0, 0.1);
 
 }.ads-container p{
     margin-left: 15%;
 }
 
 .ad{
-    background-color: #80827d;
+    /*background-color: #80827d;
     text-decoration: none;
     color: black;
     margin: 0 auto;
@@ -69,22 +94,44 @@ p.ad-highest-bid-label{
     height: 200px;
     width: 750px;
     border: solid 1px #80827d;
-    border-radius: 25px;
+    border-radius: 25px;*/
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
+
+.ad-image-wrapper {
+    height: 130px;
+    /*width: 130px;*/
+    display: flex;
+}
+
+.ad-image {
+    height: 100%;
+}
+
 .categoriesContainer{
     font-size: large;
     background-color: black;
     height: 500px;
     width: 200px;
-    margin-left: 15%;
-    margin-top: 5%;
+    /*margin-left: 15%;
+    margin-top: 5%;*/
     border-radius: 25px;
-    position: absolute;
+    /*position: absolute;*/
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
 }
+
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
 .categoriesContainer a{
     color: white;
     text-decoration:none;
@@ -117,10 +164,10 @@ p.ad-highest-bid-label{
 
 .navbar{
     height: 100px;
-    width: 75%;
+    width: 100%;
     background-color: black;
     font-size: 20px;
-    margin: 0 auto;
+
     border-radius: 25px;
 }
 .navLinksContainer{
@@ -148,7 +195,7 @@ p.ad-highest-bid-label{
     height: 75px;
     width: 199px;
     background-color: lightblue;
-    margin-left: 15.2%;
+    /*margin-left: 15.2%;*/
     float: left;
     font-size: 20px;
     border-radius: 25px;

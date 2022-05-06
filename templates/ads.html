@@ -8,12 +8,18 @@
         {% for ad in all_ads %}
             <a href="/ads/{{ ad.id }}">
             <div class="ad">
-                <h1 class="ad-title1">{{ ad.title }}</h1>
-                <p class="ad-short-description">{{ ad.short_description }}</p>
-                <p class="ad-creation-date">{{ ad.creation_date }}</p>
-                <img src="{{ ad.image }}" class="ad-image" alt="Image of product" height="100px" width="100px" />
-                <p class="ad-highest-bid">1000 kr.</p>
-                <p class="ad-highest-bid-label">Hæsta boð: </p>
+                <div class="ad-info">
+                    <h1 class="ad-title1">{{ ad.title }}</h1>
+                    <p class="ad-creation-date">{{ ad.creation_date }}</p>
+                    <p class="ad-short-description">{{ ad.short_description }}</p>
+                 </div>
+                <div class="ad-image-wrapper">
+                    <img src="{{ ad.image }}" class="ad-image" alt="Image of product" />
+                </div>
+                <div class="ad-bid">
+                    <p class="ad-highest-bid">1000 kr.</p>
+                    <p class="ad-highest-bid-label">Hæsta boð: </p>
+                </div>
             </div>
             </a>
         {% endfor %}
