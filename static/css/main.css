@@ -52,12 +52,16 @@ p.ad-highest-bid-label{
     margin-left: 10%;
 }
 
-
 .ads-container a{
     text-decoration: none;
 
 }.ads-container p{
     margin-left: 15%;
+}
+
+.form-control{
+    text-decoration: none;
+    margin-top: 1.5%
 }
 
 .ad{

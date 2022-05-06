@@ -4,8 +4,12 @@
 <h1>Ads template</h1>
 
 {% block content %}
+
 <div class="ads-container">
-        {% for ad in all_ads %}
+    <div class="input-group">
+        <input type="search" class="form-control" id="search-box" placeholder="Leita..." />
+    </div>
+    {% for ad in all_ads %}
             <a href="/ads/{{ ad.id }}">
             <div class="ad">
                 <h1 class="ad-title1">{{ ad.title }}</h1>
