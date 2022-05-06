@@ -4,6 +4,10 @@ from ads.models import Advertisement
 
 
 class AdsForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['title'].label = "Titill"
+
     class Meta:
         model = Advertisement
         exclude = ['id', 'seller', 'creation_date', 'buyer', 'rating', 'buy_date', 'isPaid', 'isSold']
