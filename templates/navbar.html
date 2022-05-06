@@ -3,20 +3,31 @@
 <nav class="navbar">
     <a href="{% url 'home' %}">
     <img src="{% static 'images/new_logo.png'%}" alt="Image of logo" class="logo-img">
+    <img src="{% static 'images/notification.png'%}" alt="Image of envelope" class="envelope-img">
     </a>
     <div class="navLinksContainer">
-    <input type="text" placeholder="Leita..">
     {% if user.is_authenticated %}
-        <div class="profile-image-wrapper">
-        <a href="{% url 'profile' %}">
-        <img src="{{ user.userprofile.profile_image }}" alt="Profile" class="profile-image"
-        width="60" height="60">
-        </div>
-        </a>
-        <a href="{% url 'logout' %}" class="nav-link nav-profile">--Útskrá--</a>
+
+
+            <div class="dropdown">
+                <div class="profile-image-wrapper">
+                <button onclick="myFunction()">
+                    <img src="{{ user.userprofile.profile_image }}" alt="Dropdown" class="profile-image">
+                </button>
+                </div>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="{% url 'profile' %}">Prófíll</a>
+                    <a href="#">Mínar vörur</a>
+                    <a href="#">Mín boð</a>
+                    <a href="#">Sölusaga</a>
+                    <a href="#">Kaupsaga</a>
+                    <a href="{% url 'logout' %}" class="nav-link nav-profile">Útskrá</a>
+                </div>
+            </div>
     {% else %}
         <a href="{% url 'login' %}" class="nav-link nav-login">--Innskrá--</a>
         <a href="{% url 'register' %}" class="nav-link nav-register">--Nýskrá--</a>
     {% endif %}
     </div>
+    <script src="{% static 'js/navbardropdown.js' %}"></script>
 </nav>

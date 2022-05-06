@@ -4,7 +4,13 @@
 <h1>Ads template</h1>
 
 {% block content %}
+
 <div class="ads-container">
+    <div class="input-group">
+        <form action="/ads/" method="get" class="search-bar"  >
+            <input type="text" class="search-box" placeholder="Leita..." name="search_filter">
+        </form>
+    </div>
         {% for ad in all_ads %}
             <a href="/ads/{{ ad.id }}" class="ad-anchor1">
             <div class="ad">

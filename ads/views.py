@@ -1,4 +1,5 @@
 import datetime
+from django.http import JsonResponse
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
@@ -23,6 +24,9 @@ def ads(request):
         filterby = request.GET.get('filterby')
         category = Category.objects.get(name=filterby)
         all_ads = Advertisement.objects.filter(category=category).order_by('-creation_date')
+    elif 'search_filter' in request.GET:
+        search_filter = request.GET.get('search_filter')
+        all_ads = Advertisement.objects.filter(title__icontains=search_filter).order_by('-creation_date')
     else:
         all_ads = Advertisement.objects.all().order_by('-creation_date')
     return render(request, 'ads.html', {
