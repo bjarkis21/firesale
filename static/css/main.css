@@ -104,10 +104,12 @@ main {
     height: 130px;
     /*width: 130px;*/
     display: flex;
+    mix-blend-mode: multiply;
 }
 
 .ad-image {
     height: 100%;
+
 }
 .categoriesContainer{
     font-size: large;
