@@ -236,5 +236,15 @@ p.ad-highest-bid-label{
     height: 300px;
     width: 300px;
 }
-
+.bid-button{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+}
 
