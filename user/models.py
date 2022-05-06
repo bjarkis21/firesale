@@ -21,7 +21,7 @@ class Gender(models.Model):
         return self.name
 
 class UserProfile(models.Model):
-    kennitala = models.OneToOneField(User, on_delete=models.CASCADE, default='', related_name='userprofile', primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default='', related_name='userprofile', primary_key=True)
     name = models.CharField(max_length=255, blank=True)
     phone = models.CharField(max_length=30, blank=True)
     rating = models.FloatField(blank=True, null=True)
