@@ -253,6 +253,15 @@ main {
     margin-left: 50px;
 }
 
+.envelope-img{
+
+    height: 50px;
+    width: 50px;
+    margin:0 auto;
+    float: right;
+    margin-right: 50px;
+}
+
 
 .profile-image-wrapper {
     margin-right: 15px;
