@@ -7,6 +7,15 @@ class AdsForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['title'].label = "Titill"
+        self.fields['short_description'].label = "Stutt lýsing"
+        self.fields['condition'].label = "Ástand"
+        self.fields['category'].label = "Flokkur"
+        self.fields['reserve'].label = "Lágmarksverð"
+        self.fields['image'].label = "Mynd"
+        self.fields['long_description'].label = "Löng lýsing"
+
+
+
 
     class Meta:
         model = Advertisement
