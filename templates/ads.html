@@ -7,10 +7,9 @@
 
 <div class="ads-container">
     <div class="input-group">
-        <input type="search" class="form-control" id="search-box" placeholder="Leita..." />
-        <div class="input-group-btn">
-            <button type="button" id="search-btn" class="btn-default">Leita</button>
-        </div>
+        <form action="/ads/" method="get" class="search-bar"  >
+            <input type="text" class="form-control" id="search-box" placeholder="Leita..." name="search_filter">
+        </form>
     </div>
     {% for ad in all_ads %}
             <a href="/ads/{{ ad.id }}">

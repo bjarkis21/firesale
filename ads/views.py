@@ -23,14 +23,8 @@ def ads(request):
         category = Category.objects.get(name=filterby)
         all_ads = Advertisement.objects.filter(category=category).order_by('-creation_date')
     elif 'search_filter' in request.GET:
-        search_filter = request.GET['search_filter']
-        ads = [{
-            'id': x.id,
-            'title': x.title,
-            'short_description': x.short_description,
-            'image': x.image,
-        } for x in Advertisement.objects.filter(title__icontains=search_filter) ]
-        return JsonResponse({ 'data': ads })
+        search_filter = request.GET.get('search_filter')
+        all_ads = Advertisement.objects.filter(title__icontains=search_filter).order_by('-creation_date')
     else:
         all_ads = Advertisement.objects.all().order_by('-creation_date')
     return render(request, 'ads.html', {
