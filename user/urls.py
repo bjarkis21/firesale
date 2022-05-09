@@ -11,5 +11,8 @@ urlpatterns = [
     path('profile', views.profile, name='profile'),
     path('bankinfo', views.bank_info, name='bank-info'),
     path('myproducts', views.myproducts, name='myproducts'),
-    path('mybids', views.mybids, name='mybids')
+    path('mybids', views.mybids, name='mybids'),
+    path('salehistory', views.salehistory, name='salehistory'),
+    path('purchases', views.purchases, name='purchases')
+
 ]

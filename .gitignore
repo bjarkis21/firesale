@@ -10,3 +10,4 @@ __pycache__/
 .idea
 idea/
 .idea/workspace.xml
+.DS_Store
