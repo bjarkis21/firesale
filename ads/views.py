@@ -23,7 +23,13 @@ adv = [
 
 
 def ads(request):
-    if 'filterby' in request.GET:
+    filterby = None
+    if 'filterby' in request.GET and 'search_filter' in request.GET:
+        filterby = request.GET.get('filterby')
+        search_filter = request.GET.get('search_filter')
+        category = Category.objects.get(name=filterby)
+        all_ads = Advertisement.objects.filter(category=category, title__icontains=search_filter).order_by('-creation_date')
+    elif 'filterby' in request.GET:
         filterby = request.GET.get('filterby')
         category = Category.objects.get(name=filterby)
         all_ads = Advertisement.objects.filter(category=category).order_by('-creation_date')
@@ -38,7 +44,8 @@ def ads(request):
 
     return render(request, 'ads.html', {
         'categories': Category.objects.all(),
-        'all_ads': all_ads
+        'all_ads': all_ads,
+        'filterby': filterby
     })
 
 
