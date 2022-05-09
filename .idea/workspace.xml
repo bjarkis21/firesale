@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="8b580b7b-8e95-49b1-81be-48918ded5cf2" name="Changes" comment="fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+=======
+    <list default="true" id="52243d8d-1ee3-4072-b7c4-e3cdec20d92e" name="Changes" comment="Bætti við fellilista til að raða auglýsingum">
+      <change afterPath="$PROJECT_DIR$/templates/user/mybids.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/myproducts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
+>>>>>>> e60cfb43ef10f097b5e79e8807b448baef40a867
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +49,6 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DJANGO_SETTINGS_MODULE" value="firesale.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -61,13 +70,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8b580b7b-8e95-49b1-81be-48918ded5cf2" name="Changes" comment="fixes" />
+      <changelist id="52243d8d-1ee3-4072-b7c4-e3cdec20d92e" name="Changes" comment="" />
       <created>1652056342568</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652056342568</updated>
       <workItem from="1652056345683" duration="942000" />
       <workItem from="1652057398113" duration="540000" />
+<<<<<<< HEAD
       <workItem from="1652090053768" duration="949000" />
     </task>
     <task id="LOCAL-00001" summary="fixes">
@@ -99,6 +109,10 @@
       <updated>1652090692875</updated>
     </task>
     <option name="localTasksCounter" value="5" />
+=======
+      <workItem from="1652089668871" duration="827000" />
+    </task>
+>>>>>>> e60cfb43ef10f097b5e79e8807b448baef40a867
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,9 +128,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
 </project>

@@ -55,3 +55,14 @@ def bank_info(request, redirect_url='profile'):
         'form': BankInfoForm(instance=profile),
         'categories': Category.objects.all()
     })
+
+@login_required
+def myproducts(request, redirect_url='myproducts'):
+    return render(request,'user/myproducts.html', {
+        'categories': Category.objects.all()
+    })
+
+def mybids(request, redirect_url='mybids'):
+    return render(request,'user/mybids.html', {
+        'categories': Category.objects.all()
+    })

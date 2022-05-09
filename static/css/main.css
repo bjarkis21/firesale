@@ -109,6 +109,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    column-gap: 10px;
 }
 
 .ad-image-wrapper {
@@ -124,6 +125,14 @@ main {
     max-width: 130px;
     object-fit: scale-down;
 
+}
+
+.ad-info {
+    flex: 1 0 auto;
+}
+
+.ad-bid {
+    flex: 1 0 auto;
 }
 
 .categoriesContainer{
