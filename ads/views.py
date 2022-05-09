@@ -97,6 +97,15 @@ def create_ad2(request):
         'form': AdsForm(),
         'categories': Category.objects.all()
     })
+
+def stop_ad(request, id):
+    ad = get_object_or_404(Advertisement, pk=id)
+    if request.user == ad.seller:
+        ad.isActive = False
+        ad.save()
+    return redirect('myproducts')
+
+
 # def listing(request):
 # adslist = ads.objects.all()
 # paginator = Paginator(adslist)
