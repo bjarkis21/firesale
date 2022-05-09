@@ -49,8 +49,6 @@ def ads(request):
     })
 
 
-
-
 def get_ad_by_id(request, id):
     ad = get_object_or_404(Advertisement, pk=id)
     seller = ad.seller.userprofile

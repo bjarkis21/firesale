@@ -4,6 +4,7 @@ from django import forms
 from django.contrib.auth.models import User
 from user.models import UserProfile
 
+
 class CustomUserForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -17,7 +18,6 @@ class CustomUserForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
 
-
 class ProfileForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -26,7 +26,6 @@ class ProfileForm(ModelForm):
         self.fields['gender'].label = "Kyn"
         self.fields['description'].label = "Lýsing"
         self.fields['profile_image'].label = "Prófílmynd"
-
 
     class Meta:
         model = UserProfile
@@ -38,7 +37,6 @@ class ProfileForm(ModelForm):
             'description': widgets.TextInput(attrs={'class': 'form-control'}),
             'profile_image': widgets.TextInput(attrs={'class': 'form-control'})
         }
-
 
 
 class BankInfoForm(ModelForm):

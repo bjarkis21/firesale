@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
 class Address(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='address', primary_key=True, default='')
     country = models.CharField(max_length=255)
@@ -14,11 +15,13 @@ class Address(models.Model):
     def __str__(self):
         return f"{self.street}, {self.street_no}"
 
+
 class Gender(models.Model):
     name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, default='', related_name='userprofile', primary_key=True)

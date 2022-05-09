@@ -8,7 +8,6 @@ from user.models import UserProfile
 # Create your views here.
 
 
-
 def register(request):
     if request.method == 'POST':
         form = CustomUserForm(data=request.POST)
@@ -22,6 +21,7 @@ def register(request):
         'form': CustomUserForm(),
         'categories': Category.objects.all()
     })
+
 
 @login_required
 def profile(request):
@@ -37,6 +37,7 @@ def profile(request):
         'form': ProfileForm(instance=profile),
         'categories': Category.objects.all()
     })
+
 
 @login_required
 def bank_info(request, redirect_url='profile'):
@@ -56,6 +57,7 @@ def bank_info(request, redirect_url='profile'):
         'categories': Category.objects.all()
     })
 
+
 @login_required
 def myproducts(request, redirect_url='myproducts'):
     #ad = get_object_or_404(Advertisement, pk=id)
@@ -66,15 +68,18 @@ def myproducts(request, redirect_url='myproducts'):
         'user_ads': user_ads
     })
 
+
 def mybids(request, redirect_url='mybids'):
     return render(request,'user/mybids.html', {
         'categories': Category.objects.all()
     })
 
+
 def salehistory(request, redirect_url='salehistory'):
     return render(request,'user/salehistory.html', {
         'categories': Category.objects.all()
     })
+
 
 def purchases(request, redirect_url='purchases'):
     return render(request,'user/purchases.html', {
