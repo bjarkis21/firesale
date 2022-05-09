@@ -24,8 +24,8 @@
         <div class="dropdn">
             <button class="dropbt">Raða eftir</button>
             <div class="dropdown_content">
-            <a>Nýjast efst</a>
-            <a>Elst efst</a>
+            <a id="sort_by_date_desc">Nýjast efst</a>
+            <a id="sort_by_date_asc">Elst efst</a>
             <a>Lægsta verð</a>
             <a>Hæsta verð</a>
             <a id="sort_by_name_asc">A - Ö</a>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="ad-info">
                     <h1 class="ad-title1">{{ ad.title }}</h1>
-                    <p class="ad-creation-date">{{ ad.creation_date }}</p>
+                    <p class="ad-creation-date" data-timestamp="{{ ad.creation_date.timestamp }}">{{ ad.creation_date }}</p>
                     <p class="ad-short-description">{{ ad.short_description }}</p>
                  </div>
 
