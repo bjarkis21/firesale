@@ -108,6 +108,7 @@ main {
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .ad-image-wrapper {
@@ -370,7 +371,6 @@ main {
 .dropdn {
   position: relative;
   display: inline-block;
-  float: right;
 }
 
 .dropdown_content {
