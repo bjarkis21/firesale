@@ -56,5 +56,7 @@ class BidForm(ModelForm):
         if self.user == self.ad.seller:
             raise forms.ValidationError("Ekki er hægt að bjóða í eigin vöru.")
             #self._errors['user'] = self.error_class(['Ekki er hægt að bjóða í eigin vöru.'])
+        if self.ad.isActive == False:
+            raise forms.ValidationError("Þessi auglýsing er ekki lengur virk")
 
         return self.cleaned_data

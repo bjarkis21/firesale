@@ -1,8 +1,10 @@
 {% extends "main.html" %}
+{% load static %}
 {% block content %}
     <div class="ads-container">
         <h1>Mínar vörur</h1>
         {% for ad in user_ads %}
+            <div class="ad-button-container">
             <a href="/ads/{{ ad.id }}" class="ad-anchor1">
             <div class="ad">
                 <div class="ad-image-wrapper">
@@ -24,6 +26,15 @@
                 </div>
             </div>
             </a>
+            {% if ad.isActive %}
+                <button class="deactivate-btn" name="ad_id" value="{{ ad.id }}">Óvirkja auglýsingu</button>
+            {% endif %}
+            </div>
+
         {% endfor %}
+
     </div>
+    <script src="{% static 'js/myproducts.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 {% endblock %}
