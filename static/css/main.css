@@ -74,7 +74,7 @@ main {
     flex-gap: 15px;
 }
 
-.ads-container a{
+.ad-anchor1{
     text-decoration: none;
     height: 200px;
     width: 100%;
@@ -94,6 +94,10 @@ main {
     height: 30px;
 }
 
+.ad-button-container {
+    display: flex;
+    column-gap: 10px;
+}
 
 .ad{
     /*background-color: #80827d;
@@ -345,7 +349,14 @@ main {
   font-size: 16px;
 }
 
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
 .accept-button{
+    font-weight: bold;
   background-color: #4CAF50;
   border: none;
   color: white;
@@ -354,10 +365,12 @@ main {
   text-decoration: none;
   display: inline-block;
   font-size: 10px;
+    align-self: flex-start;
 }
 
 .reject-button{
   background-color: red;
+    font-weight: bold;
   border: none;
   color: white;
   padding: 10px 20px;

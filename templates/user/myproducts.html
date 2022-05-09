@@ -20,20 +20,22 @@
                 <div class="ad-bid">
                     <p class="ad-highest-bid-label">Hæsta boð: </p>
                     {% if ad.max_bid is not None %}
-                        <input type="submit" class="accept-button" value="Samþykkja boð">
-                        <input type="submit" class="reject-button" value="Hætta við sölu">
                         <p class="ad-highest-bid"><b>{{ ad.max_bid }}</b> kr.</p>
                     {% else %}
-                        <input type="submit" class="reject-button" value="Hætta við sölu">
                         <p class="ad-highest-bid-no-bid">Ekkert boð enn.</p>
                     {% endif %}
                  </form>
                 </div>
             </div>
             </a>
-            {% if ad.isActive %}
-                <button class="deactivate-btn" name="ad_id" value="{{ ad.id }}">Óvirkja auglýsingu</button>
+            <div class="buttons-container">
+            {% if ad.isActive and ad.max_bid%}
+                <a href="http://visir.is" class="accept-button">Samþykkja boð</a>
             {% endif %}
+            {% if not ad.isPaid %}
+                <a href="http://visir.is" class="reject-button">Hætta við sölu</a>
+            {% endif %}
+            </div>
             </div>
 
         {% endfor %}
