@@ -329,6 +329,10 @@ main {
   color: inherit;
 }
 
+.input-group {
+    display: flex;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
