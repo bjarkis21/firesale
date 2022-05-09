@@ -47,8 +47,8 @@ class BidForm(ModelForm):
     def clean(self):
         super(BidForm, self).clean()
         amount = self.cleaned_data.get('amount')
-        if amount <= self.minimum_bid:
-            raise forms.ValidationError("Boð má ekki vera lægra en lágmarksboð.")
-            #self._errors['amount'] = self.error_class(['Boð má ekki vera lægra en lágmarksboð'])
+        if amount < self.minimum_bid:
+            #raise forms.ValidationError("Boð má ekki vera lægra en lágmarksboð.")
+            self._errors['amount'] = self.error_class(['Boð má ekki vera lægra en lágmarksboð'])
 
         return self.cleaned_data
