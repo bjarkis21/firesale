@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52243d8d-1ee3-4072-b7c4-e3cdec20d92e" name="Changes" comment="Bætti við fellilista til að raða auglýsingum">
+      <change afterPath="$PROJECT_DIR$/templates/user/mybids.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user/myproducts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +44,6 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DJANGO_SETTINGS_MODULE" value="firesale.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -68,6 +72,7 @@
       <updated>1652056342568</updated>
       <workItem from="1652056345683" duration="942000" />
       <workItem from="1652057398113" duration="540000" />
+      <workItem from="1652089668871" duration="827000" />
     </task>
     <servers />
   </component>
