@@ -13,6 +13,7 @@ urlpatterns = [
     path('myproducts', views.myproducts, name='myproducts'),
     path('mybids', views.mybids, name='mybids'),
     path('salehistory', views.salehistory, name='salehistory'),
-    path('purchases', views.purchases, name='purchases')
+    path('purchases', views.purchases, name='purchases'),
+    path('notifications', views.notifications, name='notifications')
 
 ]

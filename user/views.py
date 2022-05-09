@@ -7,6 +7,7 @@ from ads.models import Category, Advertisement
 from user.forms.profile_forms import ProfileForm, BankInfoForm, CustomUserForm
 from user.models import UserProfile
 
+
 # Create your views here.
 
 
@@ -87,5 +88,11 @@ def salehistory(request, redirect_url='salehistory'):
 
 def purchases(request, redirect_url='purchases'):
     return render(request,'user/purchases.html', {
+        'categories': Category.objects.all()
+    })
+
+
+def notifications(request, redirect_url='notifications'):
+    return render(request,'user/notifications.html', {
         'categories': Category.objects.all()
     })
