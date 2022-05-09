@@ -14,13 +14,13 @@
         {{ form }}
         <input type="submit" class="bid-button" value="Bjóða">
     </form>
-    {% if form.errors %}
+    {% comment %}{% if form.errors %}
         {% for field in form %}
             {% for error in field.error %}
                 {{ error }}
             {% endfor %}
         {% endfor %}
-    {% endif %}
+    {% endif %}{% endcomment %}
     <p class="single-ad-short-description">{{ ad.short_description }}</p>
     <p class="single-ad-long-description">{{ ad.long_description }}</p>
     <p class="single-ad-condition">{{ ad.condition }}</p>

@@ -54,9 +54,9 @@ def ads(request):
 def get_ad_by_id(request, id):
     ad = get_object_or_404(Advertisement, pk=id)
     seller = ad.seller.userprofile
-    form = BidForm(ad=ad)
+    form = BidForm(ad=ad, user=request.user)
     if request.method == 'POST':
-        form = BidForm(ad=ad, data=request.POST)
+        form = BidForm(ad=ad, user=request.user, data=request.POST)
         if form.is_valid():
             bid = form.save(commit=False)
             bid.user = request.user

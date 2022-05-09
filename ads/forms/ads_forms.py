@@ -31,8 +31,10 @@ class AdsForm(ModelForm):
 
 class BidForm(ModelForm):
 
-    def __init__(self, ad, *args, **kwargs):
+    def __init__(self, ad, user, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.user = user
+        self.ad = ad
         self.fields['amount'].label = "Bjóða í vöru"
         self.minimum_bid = get_minimum_bid(ad)
         self.fields['amount'].widget.attrs['placeholder'] = f"Lágmarksboð: {self.minimum_bid} kr."
@@ -48,7 +50,10 @@ class BidForm(ModelForm):
         super(BidForm, self).clean()
         amount = self.cleaned_data.get('amount')
         if amount < self.minimum_bid:
-            #raise forms.ValidationError("Boð má ekki vera lægra en lágmarksboð.")
-            self._errors['amount'] = self.error_class(['Boð má ekki vera lægra en lágmarksboð'])
+            raise forms.ValidationError("Boð má ekki vera lægra en lágmarksboð.")
+            #self._errors['amount'] = self.error_class(['Boð má ekki vera lægra en lágmarksboð.'])
+        if self.user == self.ad.seller:
+            raise forms.ValidationError("Ekki er hægt að bjóða í eigin vöru.")
+            #self._errors['user'] = self.error_class(['Ekki er hægt að bjóða í eigin vöru.'])
 
         return self.cleaned_data
