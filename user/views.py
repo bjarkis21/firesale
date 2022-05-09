@@ -1,6 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect,get_object_or_404
+
+from ads.functions import get_max_bid
 from ads.models import Category, Advertisement
 from user.forms.profile_forms import ProfileForm, BankInfoForm, CustomUserForm
 from user.models import UserProfile
@@ -63,6 +65,8 @@ def myproducts(request, redirect_url='myproducts'):
     #ad = get_object_or_404(Advertisement, pk=id)
     seller = request.user
     user_ads = Advertisement.objects.filter(seller=seller).order_by('-creation_date')
+    for ad in user_ads:
+        ad.max_bid = get_max_bid(ad)
     return render(request, 'user/myproducts.html', {
         'categories': Category.objects.all(),
         'user_ads': user_ads
