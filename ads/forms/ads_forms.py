@@ -11,9 +11,9 @@ class AdsForm(ModelForm):
         self.fields['short_description'].label = "Stutt lýsing"
         self.fields['condition'].label = "Ástand"
         self.fields['category'].label = "Flokkur"
-        self.fields['reserve'].label = "Lágmark"
+        self.fields['reserve'].label = "Lágmarksverð"
         self.fields['image'].label = "Mynd (URL)"
-        self.fields['long_description'].label = "Ýtarleg lýsing"
+        self.fields['long_description'].label = "Ítarleg lýsing"
 
     class Meta:
         model = Advertisement
