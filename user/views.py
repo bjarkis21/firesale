@@ -7,6 +7,7 @@ from ads.models import Category, Advertisement
 from user.forms.profile_forms import ProfileForm, BankInfoForm, CustomUserForm
 from user.models import UserProfile
 
+
 # Create your views here.
 
 
