@@ -14,6 +14,7 @@ class AdsForm(ModelForm):
         self.fields['reserve'].label = "Lágmarksverð"
         self.fields['image'].label = "Mynd (URL)"
         self.fields['long_description'].label = "Ítarleg lýsing"
+        self.fields['image'].initial = 'https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg'
 
     class Meta:
         model = Advertisement
