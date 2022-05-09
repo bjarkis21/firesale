@@ -32,8 +32,11 @@
             {% if ad.isActive and ad.max_bid%}
                 <a href="http://visir.is" class="accept-button">Samþykkja boð</a>
             {% endif %}
-            {% if not ad.isPaid %}
-                <a href="http://visir.is" class="reject-button">Hætta við sölu</a>
+            {% if not ad.isPaid and ad.isActive%}
+                <a href="/ads/{{ ad.id }}/stop_ad" class="reject-button">Hætta við sölu</a>
+            {% endif %}
+            {% if not ad.isActive and not ad.isPaid %}
+                <p>Vara er ekki lengur til sölu</p>
             {% endif %}
             </div>
             </div>
