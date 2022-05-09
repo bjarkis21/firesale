@@ -34,10 +34,10 @@ class Advertisement(models.Model):
 
 
 class BidsOn(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    advertisement = models.ForeignKey(Advertisement, on_delete=models.CASCADE)
-    amount = models.IntegerField()
-    bid_date = models.DateTimeField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bidson')
+    advertisement = models.ForeignKey(Advertisement, on_delete=models.CASCADE, related_name='bidson')
+    amount = models.PositiveIntegerField()
+    bid_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         constraints = [
@@ -45,4 +45,4 @@ class BidsOn(models.Model):
         ]
 
     def __str__(self):
-        return f"{self.user.name}, {self.advertisement.title}, {str(self.amount)}"
+        return f"{str(self.user)}, {self.advertisement.title}, {str(self.amount)}"

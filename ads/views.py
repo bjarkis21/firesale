@@ -5,19 +5,22 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 
-from ads.forms.ads_forms import AdsForm
+from ads.forms.ads_forms import AdsForm, BidForm
 from user.models import UserProfile
 from user.views import bank_info
-#from ads.models import ads
+from ads.models import BidsOn
+from django.db.models import Max
+from ads.functions import get_max_bid
 
 # Create your views here.
 from ads.models import Category, Advertisement
 
 adv = [
-    {'id':1, 'title':'First ad', 'price':'$100'},
-    {'id':2, 'title':'Second ad', 'price':'$200'},
-    {'id':3, 'title':'Third ad', 'price':'$300'},
+    {'id': 1, 'title': 'First ad', 'price': '$100'},
+    {'id': 2, 'title': 'Second ad', 'price': '$200'},
+    {'id': 3, 'title': 'Third ad', 'price': '$300'},
 ]
+
 
 def ads(request):
     if 'filterby' in request.GET:
@@ -29,23 +32,47 @@ def ads(request):
         all_ads = Advertisement.objects.filter(title__icontains=search_filter).order_by('-creation_date')
     else:
         all_ads = Advertisement.objects.all().order_by('-creation_date')
+
+    for ad in all_ads:
+        ad.max_bid = get_max_bid(ad)
+
     return render(request, 'ads.html', {
         'categories': Category.objects.all(),
         'all_ads': all_ads
     })
 
+
+
+
 def get_ad_by_id(request, id):
     ad = get_object_or_404(Advertisement, pk=id)
     seller = ad.seller.userprofile
+    form = BidForm(ad=ad)
+    if request.method == 'POST':
+        form = BidForm(ad=ad, data=request.POST)
+        if form.is_valid():
+            bid = form.save(commit=False)
+            bid.user = request.user
+            bid.advertisement = ad
+            bid.save()
+            return redirect(f'/ads/{id}')
+        else:
+            print(form.errors)
+
+    ad.max_bid = get_max_bid(ad)
+
     return render(request, 'ads/single_ad.html', {
         'categories': Category.objects.all(),
         'ad': ad,
-        'seller': seller
+        'seller': seller,
+        'form': form
     })
+
 
 @login_required
 def create_ad1(request):
     return bank_info(request, 'create-ad2')
+
 
 @login_required
 def create_ad2(request):
@@ -61,11 +88,10 @@ def create_ad2(request):
         'form': AdsForm(),
         'categories': Category.objects.all()
     })
-#def listing(request):
-   # adslist = ads.objects.all()
-    #paginator = Paginator(adslist)
+# def listing(request):
+# adslist = ads.objects.all()
+# paginator = Paginator(adslist)
 
-    #page_number = request.GET.get('page')
-    #page_obj = paginator.get_page(page_number)
-    #return render(request, ads.html,{'page_obj': page_obj})
-
+# page_number = request.GET.get('page')
+# page_obj = paginator.get_page(page_number)
+# return render(request, ads.html,{'page_obj': page_obj})

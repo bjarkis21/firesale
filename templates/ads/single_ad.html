@@ -7,16 +7,31 @@
 
 <div class="single-ad-container">
     <h1 class="single-ad-title">{{ ad.title }}</h1>
-    <label for="bid">Bjóða í vöru</label>
-    <input type="number" id ="bid" name="bid"> Kr.
-    <button class="bid-button">Bjóða</button>
+    <form class="form" method="post">
+        {% csrf_token %}
+{#    <label for="bid">Bjóða í vöru</label>#}
+{#    <input type="number" id ="bid" name="bid"> Kr.#}
+        {{ form }}
+        <input type="submit" class="bid-button" value="Bjóða">
+    </form>
+    {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.error %}
+                {{ error }}
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
     <p class="single-ad-short-description">{{ ad.short_description }}</p>
     <p class="single-ad-long-description">{{ ad.long_description }}</p>
     <p class="single-ad-condition">{{ ad.condition }}</p>
     <p class="single-ad-creation-date">{{ ad.creation_date }}</p>
     <img src="{{ ad.image }}" class="single-ad-image" alt="Image of product"/>
     <p class="single-ad-highest-bid-label">Hæsta boð: </p>
-    <p class="single-ad-highest-bid">1000 kr.</p>
+    {% if ad.max_bid is not None %}
+        <p class="ad-highest-bid">{{ ad.max_bid }} kr.</p>
+    {% else %}
+        <p class="ad-highest-bid">Ekkert boð enn.</p>
+    {% endif %}
     <p class="Seller">Seljandi:</p>
     <p class="single-ad-seller-name">{{ seller.name }}</p>
     <div class="profile-image-wrapper">
