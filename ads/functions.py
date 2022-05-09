@@ -19,5 +19,5 @@ def get_minimum_bid(ad):
     if current_max_bid is None:
         min_bid = ad.reserve
     else:
-        min_bid = current_max_bid + 1
+        min_bid = current_max_bid + 100
     return min_bid
