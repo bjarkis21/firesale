@@ -28,16 +28,16 @@ def ads(request):
         filterby = request.GET.get('filterby')
         search_filter = request.GET.get('search_filter')
         category = Category.objects.get(name=filterby)
-        all_ads = Advertisement.objects.filter(category=category, title__icontains=search_filter).order_by('-creation_date')
+        all_ads = Advertisement.objects.filter(category=category, title__icontains=search_filter, isActive=True).order_by('-creation_date')
     elif 'filterby' in request.GET:
         filterby = request.GET.get('filterby')
         category = Category.objects.get(name=filterby)
-        all_ads = Advertisement.objects.filter(category=category).order_by('-creation_date')
+        all_ads = Advertisement.objects.filter(category=category, isActive=True).order_by('-creation_date')
     elif 'search_filter' in request.GET:
         search_filter = request.GET.get('search_filter')
-        all_ads = Advertisement.objects.filter(title__icontains=search_filter).order_by('-creation_date')
+        all_ads = Advertisement.objects.filter(title__icontains=search_filter, isActive=True).order_by('-creation_date')
     else:
-        all_ads = Advertisement.objects.all().order_by('-creation_date')
+        all_ads = Advertisement.objects.filter(isActive=True).order_by('-creation_date')
 
     for ad in all_ads:
         ad.max_bid = get_max_bid(ad)
