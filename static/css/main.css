@@ -349,10 +349,53 @@ main {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
-  display: block;
+  display: flex;
   font-size: 10pt;
   text-align: center;
 }
 
+
+
+.dropbt {
+  background-color: #000;
+  color: white;
+  padding: 7px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  min-width: 100px;
+}
+
+.dropdn {
+  position: relative;
+  display: inline-block;
+  float: right;
+}
+
+.dropdown_content {
+  display: none;
+  position: absolute;
+  background-color: lightgray;
+  min-width: 100px;
+  z-index: 1;
+}
+
+.dropdown_content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown_content a:hover {background-color: #f1f1f1}
+
+.dropdn:hover .dropdown_content {
+  display: block;
+}
+
+.dropdn:hover .dropbt {
+  background-color: #000;
+}
 .show {display:block;
 }
