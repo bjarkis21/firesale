@@ -89,8 +89,8 @@ main {
 
 .search-box{
     text-decoration: none;
-    margin-top: 1.5%;
-    width: 500px;
+    /*margin-top: 1.5%;*/
+    width: 570px;
     height: 30px;
 }
 
@@ -330,7 +330,9 @@ main {
 }
 
 .input-group {
+    width: 700px;
     display: flex;
+    justify-content: space-between;
 }
 
 .dropdown {
@@ -360,7 +362,6 @@ main {
 }
 
 
-
 .dropbt {
   background-color: #000;
   color: white;
@@ -380,7 +381,7 @@ main {
 .dropdown_content {
   display: none;
   position: absolute;
-  background-color: lightgray;
+  background-color: #f1f1f1;
   min-width: 100px;
   z-index: 1;
 }
