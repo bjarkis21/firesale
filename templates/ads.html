@@ -10,7 +10,7 @@
 
         {% if filterby %}
             <form action="/ads/" method="get" class="search-bar"  >
-            <input type="text" class="search-box" placeholder="Leita..." name="search_filter">
+            <input type="text" class="search-box" placeholder="Leita í '{{ filterby }}'..." name="search_filter">
             <input type="text" class="search-box" name="filterby" style="display: none;" value="{{ filterby }}">
             <input type="submit" value="Leita" style="display: none;">
         </form>
