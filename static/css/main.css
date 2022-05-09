@@ -109,12 +109,13 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    column-gap: 10px;
+    column-gap: 30px;
 }
 
 .ad-image-wrapper {
     height: 130px;
     width: 130px;
+    margin-left: 20px;
     display: flex;
     mix-blend-mode: multiply;
 }
@@ -133,6 +134,16 @@ main {
 
 .ad-bid {
     flex: 1 0 auto;
+    align-self: flex-end;
+    display: flex;
+    align-items: baseline;
+    column-gap: 25px;
+}
+
+.ad-highest-bid b {
+    font-size: 50px;
+    color: red;
+
 }
 
 .categoriesContainer{
