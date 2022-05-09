@@ -53,8 +53,6 @@ def get_ad_by_id(request, id):
     ad = get_object_or_404(Advertisement, pk=id)
     method = request.method
     if request.method == 'DELETE':
-        x = request.user
-        y = 5
     seller = ad.seller.userprofile
     form = BidForm(ad=ad, user=request.user)
     if request.method == 'POST':
