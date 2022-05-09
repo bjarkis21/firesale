@@ -66,3 +66,13 @@ def mybids(request, redirect_url='mybids'):
     return render(request,'user/mybids.html', {
         'categories': Category.objects.all()
     })
+
+def salehistory(request, redirect_url='salehistory'):
+    return render(request,'user/salehistory.html', {
+        'categories': Category.objects.all()
+    })
+
+def purchases(request, redirect_url='purchases'):
+    return render(request,'user/purchases.html', {
+        'categories': Category.objects.all()
+    })
