@@ -89,7 +89,7 @@ main {
 
 .search-box{
     text-decoration: none;
-    margin-top: 1.5%;
+    /*margin-top: 1.5%;*/
     width: 500px;
     height: 30px;
 }
@@ -331,6 +331,7 @@ main {
 
 .input-group {
     display: flex;
+    row-gap: 30px;
 }
 
 .dropdown {
