@@ -395,6 +395,7 @@ main {
   cursor: pointer;
   position: relative;
   min-width: 100px;
+  height: 30px;
 }
 
 .dropdn {
