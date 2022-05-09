@@ -381,6 +381,10 @@ main {
   text-align: center;
 }
 
+.dropdown-content a:hover {
+    color: blue;
+    background-color: #f1f1f1
+}
 
 .dropbt {
   background-color: #000;
@@ -413,7 +417,10 @@ main {
   display: block;
 }
 
-.dropdown_content a:hover {background-color: #f1f1f1}
+.dropdown_content a:hover {
+    color: blue;
+    background-color: #f1f1f1
+}
 
 .dropdn:hover .dropdown_content {
   display: block;
@@ -422,5 +429,7 @@ main {
 .dropdn:hover .dropbt {
   background-color: #000;
 }
-.show {display:block;
+
+.show {
+    display:block;
 }
