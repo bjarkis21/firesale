@@ -89,3 +89,9 @@ def purchases(request, redirect_url='purchases'):
     return render(request,'user/purchases.html', {
         'categories': Category.objects.all()
     })
+
+
+def notifications(request, redirect_url='notifications'):
+    return render(request,'user/notifications.html', {
+        'categories': Category.objects.all()
+    })

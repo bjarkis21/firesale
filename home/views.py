@@ -10,5 +10,6 @@ adv = [
     {'id':3, 'title':'Third ad', 'price':'$300'},
 ]
 
+
 def home(request):
     return redirect('ads')
