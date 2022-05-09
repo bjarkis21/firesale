@@ -17,8 +17,8 @@
                 </div>
                 <div id="myDropdown" class="dropdown-content">
                     <a href="{% url 'profile' %}">Prófíll</a>
-                    <a href="#">Mínar vörur</a>
-                    <a href="#">Mín boð</a>
+                    <a href="{% url 'myproducts' %}">Mínar vörur</a>
+                    <a href="{% url 'mybids' %}">Mín boð</a>
                     <a href="#">Sölusaga</a>
                     <a href="#">Kaupsaga</a>
                     <a href="{% url 'logout' %}" class="nav-link nav-profile">Útskrá</a>

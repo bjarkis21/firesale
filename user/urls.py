@@ -9,5 +9,7 @@ urlpatterns = [
     path('login', LoginView.as_view(template_name='user/login.html', extra_context={'categories': Category.objects.all()}), name='login'),
     path('logout', LogoutView.as_view(next_page='login'), name='logout'),
     path('profile', views.profile, name='profile'),
-    path('bankinfo', views.bank_info, name='bank-info')
+    path('bankinfo', views.bank_info, name='bank-info'),
+    path('myproducts', views.myproducts, name='myproducts'),
+    path('mybids', views.mybids, name='mybids')
 ]

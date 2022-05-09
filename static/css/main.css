@@ -90,7 +90,7 @@ main {
 .search-box{
     text-decoration: none;
     /*margin-top: 1.5%;*/
-    width: 500px;
+    width: 570px;
     height: 30px;
 }
 
@@ -371,7 +371,6 @@ main {
 }
 
 
-
 .dropbt {
   background-color: #000;
   color: white;
@@ -391,7 +390,7 @@ main {
 .dropdown_content {
   display: none;
   position: absolute;
-  background-color: lightgray;
+  background-color: #f1f1f1;
   min-width: 100px;
   z-index: 1;
 }
