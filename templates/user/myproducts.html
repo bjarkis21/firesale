@@ -2,5 +2,28 @@
 {% block content %}
     <div class="productsContainer">
         <h1>Mínar vörur</h1>
+        {% for ad in user_ads %}
+            <a href="/ads/{{ ad.id }}" class="ad-anchor1">
+            <div class="ad">
+                <div class="ad-image-wrapper">
+                    <img src="{{ ad.image }}" class="ad-image" alt="Image of product" />
+                </div>
+                <div class="ad-info">
+                    <h1 class="ad-title1">{{ ad.title }}</h1>
+                    <p class="ad-creation-date">{{ ad.creation_date }}</p>
+                    <p class="ad-short-description">{{ ad.short_description }}</p>
+                 </div>
+
+                <div class="ad-bid">
+                    <p class="ad-highest-bid-label">Hæsta boð: </p>
+                    {% if ad.max_bid is not None %}
+                        <p class="ad-highest-bid"><b>{{ ad.max_bid }}</b> kr.</p>
+                    {% else %}
+                        <p class="ad-highest-bid-no-bid">Ekkert boð enn.</p>
+                    {% endif %}
+                </div>
+            </div>
+            </a>
+        {% endfor %}
     </div>
 {% endblock %}

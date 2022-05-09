@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
-from ads.models import Category
+from django.shortcuts import render, redirect,get_object_or_404
+from ads.models import Category, Advertisement
 from user.forms.profile_forms import ProfileForm, BankInfoForm, CustomUserForm
 from user.models import UserProfile
 
@@ -58,8 +58,12 @@ def bank_info(request, redirect_url='profile'):
 
 @login_required
 def myproducts(request, redirect_url='myproducts'):
-    return render(request,'user/myproducts.html', {
-        'categories': Category.objects.all()
+    #ad = get_object_or_404(Advertisement, pk=id)
+    seller = request.user
+    user_ads = Advertisement.objects.filter(seller=seller).order_by('-creation_date')
+    return render(request, 'user/myproducts.html', {
+        'categories': Category.objects.all(),
+        'user_ads': user_ads
     })
 
 def mybids(request, redirect_url='mybids'):
