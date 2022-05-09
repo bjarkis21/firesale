@@ -14,13 +14,19 @@
                     <p class="ad-short-description">{{ ad.short_description }}</p>
                  </div>
 
+                    {{ form }}
+
                 <div class="ad-bid">
                     <p class="ad-highest-bid-label">Hæsta boð: </p>
                     {% if ad.max_bid is not None %}
+                        <input type="submit" class="accept-button" value="Samþykkja boð">
+                        <input type="submit" class="reject-button" value="Hætta við sölu">
                         <p class="ad-highest-bid"><b>{{ ad.max_bid }}</b> kr.</p>
                     {% else %}
+                        <input type="submit" class="reject-button" value="Hætta við sölu">
                         <p class="ad-highest-bid-no-bid">Ekkert boð enn.</p>
                     {% endif %}
+                 </form>
                 </div>
             </div>
             </a>
