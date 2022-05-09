@@ -345,6 +345,29 @@ main {
   font-size: 16px;
 }
 
+.accept-button{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+}
+
+.reject-button{
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+}
+
+
 .ad-anchor1, .ad-anchor1:visited, .ad-anchor1:hover, .ad-anchor1:active {
   color: inherit;
 }
