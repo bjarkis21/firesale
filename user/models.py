@@ -19,7 +19,6 @@ class Checkout(models.Model):
     credid_card_cvc = models.CharField(max_length=4)
     credid_card_expiration_date = models.CharField(max_length=5)
 
-
     def __str__(self):
         return f"{self.street}, {self.street_no}"
 

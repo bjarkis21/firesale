@@ -120,7 +120,7 @@ def confirm_bid(request, id):
 
 
 @login_required
-def checkout(request,id):
+def checkout(request, id):
     if request.method == 'POST':
         form = CheckoutForm(data=request.POST)
         if form.is_valid():

@@ -13,7 +13,7 @@
                     {% endif %}
 
                     {% if ad.isActive and not ad.isSold %}
-                        <a href="/ads/{{ ad.id }}/stop_bid" class="cancel-button">Hætta við boð</a>
+                        <a href="/ads/{{ ad.id }}/stop_bid" class="reject-button">Hætta við boð</a>
                     {%  endif %}
 
                     {% if ad.isActive and not ad.isSold  and ad.buyer == bidder %}

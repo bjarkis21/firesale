@@ -63,7 +63,7 @@ def bank_info(request, redirect_url='profile'):
 
 @login_required
 def myproducts(request, redirect_url='myproducts'):
-    #ad = get_object_or_404(Advertisement, pk=id)
+    # ad = get_object_or_404(Advertisement, pk=id)
     seller = request.user
     user_ads = Advertisement.objects.filter(seller=seller).order_by('-creation_date')
     for ad in user_ads:
@@ -80,7 +80,7 @@ def mybids(request, redirect_url='mybids'):
     for ad in bidder_ads:
         ad.max_bid = get_max_bid(ad)
         ad.max_user_bid = get_max_bid(ad, bidder)
-    return render(request,'user/mybids.html', {
+    return render(request, 'user/mybids.html', {
         'categories': Category.objects.all(),
         'user_ads': bidder_ads,
         'bidder': bidder
