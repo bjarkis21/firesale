@@ -1,4 +1,5 @@
 from django.db.models import Max
+import locale
 
 from ads.models import BidsOn
 
@@ -10,7 +11,7 @@ def get_max_bid(ad):
         max_bid = None
     else:
         max_bid = max_bid_dict['amount__max']
-    return max_bid
+    return (max_bid)
 
 
 def get_minimum_bid(ad):
