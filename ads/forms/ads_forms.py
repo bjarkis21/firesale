@@ -82,14 +82,14 @@ class CheckoutForm(ModelForm):
         model = Checkout
         exclude = ['id', 'user', 'advertisement']
         widgets = {
-            'fullname': widgets.TextInput(attrs={'class': 'form-control'}),
-            'street': widgets.TextInput(attrs={'class': 'form-control'}),
-            'street_no': widgets.TextInput(attrs={'class': 'form-control'}),
-            'city': widgets.TextInput(attrs={'class': 'form-control'}),
-            'country': widgets.TextInput(attrs={'class': 'form-control'}),
-            'postcode': widgets.TextInput(attrs={'class': 'form-control'}),
-            'credid_card_fullname': widgets.TextInput(attrs={'class': 'form-control'}),
-            'credid_card_number': widgets.TextInput(attrs={'class': 'form-control'}),
-            'credid_card_expiration_date': widgets.TextInput(attrs={'class': 'form-control'}),
-            'credid_card_cvc': widgets.TextInput(attrs={'class': 'form-control'}),
+            'fullname': widgets.TextInput(attrs={'class': 'form-control address-info'}),
+            'street': widgets.TextInput(attrs={'class': 'form-control address-info'}),
+            'street_no': widgets.TextInput(attrs={'class': 'form-control address-info'}),
+            'city': widgets.TextInput(attrs={'class': 'form-control address-info'}),
+            'country': widgets.TextInput(attrs={'class': 'form-control address-info'}),
+            'postcode': widgets.TextInput(attrs={'class': 'form-control address-info'}),
+            'credid_card_fullname': widgets.TextInput(attrs={'class': 'form-control cc-info'}),
+            'credid_card_number': widgets.TextInput(attrs={'class': 'form-control cc-info'}),
+            'credid_card_expiration_date': widgets.TextInput(attrs={'class': 'form-control cc-info'}),
+            'credid_card_cvc': widgets.TextInput(attrs={'class': 'form-control cc-info'}),
         }
