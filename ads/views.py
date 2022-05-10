@@ -52,9 +52,6 @@ def ads(request):
 def get_ad_by_id(request, id):
     ad = get_object_or_404(Advertisement, pk=id)
     method = request.method
-    if request.method == 'DELETE':
-        x = request.user
-        y = 5
     seller = ad.seller.userprofile
     form = BidForm(ad=ad, user=request.user)
     if request.method == 'POST':
@@ -103,6 +100,18 @@ def stop_ad(request, id):
     if request.user == ad.seller:
         ad.isActive = False
         ad.save()
+    return redirect('myproducts')
+
+def confirm_bid(request, id):
+    ad = get_object_or_404(Advertisement, pk=id)
+    max_bid = BidsOn.objects.filter(advertisement=ad).aggregate(Max('amount'))['amount__max']
+    max_bidder = BidsOn.objects.get(advertisement=ad, amount=max_bid).user
+    if ad.seller == request.user and ad.isActive and not ad.isSold and not ad.isPaid:
+        ad.isActive = False
+        ad.isSold = True
+        ad.buyer = max_bidder
+        ad.save()
+
     return redirect('myproducts')
 
 

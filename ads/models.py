@@ -19,7 +19,7 @@ class Advertisement(models.Model):
     long_description = models.TextField()
     condition = models.CharField(max_length=255)
     image = models.CharField(max_length=500, blank=True)
-    reserve = models.IntegerField(blank=True, null=True)
+    reserve = models.PositiveIntegerField(blank=True, null=True)
     seller = models.ForeignKey(User, on_delete=models.CASCADE, related_name='seller')
     creation_date = models.DateTimeField(default=datetime.now)
     buyer = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, related_name='buyer', null=True)

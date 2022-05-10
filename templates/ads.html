@@ -24,25 +24,26 @@
         <div class="dropdn">
             <button class="dropbt">Raða eftir</button>
             <div class="dropdown_content">
-            <a>Nýjast efst</a>
-            <a>Elst efst</a>
-            <a>Lægsta verð</a>
-            <a>Hæsta verð</a>
-            <a>A - Ö</a>
-            <a>Ö - A</a>
+            <a class="sort_by" id="sort_by_date_desc">Nýjast efst</a>
+            <a class="sort_by" id="sort_by_date_asc">Elst efst</a>
+            <a class="sort_by" id="sort_by_bid_a">Hæsta verð</a>
+            <a class="sort_by" id="sort_by_bid_b">Lægstaverð</a>
+            <a class="sort_by" id="sort_by_name_asc">A - Ö</a>
+            <a class="sort_by" id="sort_by_name_desc">Ö - A</a>
             </div>
         </div>
     </div>
     <div class="ads-container">
         {% for ad in all_ads %}
-            <a href="/ads/{{ ad.id }}" class="ad-anchor1">
+            {% include 'ads/ad_product_card.html' %}
+            {% comment %}<a href="/ads/{{ ad.id }}" class="ad-anchor1">
             <div class="ad">
                 <div class="ad-image-wrapper">
                     <img src="{{ ad.image }}" class="ad-image" alt="Image of product" />
                 </div>
                 <div class="ad-info">
                     <h1 class="ad-title1">{{ ad.title }}</h1>
-                    <p class="ad-creation-date">{{ ad.creation_date }}</p>
+                    <p class="ad-creation-date" data-timestamp="{{ ad.creation_date.timestamp }}">{{ ad.creation_date }}</p>
                     <p class="ad-short-description">{{ ad.short_description }}</p>
                  </div>
 
@@ -55,7 +56,7 @@
                     {% endif %}
                 </div>
             </div>
-            </a>
+            </a>{% endcomment %}
         {% endfor %}
 </div>
 {% endblock %}
