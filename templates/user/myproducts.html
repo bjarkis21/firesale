@@ -4,7 +4,8 @@
         <h1>Mínar vörur</h1>
         {% for ad in user_ads %}
             <div class="ad-button-container">
-            <a href="/ads/{{ ad.id }}" class="ad-anchor1">
+            {% include 'ads/ad_product_card.html' %}
+            {% comment %}<a href="/ads/{{ ad.id }}" class="ad-anchor1">
             <div class="ad">
                 <div class="ad-image-wrapper">
                     <img src="{{ ad.image }}" class="ad-image" alt="Image of product" />
@@ -27,7 +28,7 @@
                  </form>
                 </div>
             </div>
-            </a>
+            </a>{% endcomment %}
             <div class="buttons-container">
             {% if ad.isActive and ad.max_bid%}
                 <a href="{% url 'confirm_bid' id=ad.id %}" class="accept-button">Samþykkja boð</a>
