@@ -95,7 +95,7 @@ def create_ad2(request):
         'categories': Category.objects.all()
     })
 
-
+@login_required
 def stop_ad(request, id):
     ad = get_object_or_404(Advertisement, pk=id)
     if request.user == ad.seller:
@@ -103,7 +103,7 @@ def stop_ad(request, id):
         ad.save()
     return redirect('myproducts')
 
-
+@login_required
 def confirm_bid(request, id):
     ad = get_object_or_404(Advertisement, pk=id)
     max_bid = BidsOn.objects.filter(advertisement=ad).aggregate(Max('amount'))['amount__max']
@@ -116,7 +116,7 @@ def confirm_bid(request, id):
 
     return redirect('myproducts')
 
-
+@login_required
 def checkout (request,id):
     if request.method == 'POST':
         form = CheckoutForm(data=request.POST)
