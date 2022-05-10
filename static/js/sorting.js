@@ -51,13 +51,17 @@ function sort_by_bid(ads_container) {
         let bid_a = a.querySelector(".ad-highest-bid").dataset.number;
         bid_a = Number(bid_a)
         bid_a = new Number(bid_a)
-        let bid_b = b.querySelector(".ad-highest-bid-no-bid").dataset.number;
+        let bid_b = b.querySelector(".ad-highest-bid").dataset.number;
         bid_b = Number(bid_b)
         bid_b = new Number(bid_b)
         if (bid_a < bid_b){
             return -1
-        }else if (bid_a > bid_b){
+        }else if (bid_a > bid_b) {
             return 1
+        }else if(bid_a === null){
+            return 1
+        }else if(bid_b === null){
+            return -1
         }else {
             return 0
         }
