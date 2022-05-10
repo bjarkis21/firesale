@@ -95,12 +95,14 @@ def create_ad2(request):
         'categories': Category.objects.all()
     })
 
+
 def stop_ad(request, id):
     ad = get_object_or_404(Advertisement, pk=id)
     if request.user == ad.seller:
         ad.isActive = False
         ad.save()
     return redirect('myproducts')
+
 
 def confirm_bid(request, id):
     ad = get_object_or_404(Advertisement, pk=id)
@@ -113,6 +115,8 @@ def confirm_bid(request, id):
         ad.save()
 
     return redirect('myproducts')
+
+
 def checkout (request,id):
     if request.method == 'POST':
         form = CheckoutForm(data=request.POST)
