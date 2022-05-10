@@ -39,6 +39,7 @@ class BidsOn(models.Model):
     advertisement = models.ForeignKey(Advertisement, on_delete=models.CASCADE, related_name='bidson')
     amount = models.PositiveIntegerField()
     bid_date = models.DateTimeField(auto_now_add=True)
+    isActive = models.BooleanField(default=True)
 
     class Meta:
         constraints = [

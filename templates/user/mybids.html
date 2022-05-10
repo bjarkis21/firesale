@@ -12,11 +12,11 @@
                         <a href="{% url 'checkout' id=ad.id %}" class="accept-button">Greiða</a>
                     {% endif %}
 
-                    {% if ad.isActive and not ad.isSold %}
+                    {% if ad.isActive and not ad.isSold%}
                         <a href="/ads/{{ ad.id }}/stop_bid" class="reject-button">Hætta við boð</a>
                     {%  endif %}
 
-                    {% if ad.isActive and not ad.isSold  and ad.buyer == bidder %}
+                    {% if not bid.isActive and not ad.isSold and ad.buyer == bidder %}
                         <p>Boð hefur verið dregið til baka.</p>
                     {% endif %}
                 </div>
