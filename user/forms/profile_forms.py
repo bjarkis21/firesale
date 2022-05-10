@@ -26,16 +26,24 @@ class ProfileForm(ModelForm):
         self.fields['gender'].label = "Kyn"
         self.fields['description'].label = "Lýsing"
         self.fields['profile_image'].label = "Prófílmynd"
+        self.fields['ssn'].label = "Kennitala"
+        self.fields['bank'].label = "Banki"
+        self.fields['hb'].label = "Höfuðbók"
+        self.fields['account_no'].label = "Reikningsnúmer"
 
     class Meta:
         model = UserProfile
-        exclude = ['id', 'user', 'ssn', 'bank', 'hb', 'account_no', 'address', 'rating']
+        exclude = ['id', 'user', 'address', 'rating']
         widgets = {
             'name': widgets.TextInput(attrs={'class': 'form-control'}),
             'phone': widgets.TextInput(attrs={'class': 'form-control'}),
             'gender': widgets.Select(attrs={'class': 'form-control'}),
             'description': widgets.TextInput(attrs={'class': 'form-control'}),
-            'profile_image': widgets.TextInput(attrs={'class': 'form-control'})
+            'profile_image': widgets.TextInput(attrs={'class': 'form-control'}),
+            'ssn': widgets.TextInput(attrs={'class': 'form-control'}),
+            'bank': widgets.TextInput(attrs={'class': 'form-control'}),
+            'hb': widgets.TextInput(attrs={'class': 'form-control'}),
+            'account_no': widgets.TextInput(attrs={'class': 'form-control'})
         }
 
 

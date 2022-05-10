@@ -88,6 +88,10 @@ main {
 
 }
 
+.ad-not-active {
+
+}
+
 /*.ads-container p{
     margin-left: 15%;
 }*/
@@ -438,6 +442,7 @@ main {
   cursor: pointer;
   position: relative;
   min-width: 100px;
+  height: 30px;
 }
 
 .dropdn {

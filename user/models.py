@@ -2,15 +2,23 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
+from ads.models import Advertisement
 
 
-class Address(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='address', primary_key=True, default='')
+class Checkout(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='checkout', default='')
+    advertisement = models.OneToOneField(Advertisement, on_delete=models.CASCADE, related_name='checkout', default='')
+    fullname = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
     postcode = models.CharField(max_length=20)
     street = models.CharField(max_length=255)
     street_no = models.CharField(max_length=255)
+    credid_card_fullname = models.CharField(max_length=255, default="")
+    credid_card_number = models.CharField(max_length=12)
+    credid_card_cvc = models.CharField(max_length=4)
+    credid_card_expiration_date = models.CharField(max_length=5)
+
 
     def __str__(self):
         return f"{self.street}, {self.street_no}"

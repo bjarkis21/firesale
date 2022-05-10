@@ -1,4 +1,4 @@
-<a href="/ads/{{ ad.id }}" class="ad-anchor1">
+<a href="/ads/{{ ad.id }}" class="ad-anchor1 {% if not ad.isActive %}ad-not-active{% endif %}">
             <div class="ad">
                 <div class="ad-image-wrapper">
                     <img src="{{ ad.image }}" class="ad-image" alt="Image of product" />

@@ -1,5 +1,12 @@
 {% extends 'main.html' %}
 {% block content %}
-<h1>Checkout process</h1>
+<div class="checkoutContainer">
+        <h1>Checkout</h1>
+        <form class="form form-horizontal" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" class="btn btn-primary" value="Staðfesta">
+        </form>
+    </div>
 {% endblock %}
 
