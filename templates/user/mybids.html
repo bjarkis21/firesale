@@ -8,14 +8,16 @@
                 {% include 'ads/ad_product_card.html' %}
                 <div class="buttons-container">
                     <p>Mitt boð: {{ ad.max_user_bid }}</p>
-                    {% if ad.isActive and not ad.isSold %}
-                        <a href="{% url 'checkout' id=ad.id %}" class="cancel-button">Hætta við boð</a>
-
-                    {%  endif %}
-
                     {% if not ad.isActive and ad.buyer == bidder and ad.isSold and not ad.isPaid %}
                         <a href="{% url 'checkout' id=ad.id %}" class="accept-button">Greiða</a>
+                    {% endif %}
 
+                    {% if ad.isActive and not ad.isSold %}
+                        <a href="/ads/{{ ad.id }}/stop_bid" class="cancel-button">Hætta við boð</a>
+                    {%  endif %}
+
+                    {% if ad.isActive and not ad.isSold  and ad.buyer == bidder %}
+                        <p>Boð hefur verið dregið til baka.</p>
                     {% endif %}
                 </div>
             </div>
