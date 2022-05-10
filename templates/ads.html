@@ -26,8 +26,8 @@
             <div class="dropdown_content">
             <a class="sort_by" id="sort_by_date_desc">Nýjast efst</a>
             <a class="sort_by" id="sort_by_date_asc">Elst efst</a>
-            <a class="sort_by">Lægsta verð</a>
-            <a class="sort_by">Hæsta verð</a>
+            <a class="sort_by" id="sort_by_bid_a">Hæsta verð</a>
+            <a class="sort_by" id="sort_by_bid_b">Lægstaverð</a>
             <a class="sort_by" id="sort_by_name_asc">A - Ö</a>
             <a class="sort_by" id="sort_by_name_desc">Ö - A</a>
             </div>
@@ -35,8 +35,7 @@
     </div>
     <div class="ads-container">
         {% for ad in all_ads %}
-            {% include 'ads/ad_product_card.html' %}
-            {% comment %}<a href="/ads/{{ ad.id }}" class="ad-anchor1">
+            <a href="/ads/{{ ad.id }}" class="ad-anchor1">
             <div class="ad">
                 <div class="ad-image-wrapper">
                     <img src="{{ ad.image }}" class="ad-image" alt="Image of product" />
@@ -56,7 +55,7 @@
                     {% endif %}
                 </div>
             </div>
-            </a>{% endcomment %}
+            </a>
         {% endfor %}
 </div>
 {% endblock %}
