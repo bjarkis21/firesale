@@ -73,7 +73,7 @@ def myproducts(request, redirect_url='myproducts'):
         'user_ads': user_ads
     })
 
-
+@login_required
 def mybids(request, redirect_url='mybids'):
     bidder = request.user
     bidder_ads = Advertisement.objects.filter(bidson__user=bidder).distinct()
@@ -86,19 +86,19 @@ def mybids(request, redirect_url='mybids'):
         'bidder': bidder
     })
 
-
+@login_required
 def salehistory(request, redirect_url='salehistory'):
     return render(request,'user/salehistory.html', {
         'categories': Category.objects.all()
     })
 
-
+@login_required
 def purchases(request, redirect_url='purchases'):
     return render(request,'user/purchases.html', {
         'categories': Category.objects.all()
     })
 
-
+@login_required
 def notifications(request, redirect_url='notifications'):
     return render(request,'user/notifications.html', {
         'categories': Category.objects.all()
