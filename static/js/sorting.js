@@ -25,10 +25,10 @@ function sort_by_date(ads_container) {
         ads_array.push(ad)
     }
     ads_array.sort(function(a,b){
-        let time_a = a.querySelector(".ad-creation-date").dataset.timestamp;
+        let time_a = a.querySelector(".ad-creation-date").dataset.timestamp.replaceAll(',','');
         time_a = Number(time_a)
         time_a = new Date(time_a)
-        let time_b = b.querySelector(".ad-creation-date").dataset.timestamp;
+        let time_b = b.querySelector(".ad-creation-date").dataset.timestamp.replaceAll(',','');
         time_b = Number(time_b)
         time_b = new Date(time_b)
         if (time_a < time_b){
