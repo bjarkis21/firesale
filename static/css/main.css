@@ -391,6 +391,19 @@ main {
   font-size: 10px;
 }
 
+.cancel-button{
+    font-weight: bold;
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+    align-self: flex-start;
+}
+
 
 .ad-anchor1, .ad-anchor1:visited, .ad-anchor1:hover, .ad-anchor1:active {
   color: inherit;
