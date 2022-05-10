@@ -128,7 +128,6 @@ def checkout(request,id):
             d.seller = request.user
             d.save()
             return redirect('home')
-
     return render(request, 'ads/checkout.html', {
         'form': CheckoutForm(),
         'categories': Category.objects.all()
