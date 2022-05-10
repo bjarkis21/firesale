@@ -2,6 +2,7 @@ from django.forms import ModelForm, widgets
 import django.forms as forms
 from ads.functions import get_minimum_bid
 from ads.models import Advertisement, BidsOn
+from user.models import Checkout
 
 
 class AdsForm(ModelForm):
@@ -60,3 +61,25 @@ class BidForm(ModelForm):
             raise forms.ValidationError("Þessi auglýsing er ekki lengur virk")
 
         return self.cleaned_data
+
+class CheckoutForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['full_name'].label = "Fullt Nafn"
+        self.fields['street_name'].label = "Gata"
+        self.fields['house_number'].label = "Húsnúmer"
+        self.fields['city'].label = "Borg"
+        self.fields['country'].label = "Land"
+        self.fields['postal_code'].label = "Póstnúmer"
+
+    class Meta:
+        model = Checkout
+        exclude = []
+        widgets = {
+            'full_name': widgets.TextInput(attrs={'class': 'form-control'}),
+            'street_name': widgets.TextInput(attrs={'class': 'form-control'}),
+            'house_number': widgets.TextInput(attrs={'class': 'form-control'}),
+            'city': widgets.TextInput(attrs={'class': 'form-control'}),
+            'country': widgets.TextInput(attrs={'class': 'form-control'}),
+            'postal_code': widgets.TextInput(attrs={'class': 'form-control'}),
+        }

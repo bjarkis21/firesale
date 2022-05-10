@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 
-from ads.forms.ads_forms import AdsForm, BidForm
+from ads.forms.ads_forms import AdsForm, BidForm,CheckoutForm
 from user.models import UserProfile
 from user.views import bank_info
 from ads.models import BidsOn
@@ -113,8 +113,20 @@ def confirm_bid(request, id):
         ad.save()
 
     return redirect('myproducts')
-def checkout (request, id):
-    pass
+def checkout (request,id):
+    if request.method == 'POST':
+        form = CheckoutForm(data=request.POST)
+        if form.is_valid():
+            d = form.save(commit=False)
+            d.seller = request.user
+            d.save()
+            return redirect('home')
+
+    return render(request, 'ads/checkout.html', {
+        'form': CheckoutForm(),
+        'categories': Category.objects.all()
+    })
+
 
 
 
