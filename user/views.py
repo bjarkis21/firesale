@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect, get_object_or_404
 
 from ads.functions import get_max_bid
-from ads.models import Category, Advertisement
+from ads.models import Category, Advertisement, BidsOn
 from user.forms.profile_forms import ProfileForm, BankInfoForm, CustomUserForm
 from user.models import UserProfile
 
@@ -75,8 +75,15 @@ def myproducts(request, redirect_url='myproducts'):
 
 
 def mybids(request, redirect_url='mybids'):
+    bidder = request.user
+    bidder_ads = Advertisement.objects.filter(bidson__user=bidder).distinct()
+    for ad in bidder_ads:
+        ad.max_bid = get_max_bid(ad)
+        ad.max_user_bid = get_max_bid(ad, bidder)
     return render(request,'user/mybids.html', {
-        'categories': Category.objects.all()
+        'categories': Category.objects.all(),
+        'user_ads': bidder_ads,
+        'bidder': bidder
     })
 
 

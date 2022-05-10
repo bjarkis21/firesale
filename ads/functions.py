@@ -4,9 +4,12 @@ import locale
 from ads.models import BidsOn
 
 
-def get_max_bid(ad):
+def get_max_bid(ad, user=None):
     """Return maximum current bid on a single ad"""
-    max_bid_dict = BidsOn.objects.filter(advertisement=ad).aggregate(Max('amount'))
+    if user:
+        max_bid_dict = BidsOn.objects.filter(advertisement=ad, user=user).aggregate(Max('amount'))
+    else:
+        max_bid_dict = BidsOn.objects.filter(advertisement=ad).aggregate(Max('amount'))
     if max_bid_dict is None:
         max_bid = None
     else:
