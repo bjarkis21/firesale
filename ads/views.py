@@ -95,6 +95,7 @@ def create_ad2(request):
         'categories': Category.objects.all()
     })
 
+
 @login_required
 def stop_ad(request, id):
     ad = get_object_or_404(Advertisement, pk=id)
@@ -102,6 +103,7 @@ def stop_ad(request, id):
         ad.isActive = False
         ad.save()
     return redirect('myproducts')
+
 
 @login_required
 def confirm_bid(request, id):
@@ -116,8 +118,9 @@ def confirm_bid(request, id):
 
     return redirect('myproducts')
 
+
 @login_required
-def checkout (request,id):
+def checkout(request,id):
     if request.method == 'POST':
         form = CheckoutForm(data=request.POST)
         if form.is_valid():
@@ -125,13 +128,19 @@ def checkout (request,id):
             d.seller = request.user
             d.save()
             return redirect('home')
-
     return render(request, 'ads/checkout.html', {
         'form': CheckoutForm(),
         'categories': Category.objects.all()
     })
 
 
+@login_required
+def stop_bid(request, id):
+    bid = get_object_or_404(Advertisement, pk=id)
+    if request.user == bid.buyer:
+        bid.isActive = False
+        bid.save()
+    return redirect('mybids')
 
 
 # def listing(request):

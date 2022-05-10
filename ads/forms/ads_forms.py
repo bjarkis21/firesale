@@ -15,7 +15,8 @@ class AdsForm(ModelForm):
         self.fields['reserve'].label = "Lágmarksverð"
         self.fields['image'].label = "Mynd (URL)"
         self.fields['long_description'].label = "Ítarleg lýsing"
-        self.fields['image'].initial = 'https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg'
+        self.fields[
+            'image'].initial = 'https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg'
 
     class Meta:
         model = Advertisement
@@ -53,14 +54,15 @@ class BidForm(ModelForm):
         amount = self.cleaned_data.get('amount')
         if amount < self.minimum_bid:
             raise forms.ValidationError("Boð má ekki vera lægra en lágmarksboð.")
-            #self._errors['amount'] = self.error_class(['Boð má ekki vera lægra en lágmarksboð.'])
+            # self._errors['amount'] = self.error_class(['Boð má ekki vera lægra en lágmarksboð.'])
         if self.user == self.ad.seller:
             raise forms.ValidationError("Ekki er hægt að bjóða í eigin vöru.")
-            #self._errors['user'] = self.error_class(['Ekki er hægt að bjóða í eigin vöru.'])
+            # self._errors['user'] = self.error_class(['Ekki er hægt að bjóða í eigin vöru.'])
         if self.ad.isActive == False:
             raise forms.ValidationError("Þessi auglýsing er ekki lengur virk")
 
         return self.cleaned_data
+
 
 class CheckoutForm(ModelForm):
     def __init__(self, *args, **kwargs):
@@ -78,16 +80,16 @@ class CheckoutForm(ModelForm):
 
     class Meta:
         model = Checkout
-        exclude = ['id','user','advertisement']
+        exclude = ['id', 'user', 'advertisement']
         widgets = {
-            'fullname': widgets.TextInput(attrs={'class': 'form-control'}),
-            'street': widgets.TextInput(attrs={'class': 'form-control'}),
-            'street_no': widgets.TextInput(attrs={'class': 'form-control'}),
-            'city': widgets.TextInput(attrs={'class': 'form-control'}),
-            'country': widgets.TextInput(attrs={'class': 'form-control'}),
-            'postcode': widgets.TextInput(attrs={'class': 'form-control'}),
-            'credid_card_fullname': widgets.TextInput(attrs={'class': 'form-control'}),
-            'credid_card_number': widgets.TextInput(attrs={'class': 'form-control'}),
-            'credid_card_expiration_date': widgets.TextInput(attrs={'class': 'form-control'}),
-            'credid_card_cvc': widgets.TextInput(attrs={'class': 'form-control'}),
+            'fullname': widgets.TextInput(attrs={'class': 'form-control address-info'}),
+            'street': widgets.TextInput(attrs={'class': 'form-control address-info'}),
+            'street_no': widgets.TextInput(attrs={'class': 'form-control address-info'}),
+            'city': widgets.TextInput(attrs={'class': 'form-control address-info'}),
+            'country': widgets.TextInput(attrs={'class': 'form-control address-info'}),
+            'postcode': widgets.TextInput(attrs={'class': 'form-control address-info'}),
+            'credid_card_fullname': widgets.TextInput(attrs={'class': 'form-control cc-info'}),
+            'credid_card_number': widgets.TextInput(attrs={'class': 'form-control cc-info'}),
+            'credid_card_expiration_date': widgets.TextInput(attrs={'class': 'form-control cc-info'}),
+            'credid_card_cvc': widgets.TextInput(attrs={'class': 'form-control cc-info'}),
         }
