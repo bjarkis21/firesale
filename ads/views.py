@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 
-from ads.forms.ads_forms import AdsForm, BidForm,CheckoutForm
+from ads.forms.ads_forms import AdsForm, BidForm, CheckoutForm
 from user.models import UserProfile
 from user.views import bank_info
 from ads.models import BidsOn
