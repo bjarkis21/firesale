@@ -27,7 +27,7 @@
             <a class="sort_by" id="sort_by_date_desc">Nýjast efst</a>
             <a class="sort_by" id="sort_by_date_asc">Elst efst</a>
             <a class="sort_by" id="sort_by_bid_a">Hæsta verð</a>
-            <a class="sort_by" id="sort_by_bid_b">Lægstaverð</a>
+            <a class="sort_by" id="sort_by_bid_b">Lægsta verð</a>
             <a class="sort_by" id="sort_by_name_asc">A - Ö</a>
             <a class="sort_by" id="sort_by_name_desc">Ö - A</a>
             </div>
@@ -49,7 +49,7 @@
                 <div class="ad-bid">
                     <p class="ad-highest-bid-label">Hæsta boð: </p>
                     {% if ad.max_bid is not None %}
-                        <p class="ad-highest-bid"><b>{{ ad.max_bid }}</b> kr.</p>
+                        <p class="ad-highest-bid" ad-highest-bid="{{ ad.max_bid }}"><b>{{ ad.max_bid }}</b> kr.</p>
                     {% else %}
                         <p class="ad-highest-bid-no-bid">Ekkert boð enn.</p>
                     {% endif %}
