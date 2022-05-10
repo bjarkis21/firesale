@@ -1,6 +1,20 @@
 {% extends "main.html" %}
 {% block content %}
-    <div class="myBidsContainer">
+    <div class="ads-container">
         <h1>Mín boð</h1>
+
+        {% for ad in user_ads %}
+            <div class="ad-button-container" >
+                {% include 'ads/ad_product_card.html' %}
+                <div class="buttons-container">
+                    <p>Mitt boð: {{ ad.max_user_bid }}</p>
+                    {% if not ad.isActive and ad.buyer == bidder and ad.isSold and not ad.isPaid%}
+                        <a href="http://visir.is" class="accept-button">Greiða</a>
+
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+
     </div>
 {% endblock %}

@@ -113,6 +113,9 @@ def confirm_bid(request, id):
         ad.save()
 
     return redirect('myproducts')
+def checkout (request, id):
+    pass
+
 
 
 # def listing(request):

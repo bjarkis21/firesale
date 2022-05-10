@@ -14,7 +14,8 @@ body{
 
 }
 main {
-    display: flex;
+    min-height: 1vh;
+   /* display: flex;*/
 }
 
 .footer{
@@ -63,6 +64,10 @@ main {
     /*display: flex;
     align-content: center;*/
     flex-grow: 3;
+    width: 80%;
+    margin-left: 25%;
+    margin-right: auto;
+
 }
 
 .ads-container{
@@ -145,7 +150,7 @@ main {
 }
 
 .ad-highest-bid b {
-    font-size: 50px;
+    font-size: 35px;
     color: red;
 
 }
@@ -165,7 +170,8 @@ main {
     justify-content: space-evenly;
 }
 
-.sidebar-container {
+.sidebar-container{
+    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -265,6 +271,7 @@ main {
 }
 
 .createAdContainer{
+    position: fixed;
     height: 550px;
     width: 150px;
     margin-left: 20%;

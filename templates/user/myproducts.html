@@ -32,6 +32,7 @@
             <div class="buttons-container">
             {% if ad.isActive and ad.max_bid%}
                 <a href="{% url 'confirm_bid' id=ad.id %}" class="accept-button">Samþykkja boð</a>
+
             {% endif %}
             {% if not ad.isPaid and ad.isActive%}
                 <a href="/ads/{{ ad.id }}/stop_ad" class="reject-button">Hætta við sölu</a>
