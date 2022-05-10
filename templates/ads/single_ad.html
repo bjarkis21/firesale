@@ -23,7 +23,7 @@
     {% endif %}{% endcomment %}
     <p class="single-ad-short-description">{{ ad.short_description }}</p>
     <p class="single-ad-long-description">{{ ad.long_description }}</p>
-    <p class="single-ad-condition">{{ ad.condition }}</p>
+    <p class="single-ad-condition">Ástand: {{ ad.condition }}</p>
     <p class="single-ad-creation-date">{{ ad.creation_date }}</p>
     <img src="{{ ad.image }}" class="single-ad-image" alt="Image of product"/>
     <p class="single-ad-highest-bid-label">Hæsta boð: </p>
@@ -32,8 +32,8 @@
     {% else %}
         <p class="ad-highest-bid">Ekkert boð enn.</p>
     {% endif %}
-    <p class="Seller">Seljandi:</p>
-    <p class="single-ad-seller-name">{{ seller.name }}</p>
+
+    <p class="single-ad-seller-name">Seljandi: {{ seller.name }}</p>
     <div class="profile-image-wrapper">
     <img class="profile-image" src="{{ seller.profile_image }}" alt="Image of seller">
     </div>
