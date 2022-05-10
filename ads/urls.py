@@ -8,5 +8,5 @@ urlpatterns = [
     path('<int:id>', views.get_ad_by_id, name="ad-details"),
     path('<int:id>/stop_ad', views.stop_ad, name="stop_ad"),
     path('<int:id>/confirm_bid', views.confirm_bid, name="confirm_bid"),
-    path('<int:id>/checkout', views.checkout,name ="checkout")
+    path('<int:id>/checkout', views.checkout, name="checkout")
 ]

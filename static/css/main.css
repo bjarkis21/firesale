@@ -488,7 +488,7 @@ main {
 }
 
 .checkoutContainer{
-    position: fixed;
+    /*position: fixed;*/
     height: 550px;
     width: 150px;
     margin-left: 20%;

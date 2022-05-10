@@ -9,7 +9,7 @@
                 <div class="buttons-container">
                     <p>Mitt boð: {{ ad.max_user_bid }}</p>
                     {% if not ad.isActive and ad.buyer == bidder and ad.isSold and not ad.isPaid%}
-                        <a href="http://visir.is" class="accept-button">Greiða</a>
+                        <a href="{% url 'checkout' id=ad.id %}" class="accept-button">Greiða</a>
 
                     {% endif %}
                 </div>
