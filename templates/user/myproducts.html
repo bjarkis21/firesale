@@ -30,12 +30,15 @@
             </a>
             <div class="buttons-container">
             {% if ad.isActive and ad.max_bid%}
-                <a href="http://visir.is" class="accept-button">Samþykkja boð</a>
+                <a href="{% url 'confirm_bid' id=ad.id %}" class="accept-button">Samþykkja boð</a>
             {% endif %}
             {% if not ad.isPaid and ad.isActive%}
                 <a href="/ads/{{ ad.id }}/stop_ad" class="reject-button">Hætta við sölu</a>
             {% endif %}
-            {% if not ad.isActive and not ad.isPaid %}
+            {% if not ad.isActive and not ad.isPaid and ad.isSold %}
+                <p>Boð hefur verið samþykkt og bíður nú greiðslu.</p>
+            {% endif %}
+            {% if not ad.isActive and not ad.isPaid and not ad.isSold%}
                 <p>Vara er ekki lengur til sölu</p>
             {% endif %}
             </div>
