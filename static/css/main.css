@@ -503,6 +503,19 @@ main {
 .checkoutContainer{
     /*position: fixed;*/
     height: 550px;
-    width: 150px;
+    width: 185px;
     margin-left: 20%;
+}
+
+.checkout-hidden {
+    display: none;
+}
+
+.checkout-visibility-hidden {
+    visibility: hidden;
+}
+
+.checkout-nav-btns {
+    display: flex;
+    justify-content: space-between;
 }

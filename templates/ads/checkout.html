@@ -6,13 +6,17 @@
         <form class="form form-horizontal" method="post">
             {% csrf_token %}
             {% for field in form %}
-                <div class="{{ field.name }}">
+                <div class="field-container">
                 <label class="checkout-label" for="{{ field.auto_id }}">{{ field.label }}</label>
                 {{ field }}
                 </div>
             {% endfor %}
-            <input type="submit" class="btn btn-primary" value="Staðfesta">
+            <input type="submit" class="btn btn-primary checkout-submit-btn checkout-visibility-hidden" value="Staðfesta">
         </form>
+        <div class="checkout-nav-btns">
+            <button class="checkout-back-btn checkout-visibility-hidden">Til baka</button>
+            <button class="checkout-continue-btn">Áfram</button>
+        </div>
     </div>
     <script src="{% static 'js/checkout.js' %}"></script>
 {% endblock %}
