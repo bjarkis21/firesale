@@ -95,6 +95,7 @@ def create_ad2(request):
         'categories': Category.objects.all()
     })
 
+
 @login_required
 def stop_ad(request, id):
     ad = get_object_or_404(Advertisement, pk=id)
@@ -102,6 +103,7 @@ def stop_ad(request, id):
         ad.isActive = False
         ad.save()
     return redirect('myproducts')
+
 
 @login_required
 def confirm_bid(request, id):
@@ -115,6 +117,7 @@ def confirm_bid(request, id):
         ad.save()
 
     return redirect('myproducts')
+
 
 @login_required
 def checkout (request,id):
