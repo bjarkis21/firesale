@@ -486,3 +486,10 @@ main {
 .show {
     display:block;
 }
+
+.checkoutContainer{
+    position: fixed;
+    height: 550px;
+    width: 150px;
+    margin-left: 20%;
+}

@@ -65,21 +65,29 @@ class BidForm(ModelForm):
 class CheckoutForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['full_name'].label = "Fullt Nafn"
-        self.fields['street_name'].label = "Gata"
-        self.fields['house_number'].label = "Húsnúmer"
+        self.fields['fullname'].label = "Fullt Nafn"
+        self.fields['street'].label = "Gata"
+        self.fields['street_no'].label = "Húsnúmer"
         self.fields['city'].label = "Borg"
         self.fields['country'].label = "Land"
-        self.fields['postal_code'].label = "Póstnúmer"
+        self.fields['postcode'].label = "Póstnúmer"
+        self.fields['credid_card_fullname'].label = "Nafn Korthafa"
+        self.fields['credid_card_number'].label = "Kortanúmer"
+        self.fields['credid_card_expiration_date'].label = "Gildistími"
+        self.fields['credid_card_cvc'].label = "CVC"
 
     class Meta:
         model = Checkout
-        exclude = []
+        exclude = ['id','user','advertisement']
         widgets = {
-            'full_name': widgets.TextInput(attrs={'class': 'form-control'}),
-            'street_name': widgets.TextInput(attrs={'class': 'form-control'}),
-            'house_number': widgets.TextInput(attrs={'class': 'form-control'}),
+            'fullname': widgets.TextInput(attrs={'class': 'form-control'}),
+            'street': widgets.TextInput(attrs={'class': 'form-control'}),
+            'street_no': widgets.TextInput(attrs={'class': 'form-control'}),
             'city': widgets.TextInput(attrs={'class': 'form-control'}),
             'country': widgets.TextInput(attrs={'class': 'form-control'}),
-            'postal_code': widgets.TextInput(attrs={'class': 'form-control'}),
+            'postcode': widgets.TextInput(attrs={'class': 'form-control'}),
+            'credid_card_fullname': widgets.TextInput(attrs={'class': 'form-control'}),
+            'credid_card_number': widgets.TextInput(attrs={'class': 'form-control'}),
+            'credid_card_expiration_date': widgets.TextInput(attrs={'class': 'form-control'}),
+            'credid_card_cvc': widgets.TextInput(attrs={'class': 'form-control'}),
         }
