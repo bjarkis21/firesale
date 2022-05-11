@@ -6,7 +6,7 @@ from ads.models import Advertisement
 
 
 class Checkout(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='checkout', default='')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='checkout', default='')
     advertisement = models.OneToOneField(Advertisement, on_delete=models.CASCADE, related_name='checkout', default='')
     fullname = models.CharField(max_length=255)
     country = models.CharField(max_length=255)

@@ -2,5 +2,8 @@
 {% block content %}
     <div class="purchasesContainer">
         <h1>Kaupsaga</h1>
+        {% for ad in purchased_ads %}
+            {% include 'ads/ad_product_card.html' %}
+        {% endfor %}
     </div>
 {% endblock %}
