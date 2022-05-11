@@ -65,7 +65,7 @@ def bank_info(request, redirect_url='profile'):
 def myproducts(request, redirect_url='myproducts'):
     # ad = get_object_or_404(Advertisement, pk=id)
     seller = request.user
-    user_ads = Advertisement.objects.filter(seller=seller).order_by('-creation_date')
+    user_ads = Advertisement.objects.filter(seller=seller, isPaid=False).order_by('-creation_date')
     for ad in user_ads:
         ad.max_bid = get_max_bid(ad)
     return render(request, 'user/myproducts.html', {

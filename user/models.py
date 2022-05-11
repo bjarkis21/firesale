@@ -45,3 +45,8 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.name
+
+class Messages(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    message = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
