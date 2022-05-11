@@ -478,8 +478,12 @@ main {
 .checkoutContainer{
     /*position: fixed;*/
     height: 550px;
+    /*width: 185px;*/
+    /*margin-left: 20%;*/
+}
+
+.checkoutContainer form {
     width: 185px;
-    margin-left: 20%;
 }
 
 .checkout-hidden {
@@ -493,4 +497,13 @@ main {
 .checkout-nav-btns {
     display: flex;
     justify-content: space-between;
+    width: 20%;
+}
+
+.checkoutContainer input:invalid {
+    background-color: pink;
+}
+
+.checkoutContainer input:valid {
+    background-color: lightgreen;
 }

@@ -15,7 +15,7 @@ class Checkout(models.Model):
     street = models.CharField(max_length=255)
     street_no = models.CharField(max_length=255)
     credid_card_fullname = models.CharField(max_length=255, default="")
-    credid_card_number = models.CharField(max_length=12)
+    credid_card_number = models.CharField(max_length=16)
     credid_card_cvc = models.CharField(max_length=4)
     credid_card_expiration_date = models.CharField(max_length=5)
 

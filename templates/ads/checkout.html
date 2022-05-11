@@ -3,7 +3,26 @@
 {% block content %}
 <div class="checkoutContainer">
         <h1>Checkout</h1>
-        <form class="form form-horizontal" method="post">
+        <div class="checkout-overview checkout-hidden">
+            <div class="checkout-overview-buyer">
+                <p class="checkout-overview-fullname">Fullt nafn: <b class="input-info"></b></p>
+                <p class="checkout-overview-country">Land: <b class="input-info"></b></p>
+                <p class="checkout-overview-city">Borg: <b class="input-info"></b></p>
+                <p class="checkout-overview-postcode">Póstnúmer: <b class="input-info"></b></p>
+                <p class="checkout-overview-street">Gata: <b class="input-info"></b></p>
+                <p class="checkout-overview-street_no">Húsnúmer: <b class="input-info"></b></p>
+                <p class="checkout-overview-credit_card_fullname">Nafn korthafa: <b class="input-info"></b></p>
+                <p class="checkout-overview-credit-card-number">Kortanúmer: <b class="input-info"></b></p>
+                <p class="checkout-overview-credit-card-cvc">CVC: <b class="input-info"></b></p>
+                <p class="checkout-overview-credid-card-expiration-date">Gildistími: <b class="input-info"></b></p>
+            </div>
+            <div class="checkout-overview-ad">
+                <p>Vara: {{ ad.title }}</p>
+                <p>Lýsing: {{ ad.short_description }}</p>
+                <img src="{{ ad.image }}" style="height: 150px; width: auto;">
+            </div>
+        </div>
+        <form class="form form-horizontal" method="post" name="checkout-form">
             {% csrf_token %}
             {% for field in form %}
                 <div class="field-container">
@@ -13,6 +32,7 @@
             {% endfor %}
             <input type="submit" class="btn btn-primary checkout-submit-btn checkout-visibility-hidden" value="Staðfesta">
         </form>
+
         <div class="checkout-nav-btns">
             <button class="checkout-back-btn checkout-visibility-hidden">Til baka</button>
             <button class="checkout-continue-btn">Áfram</button>
