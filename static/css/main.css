@@ -205,7 +205,7 @@ main {
 
 .bankInfoContainer {
     height: 550px;
-    width: 240px;
+    width: 200px;
     margin-left: 20%;
 }
 
@@ -518,4 +518,12 @@ main {
 
 .gold {
     color: orange;
+}
+
+.helptext {
+    display: none;
+}
+
+.registerUserContainer form {
+    width: 200px;
 }
