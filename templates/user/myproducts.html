@@ -2,51 +2,55 @@
 {% block content %}
     <div class="ads-container">
         <h1>Mínar vörur</h1>
-        {% for ad in user_ads %}
-            <div class="ad-button-container">
-            {% include 'ads/ad_product_card.html' %}
-            {% comment %}<a href="/ads/{{ ad.id }}" class="ad-anchor1">
-            <div class="ad">
-                <div class="ad-image-wrapper">
-                    <img src="{{ ad.image }}" class="ad-image" alt="Image of product" />
+        {% if user_ads %}
+            {% for ad in user_ads %}
+                <div class="ad-button-container">
+                {% include 'ads/ad_product_card.html' %}
+                {% comment %}<a href="/ads/{{ ad.id }}" class="ad-anchor1">
+                <div class="ad">
+                    <div class="ad-image-wrapper">
+                        <img src="{{ ad.image }}" class="ad-image" alt="Image of product" />
+                    </div>
+                    <div class="ad-info">
+                        <h1 class="ad-title1">{{ ad.title }}</h1>
+                        <p class="ad-creation-date">{{ ad.creation_date }}</p>
+                        <p class="ad-short-description">{{ ad.short_description }}</p>
+                     </div>
+
+                        {{ form }}
+
+                    <div class="ad-bid">
+                        <p class="ad-highest-bid-label">Hæsta boð: </p>
+                        {% if ad.max_bid is not None %}
+                            <p class="ad-highest-bid"><b>{{ ad.max_bid }}</b> kr.</p>
+                        {% else %}
+                            <p class="ad-highest-bid-no-bid">Ekkert boð enn.</p>
+                        {% endif %}
+                     </form>
+                    </div>
                 </div>
-                <div class="ad-info">
-                    <h1 class="ad-title1">{{ ad.title }}</h1>
-                    <p class="ad-creation-date">{{ ad.creation_date }}</p>
-                    <p class="ad-short-description">{{ ad.short_description }}</p>
-                 </div>
+                </a>{% endcomment %}
+                <div class="buttons-container">
+                {% if ad.isActive and ad.max_bid%}
+                    <a href="{% url 'confirm_bid' id=ad.id %}" class="accept-button">Samþykkja boð</a>
 
-                    {{ form }}
-
-                <div class="ad-bid">
-                    <p class="ad-highest-bid-label">Hæsta boð: </p>
-                    {% if ad.max_bid is not None %}
-                        <p class="ad-highest-bid"><b>{{ ad.max_bid }}</b> kr.</p>
-                    {% else %}
-                        <p class="ad-highest-bid-no-bid">Ekkert boð enn.</p>
-                    {% endif %}
-                 </form>
+                {% endif %}
+                {% if not ad.isPaid and ad.isActive%}
+                    <a href="/ads/{{ ad.id }}/stop_ad" class="reject-button">Hætta við sölu</a>
+                {% endif %}
+                {% if not ad.isActive and not ad.isPaid and ad.isSold %}
+                    <p>Boð hefur verið samþykkt og bíður nú greiðslu.</p>
+                {% endif %}
+                {% if not ad.isActive and not ad.isPaid and not ad.isSold%}
+                    <p>Vara er ekki lengur til sölu</p>
+                {% endif %}
                 </div>
-            </div>
-            </a>{% endcomment %}
-            <div class="buttons-container">
-            {% if ad.isActive and ad.max_bid%}
-                <a href="{% url 'confirm_bid' id=ad.id %}" class="accept-button">Samþykkja boð</a>
+                </div>
 
-            {% endif %}
-            {% if not ad.isPaid and ad.isActive%}
-                <a href="/ads/{{ ad.id }}/stop_ad" class="reject-button">Hætta við sölu</a>
-            {% endif %}
-            {% if not ad.isActive and not ad.isPaid and ad.isSold %}
-                <p>Boð hefur verið samþykkt og bíður nú greiðslu.</p>
-            {% endif %}
-            {% if not ad.isActive and not ad.isPaid and not ad.isSold%}
-                <p>Vara er ekki lengur til sölu</p>
-            {% endif %}
-            </div>
-            </div>
-
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+            <p>Þú hefur engar vörur til sölu.</p>
+        {% endif %}
 
     </div>
 {% endblock %}

@@ -3,6 +3,7 @@
     <div class="ads-container">
         <h1>Mín boð</h1>
 
+        {% if user_ads %}
         {% for ad in user_ads %}
             <div class="ad-button-container" >
                 {% include 'ads/ad_product_card.html' %}
@@ -22,6 +23,9 @@
                 </div>
             </div>
         {% endfor %}
+        {% else %}
+            <p>Þú hefur ekki boðið í vöru.</p>
+        {% endif %}
 
     </div>
 {% endblock %}
