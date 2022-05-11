@@ -6,6 +6,7 @@ from ads.functions import get_max_bid
 from ads.models import Category, Advertisement, BidsOn
 from user.forms.profile_forms import ProfileForm, BankInfoForm, CustomUserForm
 from user.models import UserProfile, Messages
+from django.core.mail import send_mail
 
 
 # Create your views here.
@@ -28,6 +29,8 @@ def register(request):
 
 @login_required
 def profile(request):
+
+
     profile = UserProfile.objects.filter(user=request.user).first()
     if request.method == 'POST':
         form = ProfileForm(instance=profile, data=request.POST)
