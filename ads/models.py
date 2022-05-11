@@ -12,8 +12,8 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-#class Condition(models.Model):
-#    name = models.CharField(max_length=255)
+class Condition(models.Model):
+    name = models.CharField(max_length=255)
 
 class Advertisement(models.Model):
     title = models.CharField(max_length=255)
