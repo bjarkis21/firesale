@@ -127,9 +127,12 @@ def checkout(request, id):
     if request.method == 'POST':
         form = CheckoutForm(data=request.POST)
         if form.is_valid():
-            #d = form.save(commit=False)
-            #d.seller = request.user
-            #d.save()
+            d = form.save(commit=False)
+            d.user = request.user
+            d.advertisement = ad
+            d.save()
+            ad.isPaid = True
+            ad.save()
             return redirect('mybids')
     ad.max_bid = get_max_bid(ad)
     return render(request, 'ads/checkout.html', {

@@ -11,15 +11,16 @@
                 <p class="checkout-overview-postcode">Póstnúmer: <b class="input-info"></b></p>
                 <p class="checkout-overview-street">Gata: <b class="input-info"></b></p>
                 <p class="checkout-overview-street_no">Húsnúmer: <b class="input-info"></b></p>
-                <p class="checkout-overview-credit_card_fullname">Nafn korthafa: <b class="input-info"></b></p>
-                <p class="checkout-overview-credit-card-number">Kortanúmer: <b class="input-info"></b></p>
-                <p class="checkout-overview-credit-card-cvc">CVC: <b class="input-info"></b></p>
-                <p class="checkout-overview-credid-card-expiration-date">Gildistími: <b class="input-info"></b></p>
+                <p class="checkout-overview-credid_card_fullname">Nafn korthafa: <b class="input-info"></b></p>
+                <p class="checkout-overview-credid_card_number">Kortanúmer: <b class="input-info"></b></p>
+                <p class="checkout-overview-credid_card_cvc">CVC: <b class="input-info"></b></p>
+                <p class="checkout-overview-credid_card_expiration_date">Gildistími: <b class="input-info"></b></p>
             </div>
             <div class="checkout-overview-ad">
                 <p>Vara: {{ ad.title }}</p>
                 <p>Lýsing: {{ ad.short_description }}</p>
                 <img src="{{ ad.image }}" style="height: 150px; width: auto;">
+                <p>Verð: {{ ad.max_bid }}</p>
             </div>
         </div>
         <form class="form form-horizontal" method="post" name="checkout-form">

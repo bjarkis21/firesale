@@ -1,6 +1,7 @@
 "use strict"
 
-let page_no = 1
+let page_no = 1;
+let form = document.forms["checkout-form"];
 
 let address_info_elements = document.getElementsByClassName("address-info");
 for (let elem of address_info_elements) {
@@ -36,9 +37,27 @@ function toggleOverview() {
 }
 
 function updateOverview() {
-    let form = document.forms["checkout-form"];
-    form["fullname"].setCustomValidity("Hello error");
-    form["fullname"].reportValidity()
+    document.querySelector(".checkout-overview-fullname")
+        .querySelector(".input-info").innerHTML = form["fullname"].value;
+    document.querySelector(".checkout-overview-country")
+        .querySelector(".input-info").innerHTML = form["country"].value;
+    document.querySelector(".checkout-overview-city")
+        .querySelector(".input-info").innerHTML = form["city"].value;
+    document.querySelector(".checkout-overview-postcode")
+        .querySelector(".input-info").innerHTML = form["postcode"].value;
+    document.querySelector(".checkout-overview-street")
+        .querySelector(".input-info").innerHTML = form["street"].value;
+    document.querySelector(".checkout-overview-street_no")
+        .querySelector(".input-info").innerHTML = form["street_no"].value;
+    document.querySelector(".checkout-overview-credid_card_fullname")
+        .querySelector(".input-info").innerHTML = form["credid_card_fullname"].value;
+    document.querySelector(".checkout-overview-credid_card_number")
+        .querySelector(".input-info").innerHTML = form["credid_card_number"].value;
+    document.querySelector(".checkout-overview-credid_card_cvc")
+        .querySelector(".input-info").innerHTML = form["credid_card_cvc"].value;
+    document.querySelector(".checkout-overview-credid_card_expiration_date")
+        .querySelector(".input-info").innerHTML = form["credid_card_expiration_date"].value;
+
 }
 
 document.querySelector(".checkout-continue-btn").addEventListener('click', function() {
@@ -88,4 +107,16 @@ document.querySelector("#id_credid_card_expiration_date").addEventListener("blur
     }
     this.setCustomValidity("MM/YY")
     this.reportValidity()
+})
+
+document.querySelector(".checkout-submit-btn").addEventListener('click', function(e){
+    e.preventDefault();
+    this.setCustomValidity("")
+    if(form.checkValidity()) {
+
+        form.submit()
+    }else {
+        this.setCustomValidity("Fylla þarf út alla reiti rétt");
+        this.reportValidity();
+    }
 })

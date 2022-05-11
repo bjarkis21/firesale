@@ -477,7 +477,7 @@ main {
 
 .checkoutContainer{
     /*position: fixed;*/
-    height: 550px;
+    min-height: 550px;
     /*width: 185px;*/
     /*margin-left: 20%;*/
 }
