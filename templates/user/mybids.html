@@ -2,9 +2,9 @@
 {% block content %}
     <div class="ads-container">
         <h1>Mín boð</h1>
-
         {% if user_ads %}
         {% for ad in user_ads %}
+
             <div class="ad-button-container" >
                 {% include 'ads/ad_product_card.html' %}
                 <div class="buttons-container">
@@ -19,6 +19,10 @@
 
                     {% if not bid.isActive and not ad.isSold and ad.buyer == bidder %}
                         <p>Boð hefur verið dregið til baka.</p>
+                    {% endif %}
+
+                    {% if ad.isPaid %}
+                        <p>Vara hefur verið seld</p>
                     {% endif %}
                 </div>
             </div>
