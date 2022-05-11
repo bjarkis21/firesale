@@ -494,3 +494,11 @@ main {
     display: flex;
     justify-content: space-between;
 }
+
+.fa-star {
+    color: black;
+}
+
+.gold {
+    color: orange;
+}
