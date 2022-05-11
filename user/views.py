@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from ads.functions import get_max_bid
 from ads.models import Category, Advertisement, BidsOn
 from user.forms.profile_forms import ProfileForm, BankInfoForm, CustomUserForm
-from user.models import UserProfile
+from user.models import UserProfile, Messages
 
 
 # Create your views here.
@@ -100,6 +100,8 @@ def purchases(request, redirect_url='purchases'):
 
 @login_required
 def notifications(request, redirect_url='notifications'):
+    messages = Messages.objects.filter(user=request.user).order_by('-date')
     return render(request,'user/notifications.html', {
-        'categories': Category.objects.all()
+        'categories': Category.objects.all(),
+        'messages': messages
     })

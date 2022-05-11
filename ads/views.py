@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 
 from ads.forms.ads_forms import AdsForm, BidForm, CheckoutForm
-from user.models import UserProfile
+from user.models import UserProfile, Messages
 from user.views import bank_info
 from ads.models import BidsOn
 from django.db.models import Max
@@ -115,6 +115,10 @@ def confirm_bid(request, id):
         ad.isSold = True
         ad.buyer = max_bidder
         ad.save()
+        message = Messages()
+        message.user = max_bidder
+        message.message = f"Tilboð þitt í \"{ad.title}\" hefur verið samþykkt. Farðu í \"Mín boð\" til að ljúka greiðslu"
+        message.save()
 
     return redirect('myproducts')
 
@@ -133,6 +137,15 @@ def checkout(request, id):
             d.save()
             ad.isPaid = True
             ad.save()
+
+            rejected_bidders = BidsOn.objects.filter(advertisement=ad).exclude(user=ad.buyer).distinct('user')
+            for bid in rejected_bidders:
+                bidder = bid.user
+                message = Messages()
+                message.user = bidder
+                message.message = f"Tilboð þitt í \"{ad.title}\" hefur verið hafnað."
+                message.save()
+
             return redirect('mybids')
     ad.max_bid = get_max_bid(ad)
     return render(request, 'ads/checkout.html', {

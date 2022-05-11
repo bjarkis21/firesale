@@ -2,8 +2,10 @@
 
 <nav class="navbar">
     <a href="{% url 'home' %}">
-    <img src="{% static 'images/new_logo.png'%}" alt="Image of logo" class="logo-img">
-    <img src="{% static 'images/notification.png'%}" alt="Image of envelope" class="envelope-img">
+        <img src="{% static 'images/new_logo.png'%}" alt="Image of logo" class="logo-img">
+    </a>
+    <a href="{% url 'notifications' %}">
+        <img src="{% static 'images/notification.png'%}" alt="Image of envelope" class="envelope-img">
     </a>
     <div class="navLinksContainer">
     {% if user.is_authenticated %}

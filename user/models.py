@@ -31,7 +31,8 @@ class Gender(models.Model):
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default='', related_name='userprofile', primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default='', related_name='userprofile',
+                                primary_key=True)
     name = models.CharField(max_length=255, blank=True)
     phone = models.CharField(max_length=30, blank=True)
     rating = models.FloatField(blank=True, null=True)
@@ -45,6 +46,7 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Messages(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
