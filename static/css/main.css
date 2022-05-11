@@ -509,9 +509,18 @@ main {
     background-color: lightgreen;
 }
 
+<<<<<<< HEAD
 .single-notification {
     width: 300px;
     padding: 50px;
     margin-bottom: 30px;
     box-shadow: 0 20px 30px 0 rgba(0,0,0, 0.1);
+=======
+.fa-star {
+    color: black;
+}
+
+.gold {
+    color: orange;
+>>>>>>> e5334e82009924556e0190ccf09e73e1fa171aa0
 }

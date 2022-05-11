@@ -37,6 +37,32 @@
     <div class="profile-image-wrapper">
     <img class="profile-image" src="{{ seller.profile_image }}" alt="Image of seller">
     </div>
+    <p class="seller-rating">
+        {% if seller.rating > 0.5 %}
+            <span class="fa fa-star gold"></span>
+        {% else %}
+            <span class="fa fa-star"></span>
+        {% endif %}
+        {% if seller.rating > 1.5 %}
+            <span class="fa fa-star gold"></span>
+        {% else %}
+            <span class="fa fa-star"></span>
+        {% endif %}
+        {% if seller.rating > 2.5 %}
+            <span class="fa fa-star gold"></span>
+        {% else %}
+            <span class="fa fa-star"></span>
+        {% endif %}
+        {% if seller.rating > 3.5 %}
+            <span class="fa fa-star gold"></span>
+        {% else %}
+            <span class="fa fa-star"></span>
+        {% endif %}
+        {% if seller.rating > 4.5 %}
+            <span class="fa fa-star gold"></span>
+        {% else %}
+            <span class="fa fa-star"></span>
+        {% endif %}</p>
 </div>
 
 
