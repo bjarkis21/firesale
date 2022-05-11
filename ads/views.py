@@ -47,7 +47,8 @@ def ads(request):
     return render(request, 'ads.html', {
         'categories': Category.objects.all(),
         'all_ads': all_ads,
-        'filterby': filterby
+        'filterby': filterby,
+        'isNewMessage': request.user.userprofile.isNewMessage
     })
 
 
@@ -118,6 +119,9 @@ def confirm_bid(request, id):
         ad.buyer = max_bidder
         ad.save()
 
+        max_bidder.userprofile.isNewMessage = True
+        max_bidder.userprofile.save()
+
         message = Messages()
         message.user = max_bidder
         message.message = f"Tilboð þitt í \"{ad.title}\" hefur verið samþykkt. Farðu í \"Mín boð\" til að ljúka greiðslu"
@@ -154,6 +158,8 @@ def checkout(request, id):
                 message.user = bidder
                 message.message = f"Tilboð þitt í \"{ad.title}\" hefur verið hafnað."
                 message.save()
+                bidder.userprofile.isNewMessage = True
+                bidder.userprofile.save()
 
             send_mail("Ný skilaboð á Firesale",
                       f"Tilboð þitt í \"{ad.title}\" hefur verið hafnað",

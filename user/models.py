@@ -43,6 +43,7 @@ class UserProfile(models.Model):
     hb = models.CharField(max_length=10, blank=True)
     account_no = models.CharField(max_length=20, blank=True)
     profile_image = models.CharField(max_length=9999, blank=True)
+    isNewMessage = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

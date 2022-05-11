@@ -108,6 +108,8 @@ def purchases(request, redirect_url='purchases'):
 @login_required
 def notifications(request, redirect_url='notifications'):
     messages = Messages.objects.filter(user=request.user).order_by('-date')
+    request.user.userprofile.isNewMessage = False
+    request.user.userprofile.save()
     return render(request,'user/notifications.html', {
         'categories': Category.objects.all(),
         'messages': messages

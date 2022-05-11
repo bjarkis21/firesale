@@ -5,7 +5,9 @@
 
 {% block content %}
 
-
+    {% if isNewMessage%}
+        <p class="message-alert">Þín bíða ný skilaboð í skilaboðahólfi!</p>
+    {% endif %}
     <div class="input-group">
 
         {% if filterby %}

@@ -33,7 +33,7 @@ class ProfileForm(ModelForm):
 
     class Meta:
         model = UserProfile
-        exclude = ['id', 'user', 'address', 'rating']
+        exclude = ['id', 'user', 'address', 'rating', 'isNewMessage']
         widgets = {
             'name': widgets.TextInput(attrs={'class': 'form-control'}),
             'phone': widgets.TextInput(attrs={'class': 'form-control'}),
@@ -57,7 +57,7 @@ class BankInfoForm(ModelForm):
 
     class Meta:
         model = UserProfile
-        exclude = ['id', 'user', 'name', 'phone', 'rating', 'gender', 'description', 'address', 'profile_image']
+        exclude = ['id', 'user', 'name', 'phone', 'rating', 'gender', 'description', 'address', 'profile_image', 'isNewMessage']
         widgets = {
             'ssn': widgets.TextInput(attrs={'class': 'form-control'}),
             'bank': widgets.TextInput(attrs={'class': 'form-control'}),

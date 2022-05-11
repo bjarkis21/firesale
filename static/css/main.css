@@ -527,3 +527,9 @@ main {
 .registerUserContainer form {
     width: 200px;
 }
+
+.message-alert {
+    color: red;
+    font-weight: bold;
+    font-size: 25px;
+}
