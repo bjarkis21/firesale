@@ -12,12 +12,14 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+#class Condition(models.Model):
+#    name = models.CharField(max_length=255)
 
 class Advertisement(models.Model):
     title = models.CharField(max_length=255)
     short_description = models.CharField(max_length=255)
     long_description = models.TextField()
-    condition = models.CharField(max_length=255)
+    condition = models.CharField(max_length=255, default="", blank=True, null=True)
     image = models.CharField(max_length=500, blank=True)
     reserve = models.PositiveIntegerField(blank=True, null=True)
     seller = models.ForeignKey(User, on_delete=models.CASCADE, related_name='seller')
