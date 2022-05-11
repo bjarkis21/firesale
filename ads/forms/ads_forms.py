@@ -44,7 +44,7 @@ class BidForm(ModelForm):
 
     class Meta:
         model = BidsOn
-        exclude = {'id', 'user', 'advertisement'}
+        exclude = {'id', 'user', 'advertisement', 'isActive'}
         widgets = {
             'amount': widgets.NumberInput(attrs={'class': 'form-control'})
         }
