@@ -121,16 +121,24 @@ def confirm_bid(request, id):
 
 @login_required
 def checkout(request, id):
+    ad = get_object_or_404(Advertisement, pk=id)
+    if ad.buyer != request.user:
+        return redirect('home')
     if request.method == 'POST':
         form = CheckoutForm(data=request.POST)
         if form.is_valid():
             d = form.save(commit=False)
-            d.seller = request.user
+            d.user = request.user
+            d.advertisement = ad
             d.save()
-            return redirect('home')
+            ad.isPaid = True
+            ad.save()
+            return redirect('mybids')
+    ad.max_bid = get_max_bid(ad)
     return render(request, 'ads/checkout.html', {
         'form': CheckoutForm(),
-        'categories': Category.objects.all()
+        'categories': Category.objects.all(),
+        'ad': ad
     })
 
 
