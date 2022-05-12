@@ -44,6 +44,9 @@
                 {% if not ad.isActive and not ad.isPaid and not ad.isSold%}
                     <p>Vara er ekki lengur til sölu.</p>
                 {% endif %}
+                {% if not ad.isActive and ad.isPaid %}
+                    <p>Greitt hefur verið fyrir vöru.</p>
+                {% endif %}
                 </div>
                 </div>
 
