@@ -33,32 +33,6 @@ main {
     text-align: center;
 }
 
-/*.ads {
-    background-color: darkgray;
-    border: solid 4px green;
-}*/
-
-/*h1.ad-title1 {
-    float: right;
-    position: absolute;
-}*/
-
-/*p.ad-short-description {
-    font-size: 15px;
-}*/
-
-/*p.ad-highest-bid {
-    float:right;
-    color:orange;
-    font-size: 20px;
-    font-weight: bold;
-}*/
-
-/*p.ad-highest-bid-label {
-    margin-left: 20%;
-    float: right;
-}*/
-
 .container {
     /*display: flex;
     align-content: center;*/
@@ -333,7 +307,7 @@ main {
 .single-ad-image {
     margin-left: 15%;
     height: 300px;
-    width: 300px;
+    width: auto;
 }
 
 .bid-button {
@@ -536,6 +510,9 @@ main {
 
 .rating {
     border: none;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
 }
 
 .rating > input {
@@ -543,7 +520,6 @@ main {
 }
 
 .rating > star-rating {
-    float: right;
 }
 
 .rating:not(:checked) > star-rating:hover,

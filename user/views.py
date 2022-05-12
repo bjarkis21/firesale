@@ -1,12 +1,9 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect, get_object_or_404
-
+from django.shortcuts import render, redirect
 from ads.functions import get_max_bid
-from ads.models import Category, Advertisement, BidsOn
+from ads.models import Category, Advertisement
 from user.forms.profile_forms import ProfileForm, BankInfoForm, CustomUserForm
 from user.models import UserProfile, Messages
-from django.core.mail import send_mail
 
 
 # Create your views here.

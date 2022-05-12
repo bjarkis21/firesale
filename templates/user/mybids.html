@@ -5,7 +5,7 @@
         {% if user_ads %}
         {% for ad in user_ads %}
 
-            <div class="ad-button-container" >
+            <div class="ad-button-container">
                 {% include 'ads/ad_product_card.html' %}
                 <div class="buttons-container">
                     <p>Mitt boð: {{ ad.max_user_bid }}</p>
