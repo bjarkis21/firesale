@@ -2,7 +2,7 @@
 {% block content %}
     <div class="purchasesContainer">
         <h1>Kaupsaga</h1>
-        {% if user_ads %}
+        {% if purchased_ads %}
         {% for ad in purchased_ads %}
             {% include 'ads/ad_product_card.html' %}
 
