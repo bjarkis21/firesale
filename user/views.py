@@ -29,8 +29,6 @@ def register(request):
 
 @login_required
 def profile(request):
-
-
     profile = UserProfile.objects.filter(user=request.user).first()
     if request.method == 'POST':
         form = ProfileForm(instance=profile, data=request.POST)
@@ -76,6 +74,7 @@ def myproducts(request, redirect_url='myproducts'):
         'user_ads': user_ads
     })
 
+
 @login_required
 def mybids(request, redirect_url='mybids'):
     bidder = request.user
@@ -89,6 +88,7 @@ def mybids(request, redirect_url='mybids'):
         'bidder': bidder
     })
 
+
 @login_required
 def salehistory(request, redirect_url='salehistory'):
     sold_ads = Advertisement.objects.filter(seller=request.user, isPaid=True).order_by("-creation_date")
@@ -99,6 +99,7 @@ def salehistory(request, redirect_url='salehistory'):
         'sold_ads': sold_ads
     })
 
+
 @login_required
 def purchases(request, redirect_url='purchases'):
     purchased_ads = Advertisement.objects.filter(buyer=request.user, isPaid=True).order_by("-creation_date")
@@ -108,6 +109,7 @@ def purchases(request, redirect_url='purchases'):
         'categories': Category.objects.all(),
         'purchased_ads': purchased_ads
     })
+
 
 @login_required
 def notifications(request, redirect_url='notifications'):
