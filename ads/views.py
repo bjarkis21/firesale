@@ -20,7 +20,7 @@ from ads.models import Category, Advertisement
 adv = [
     {'id': 1, 'title': 'First ad', 'price': '$100'},
     {'id': 2, 'title': 'Second ad', 'price': '$200'},
-    {'id': 3, 'title': 'Third ad', 'price': '$300'},
+    {'id': 3, 'title': 'Third ad', 'price': '$300'}
 ]
 
 
@@ -128,7 +128,7 @@ def confirm_bid(request, id):
         message.save()
 
         send_mail("Ný skilaboð á Firesale",
-                  f"Tilboð þitt í \"{ad.title}\" hefur verið samþykkt. Farðu í \"Mín boð\" til að ljúka greiðslu",
+                  f"Tilboð þitt í \"{ad.title}\" hefur verið samþykkt. Farðu í \"Mín boð\" til að ljúka greiðslu.",
                   "firesale.is.the.best@gmail.com",
                   [max_bidder.email],
                   fail_silently=False)

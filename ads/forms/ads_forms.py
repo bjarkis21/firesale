@@ -28,7 +28,7 @@ class AdsForm(ModelForm):
             'category': widgets.Select(attrs={'class': 'form-control'}),
             'reserve': widgets.NumberInput(attrs={'class': 'form-control'}),
             'image': widgets.TextInput(attrs={'class': 'form-control'}),
-            'long_description': widgets.Textarea(attrs={'class': 'form-control', 'rows': '5', 'cols': '21'}),
+            'long_description': widgets.Textarea(attrs={'class': 'form-control', 'rows': '5', 'cols': '21'})
         }
 
 
@@ -59,7 +59,7 @@ class BidForm(ModelForm):
             raise forms.ValidationError("Ekki er hægt að bjóða í eigin vöru.")
             # self._errors['user'] = self.error_class(['Ekki er hægt að bjóða í eigin vöru.'])
         if self.ad.isActive == False:
-            raise forms.ValidationError("Þessi auglýsing er ekki lengur virk")
+            raise forms.ValidationError("Þessi auglýsing er ekki lengur virk.")
 
         return self.cleaned_data
 

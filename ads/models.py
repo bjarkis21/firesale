@@ -6,6 +6,7 @@ from datetime import datetime
 
 # Create your models here.
 
+
 class Category(models.Model):
     name = models.CharField(max_length=255)
 
