@@ -14,12 +14,7 @@
                     {% if ad.max_bid is not None %}
                         <p class="ad-highest-bid"><b class="ad-highest-bid-number">{{ ad.max_bid }}</b> kr.</p>
                     {% else %}
-                        <p class="ad-highest-bid-no-bid">Ekkert boð enn. Lágmarksboð:
-                            {% if ad.reserve %}
-                                {{ ad.reserve }}
-                            {% else %}
-                                0
-                            {% endif %} kr.</p>
+                        <p class="ad-highest-bid-no-bid">Ekkert boð enn. <br/> Lágmarksboð: {{ ad.reserve }} kr.</p>
                     {% endif %}
                 </div>
             </div>
