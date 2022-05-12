@@ -1,5 +1,6 @@
 "use strict"
 
+
 function sort_by_title(ads_container) {
     let ads_array = [];
     for (let ad of ads_container) {
@@ -18,6 +19,7 @@ function sort_by_title(ads_container) {
     })
     return ads_array
 }
+
 
 function sort_by_date(ads_container) {
     let ads_array = [];
@@ -41,6 +43,7 @@ function sort_by_date(ads_container) {
     })
     return ads_array
 }
+
 
 function sort_by_bid(ads_container) {
     let ads_array = [];
@@ -85,6 +88,7 @@ function sort_by_bid(ads_container) {
     return ads_array
 }
 
+
 document.querySelector("#sort_by_name_asc").addEventListener('click', function(){
     let ads_container = document.getElementsByClassName('ad-anchor1');
     let ads_array = sort_by_title(ads_container)
@@ -95,6 +99,7 @@ document.querySelector("#sort_by_name_asc").addEventListener('click', function()
     }
 })
 
+
 document.querySelector("#sort_by_name_desc").addEventListener('click', function(){
     let ads_container = document.getElementsByClassName('ad-anchor1');
     let ads_array = sort_by_title(ads_container).reverse()
@@ -104,6 +109,7 @@ document.querySelector("#sort_by_name_desc").addEventListener('click', function(
         ads_container_element.appendChild(ad)
     }
 })
+
 
 document.querySelector("#sort_by_date_asc").addEventListener('click', function(){
     let ads_container = document.getElementsByClassName('ad-anchor1');
@@ -117,6 +123,7 @@ document.querySelector("#sort_by_date_asc").addEventListener('click', function()
 
 })
 
+
 document.querySelector("#sort_by_date_desc").addEventListener('click', function(){
     let ads_container = document.getElementsByClassName('ad-anchor1');
     let ads_array = sort_by_date(ads_container).reverse()
@@ -129,6 +136,7 @@ document.querySelector("#sort_by_date_desc").addEventListener('click', function(
 
 })
 
+
 document.querySelector("#sort_by_bid_asc").addEventListener('click', function(){
     let ads_container = document.getElementsByClassName('ad-anchor1');
     let ads_array = sort_by_bid(ads_container).reverse()
@@ -140,6 +148,7 @@ document.querySelector("#sort_by_bid_asc").addEventListener('click', function(){
 
 })
 
+
 document.querySelector("#sort_by_bid_desc").addEventListener('click', function(){
     let ads_container = document.getElementsByClassName('ad-anchor1');
     let ads_array = sort_by_bid(ads_container)
@@ -148,5 +157,5 @@ document.querySelector("#sort_by_bid_desc").addEventListener('click', function()
     for (let ad of ads_array) {
         ads_container_element.appendChild(ad)
     }
-
 })
+
