@@ -4,6 +4,14 @@
         <h1>Kaupsaga</h1>
         {% for ad in purchased_ads %}
             {% include 'ads/ad_product_card.html' %}
+
+            <fieldset class="rating">
+                <input type="radio" id="star1" name="rating" value="1"><label class="fa fa-star"></label>
+                <input type="radio" id="star2" name="rating" value="2"><label class="fa fa-star"></label>
+                <input type="radio" id="star3" name="rating" value="3"><label class="fa fa-star"></label>
+                <input type="radio" id="star4" name="rating" value="4"><label class="fa fa-star"></label>
+                <input type="radio" id="star5" name="rating" value="5"><label class="fa fa-star"></label>
+            </fieldset>
         {% endfor %}
     </div>
 {% endblock %}

@@ -533,3 +533,28 @@ main {
     font-weight: bold;
     font-size: 25px;
 }
+
+.rating {
+    border: none;
+}
+
+.rating > input {
+    display: none;
+}
+
+.rating > label {
+    float: right;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: orange;
+    cursor: pointer;
+}
+
+.rating > input:checked + label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label {
+    color: orange;
+    cursor: pointer;
+}
