@@ -91,8 +91,12 @@ def mybids(request, redirect_url='mybids'):
 
 @login_required
 def salehistory(request, redirect_url='salehistory'):
+    sold_ads = Advertisement.objects.filter(seller=request.user, isPaid=True).order_by("-creation_date")
+    for ad in sold_ads:
+        ad.max_bid = get_max_bid(ad)
     return render(request,'user/salehistory.html', {
-        'categories': Category.objects.all()
+        'categories': Category.objects.all(),
+        'sold_ads': sold_ads
     })
 
 @login_required
