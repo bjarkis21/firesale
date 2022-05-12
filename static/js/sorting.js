@@ -9,13 +9,7 @@ function sort_by_title(ads_container) {
     ads_array.sort(function(a,b){
         let title_a = a.querySelector(".ad-title1").textContent.toLowerCase();
         let title_b = b.querySelector(".ad-title1").textContent.toLowerCase();
-        if (title_a < title_b){
-            return -1
-        }else if (title_a > title_b){
-            return 1
-        }else {
-            return 0
-        }
+        return title_a.localeCompare(title_b);
     })
     return ads_array
 }
