@@ -3,15 +3,20 @@
     <div class="purchasesContainer">
         <h1>Kaupsaga</h1>
         {% for ad in purchased_ads %}
-            {% include 'ads/ad_product_card.html' %}
+            <div class="ad-button-container">
+                {% include 'ads/ad_product_card.html' %}
 
-            <fieldset class="rating">
-                <input type="radio" id="star1" name="rating" value="1"><star-rating class="fa fa-star"></star-rating>
-                <input type="radio" id="star2" name="rating" value="2"><star-rating class="fa fa-star"></star-rating>
-                <input type="radio" id="star3" name="rating" value="3"><star-rating class="fa fa-star"></star-rating>
-                <input type="radio" id="star4" name="rating" value="4"><star-rating class="fa fa-star"></star-rating>
-                <input type="radio" id="star5" name="rating" value="5"><star-rating class="fa fa-star"></star-rating>
-            </fieldset>
+                <div class="buttons-container">
+                    <p>Gefðu vörunni einkunn.</p>
+                    <fieldset class="rating">
+                        <input type="radio" id="star5" name="rating" value="5"><star-rating class="fa fa-star"></star-rating>
+                        <input type="radio" id="star4" name="rating" value="4"><star-rating class="fa fa-star"></star-rating>
+                        <input type="radio" id="star3" name="rating" value="3"><star-rating class="fa fa-star"></star-rating>
+                        <input type="radio" id="star2" name="rating" value="2"><star-rating class="fa fa-star"></star-rating>
+                        <input type="radio" id="star1" name="rating" value="1"><star-rating class="fa fa-star"></star-rating>
+                    </fieldset>
+                </div>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}

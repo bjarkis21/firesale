@@ -536,6 +536,9 @@ main {
 
 .rating {
     border: none;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
 }
 
 .rating > input {
@@ -543,7 +546,6 @@ main {
 }
 
 .rating > star-rating {
-    float: right;
 }
 
 .rating:not(:checked) > star-rating:hover,
