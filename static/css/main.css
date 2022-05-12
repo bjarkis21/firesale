@@ -333,7 +333,7 @@ main {
 .single-ad-image {
     margin-left: 15%;
     height: 300px;
-    width: 300px;
+    width: auto;
 }
 
 .bid-button {
