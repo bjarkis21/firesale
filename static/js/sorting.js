@@ -1,5 +1,6 @@
 "use strict"
 
+
 function sort_by_title(ads_container) {
     let ads_array = [];
     for (let ad of ads_container) {
@@ -18,6 +19,7 @@ function sort_by_title(ads_container) {
     })
     return ads_array
 }
+
 
 function sort_by_date(ads_container) {
     let ads_array = [];
@@ -42,26 +44,39 @@ function sort_by_date(ads_container) {
     return ads_array
 }
 
+
 function sort_by_bid(ads_container) {
     let ads_array = [];
     for (let ad of ads_container) {
         ads_array.push(ad)
     }
     ads_array.sort(function(a,b){
-        let bid_a = b.querySelector(".ad-highest-bid");
-        console.log(bid_a);
-        console.log(a.querySelector(".ad-highest-bid"));
-        console.log(bid_a);
-        bid_a = bid_a || 0;
-        console.log(bid_a);
-        bid_a = bid_a.dataset.number.replaceAll(',','');
-        bid_a = Number(bid_a);
-        bid_a = new Number(bid_a);
+        let bid_a = a.querySelector(".ad-highest-bid-number");
+        if (bid_a) {
+            bid_a = bid_a.textContent.replaceAll(",", "")
+        }else {
+            bid_a = a.querySelector(".ad-bid").dataset.reserve.replaceAll(",", "")
+        }
+        bid_a = Number(bid_a)
+        if (Number.isNaN(bid_a)){
+            bid_a = 0
+        }
 
-        let bid_b = b.querySelector(".ad-highest-bid")
-        bid_b = bid_b.dataset.number.replaceAll(',','') === null ? 0 : bid_b;
-        bid_b = Number(bid_b);
-        bid_b = new Number(bid_b);
+        let bid_b = b.querySelector(".ad-highest-bid-number");
+        if (bid_b) {
+            bid_b = bid_b.textContent.replaceAll(",", "")
+        }else {
+            bid_b = b.querySelector(".ad-bid").dataset.reserve.replaceAll(",", "")
+        }
+        bid_b = Number(bid_b)
+        if (Number.isNaN(bid_b)){
+            bid_b = 0
+        }
+
+        // let bid_b = b.querySelector(".ad-highest-bid").textContent;
+        // bid_b = bid_b.dataset.number.replaceAll(',','') === null ? 0 : bid_b;
+        // bid_b = Number(bid_b);
+        // bid_b = new Number(bid_b);
         if (bid_a < bid_b){
             return -1
         }else if (bid_a > bid_b) {
@@ -73,6 +88,7 @@ function sort_by_bid(ads_container) {
     return ads_array
 }
 
+
 document.querySelector("#sort_by_name_asc").addEventListener('click', function(){
     let ads_container = document.getElementsByClassName('ad-anchor1');
     let ads_array = sort_by_title(ads_container)
@@ -83,6 +99,7 @@ document.querySelector("#sort_by_name_asc").addEventListener('click', function()
     }
 })
 
+
 document.querySelector("#sort_by_name_desc").addEventListener('click', function(){
     let ads_container = document.getElementsByClassName('ad-anchor1');
     let ads_array = sort_by_title(ads_container).reverse()
@@ -92,6 +109,7 @@ document.querySelector("#sort_by_name_desc").addEventListener('click', function(
         ads_container_element.appendChild(ad)
     }
 })
+
 
 document.querySelector("#sort_by_date_asc").addEventListener('click', function(){
     let ads_container = document.getElementsByClassName('ad-anchor1');
@@ -105,6 +123,7 @@ document.querySelector("#sort_by_date_asc").addEventListener('click', function()
 
 })
 
+
 document.querySelector("#sort_by_date_desc").addEventListener('click', function(){
     let ads_container = document.getElementsByClassName('ad-anchor1');
     let ads_array = sort_by_date(ads_container).reverse()
@@ -117,6 +136,7 @@ document.querySelector("#sort_by_date_desc").addEventListener('click', function(
 
 })
 
+
 document.querySelector("#sort_by_bid_asc").addEventListener('click', function(){
     let ads_container = document.getElementsByClassName('ad-anchor1');
     let ads_array = sort_by_bid(ads_container).reverse()
@@ -128,6 +148,7 @@ document.querySelector("#sort_by_bid_asc").addEventListener('click', function(){
 
 })
 
+
 document.querySelector("#sort_by_bid_desc").addEventListener('click', function(){
     let ads_container = document.getElementsByClassName('ad-anchor1');
     let ads_array = sort_by_bid(ads_container)
@@ -136,5 +157,5 @@ document.querySelector("#sort_by_bid_desc").addEventListener('click', function()
     for (let ad of ads_array) {
         ads_container_element.appendChild(ad)
     }
-
 })
+

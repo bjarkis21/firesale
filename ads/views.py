@@ -1,14 +1,8 @@
-import datetime
-
 from django.core.mail import send_mail
-from django.http import JsonResponse
-
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from django.core.paginator import Paginator
-
 from ads.forms.ads_forms import AdsForm, BidForm, CheckoutForm
-from user.models import UserProfile, Messages
+from user.models import Messages
 from user.views import bank_info
 from ads.models import BidsOn
 from django.db.models import Max
@@ -20,7 +14,7 @@ from ads.models import Category, Advertisement
 adv = [
     {'id': 1, 'title': 'First ad', 'price': '$100'},
     {'id': 2, 'title': 'Second ad', 'price': '$200'},
-    {'id': 3, 'title': 'Third ad', 'price': '$300'},
+    {'id': 3, 'title': 'Third ad', 'price': '$300'}
 ]
 
 
@@ -44,11 +38,16 @@ def ads(request):
     for ad in all_ads:
         ad.max_bid = get_max_bid(ad)
 
+    try:
+        isNewMessage = request.user.userprofile.isNewMessage
+    except AttributeError:
+        isNewMessage = False
+
     return render(request, 'ads.html', {
         'categories': Category.objects.all(),
         'all_ads': all_ads,
         'filterby': filterby,
-        'isNewMessage': request.user.userprofile.isNewMessage
+        'isNewMessage': isNewMessage
     })
 
 
@@ -57,7 +56,7 @@ def get_ad_by_id(request, id):
     method = request.method
     seller = ad.seller.userprofile
     form = BidForm(ad=ad, user=request.user)
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user.is_authenticated:
         form = BidForm(ad=ad, user=request.user, data=request.POST)
         if form.is_valid():
             bid = form.save(commit=False)
@@ -124,11 +123,11 @@ def confirm_bid(request, id):
 
         message = Messages()
         message.user = max_bidder
-        message.message = f"Tilboð þitt í \"{ad.title}\" hefur verið samþykkt. Farðu í \"Mín boð\" til að ljúka greiðslu"
+        message.message = f"Tilboð þitt í \"{ad.title}\" hefur verið samþykkt. Farðu í \"Mín boð\" til að ljúka greiðslu."
         message.save()
 
         send_mail("Ný skilaboð á Firesale",
-                  f"Tilboð þitt í \"{ad.title}\" hefur verið samþykkt. Farðu í \"Mín boð\" til að ljúka greiðslu",
+                  f"Tilboð þitt í \"{ad.title}\" hefur verið samþykkt. Farðu í \"Mín boð\" til að ljúka greiðslu.",
                   "firesale.is.the.best@gmail.com",
                   [max_bidder.email],
                   fail_silently=False)
@@ -162,7 +161,7 @@ def checkout(request, id):
                 bidder.userprofile.save()
 
             send_mail("Ný skilaboð á Firesale",
-                      f"Tilboð þitt í \"{ad.title}\" hefur verið hafnað",
+                      f"Tilboð þitt í \"{ad.title}\" hefur verið hafnað.",
                       "firesale.is.the.best@gmail.com",
                       [bid.user.email for bid in rejected_bidders],
                       fail_silently=False)

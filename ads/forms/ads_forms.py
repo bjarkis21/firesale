@@ -8,13 +8,13 @@ from user.models import Checkout
 class AdsForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['title'].label = "Titill"
-        self.fields['short_description'].label = "Stutt lýsing"
-        self.fields['condition'].label = "Ástand"
-        self.fields['category'].label = "Flokkur"
-        self.fields['reserve'].label = "Lágmarksverð"
+        self.fields['title'].label = "*Titill"
+        self.fields['short_description'].label = "*Stutt lýsing"
+        self.fields['condition'].label = "*Ástand"
+        self.fields['category'].label = "*Flokkur"
+        self.fields['reserve'].label = "*Lágmarksverð"
         self.fields['image'].label = "Mynd (URL)"
-        self.fields['long_description'].label = "Ítarleg lýsing"
+        self.fields['long_description'].label = "*Ítarleg lýsing"
         self.fields[
             'image'].initial = 'https://t4.ftcdn.net/jpg/04/70/29/97/360_F_470299797_UD0eoVMMSUbHCcNJCdv2t8B2g1GVqYgs.jpg'
 
@@ -28,7 +28,7 @@ class AdsForm(ModelForm):
             'category': widgets.Select(attrs={'class': 'form-control'}),
             'reserve': widgets.NumberInput(attrs={'class': 'form-control'}),
             'image': widgets.TextInput(attrs={'class': 'form-control'}),
-            'long_description': widgets.Textarea(attrs={'class': 'form-control', 'rows': '5', 'cols': '21'}),
+            'long_description': widgets.Textarea(attrs={'class': 'form-control', 'rows': '5', 'cols': '21'})
         }
 
 
@@ -59,7 +59,7 @@ class BidForm(ModelForm):
             raise forms.ValidationError("Ekki er hægt að bjóða í eigin vöru.")
             # self._errors['user'] = self.error_class(['Ekki er hægt að bjóða í eigin vöru.'])
         if self.ad.isActive == False:
-            raise forms.ValidationError("Þessi auglýsing er ekki lengur virk")
+            raise forms.ValidationError("Þessi auglýsing er ekki lengur virk.")
 
         return self.cleaned_data
 
@@ -67,16 +67,16 @@ class BidForm(ModelForm):
 class CheckoutForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['fullname'].label = "Fullt Nafn"
-        self.fields['street'].label = "Gata"
-        self.fields['street_no'].label = "Húsnúmer"
-        self.fields['city'].label = "Borg"
-        self.fields['country'].label = "Land"
-        self.fields['postcode'].label = "Póstnúmer"
-        self.fields['credid_card_fullname'].label = "Nafn Korthafa"
-        self.fields['credid_card_number'].label = "Kortanúmer"
-        self.fields['credid_card_expiration_date'].label = "Gildistími"
-        self.fields['credid_card_cvc'].label = "CVC"
+        self.fields['fullname'].label = "*Fullt Nafn"
+        self.fields['street'].label = "*Gata"
+        self.fields['street_no'].label = "*Húsnúmer"
+        self.fields['city'].label = "*Borg"
+        self.fields['country'].label = "*Land"
+        self.fields['postcode'].label = "*Póstnúmer"
+        self.fields['credid_card_fullname'].label = "*Nafn Korthafa"
+        self.fields['credid_card_number'].label = "*Kortanúmer"
+        self.fields['credid_card_expiration_date'].label = "*Gildistími"
+        self.fields['credid_card_cvc'].label = "*CVC"
 
     class Meta:
         model = Checkout
@@ -91,5 +91,5 @@ class CheckoutForm(ModelForm):
             'credid_card_fullname': widgets.TextInput(attrs={'class': 'form-control cc-info'}),
             'credid_card_number': widgets.TextInput(attrs={'class': 'form-control cc-info'}),
             'credid_card_expiration_date': widgets.TextInput(attrs={'class': 'form-control cc-info'}),
-            'credid_card_cvc': widgets.TextInput(attrs={'class': 'form-control cc-info'}),
+            'credid_card_cvc': widgets.TextInput(attrs={'class': 'form-control cc-info'})
         }

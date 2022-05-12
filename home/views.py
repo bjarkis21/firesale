@@ -7,8 +7,8 @@ from ads.models import Category
 
 adv = [
     {'id': 1, 'title': 'First ad', 'price': '$100'},
-    {'id': 2, 'title':'Second ad', 'price': '$200'},
-    {'id': 3, 'title':'Third ad', 'price': '$300'},
+    {'id': 2, 'title': 'Second ad', 'price': '$200'},
+    {'id': 3, 'title': 'Third ad', 'price': '$300'}
 ]
 
 
