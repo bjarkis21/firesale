@@ -68,11 +68,11 @@ class CheckoutForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['fullname'].label = "*Fullt Nafn"
-        self.fields['street'].label = "Gata"
-        self.fields['street_no'].label = "Húsnúmer"
-        self.fields['city'].label = "Borg"
-        self.fields['country'].label = "Land"
-        self.fields['postcode'].label = "Póstnúmer"
+        self.fields['street'].label = "*Gata"
+        self.fields['street_no'].label = "*Húsnúmer"
+        self.fields['city'].label = "*Borg"
+        self.fields['country'].label = "*Land"
+        self.fields['postcode'].label = "*Póstnúmer"
         self.fields['credid_card_fullname'].label = "*Nafn Korthafa"
         self.fields['credid_card_number'].label = "*Kortanúmer"
         self.fields['credid_card_expiration_date'].label = "*Gildistími"
