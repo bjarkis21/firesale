@@ -124,7 +124,7 @@ def confirm_bid(request, id):
 
         message = Messages()
         message.user = max_bidder
-        message.message = f"Tilboð þitt í \"{ad.title}\" hefur verið samþykkt. Farðu í \"Mín boð\" til að ljúka greiðslu"
+        message.message = f"Tilboð þitt í \"{ad.title}\" hefur verið samþykkt. Farðu í \"Mín boð\" til að ljúka greiðslu."
         message.save()
 
         send_mail("Ný skilaboð á Firesale",
@@ -162,7 +162,7 @@ def checkout(request, id):
                 bidder.userprofile.save()
 
             send_mail("Ný skilaboð á Firesale",
-                      f"Tilboð þitt í \"{ad.title}\" hefur verið hafnað",
+                      f"Tilboð þitt í \"{ad.title}\" hefur verið hafnað.",
                       "firesale.is.the.best@gmail.com",
                       [bid.user.email for bid in rejected_bidders],
                       fail_silently=False)
