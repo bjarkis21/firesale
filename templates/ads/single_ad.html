@@ -26,13 +26,13 @@
     <p class="single-ad-condition">Ástand: {{ ad.condition.name }}</p>
     <p class="single-ad-creation-date">{{ ad.creation_date }}</p>
     <img src="{{ ad.image }}" class="single-ad-image" alt="Image of product"/>
-    <p class="single-ad-highest-bid-label">Hæsta boð: </p>
+    <h3><p class="single-ad-highest-bid-label">Hæsta boð: </p></h3>
     {% if ad.max_bid is not None %}
         <p class="ad-highest-bid">{{ ad.max_bid }} kr.</p>
     {% else %}
         <p class="ad-highest-bid">Ekkert boð enn.</p>
     {% endif %}
-    <p class="Seller">Seljandi:</p>
+    <h3><p class="Seller">Seljandi:</p></h3>
     <p class="single-ad-seller-name">{{ seller.name }}</p>
     <div class="profile-image-wrapper">
     <img class="profile-image" src="{{ seller.profile_image }}" alt="Image of seller">
@@ -64,9 +64,8 @@
             <span class="fa fa-star"></span>
         {% endif %}</p>
 
-        <div class="ads-container">
         <h2>Aðrar auglýsingar í sama flokki</h2>
-        </div>
+
         {% for ad in related_ads %}
             {% include 'ads/ad_product_card.html' %}
         {% endfor %}
