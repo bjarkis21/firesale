@@ -2,6 +2,7 @@
 {% block content %}
     <div class="purchasesContainer">
         <h1>Kaupsaga</h1>
+        {% if user_ads %}
         {% for ad in purchased_ads %}
             {% include 'ads/ad_product_card.html' %}
 
@@ -13,5 +14,8 @@
                 <input type="radio" id="star5" name="rating" value="5"><star-rating class="fa fa-star"></star-rating>
             </fieldset>
         {% endfor %}
+        {% else %}
+            <p>Þú hefur ekki keypt neina vöru.</p>
+        {% endif %}
     </div>
 {% endblock %}
