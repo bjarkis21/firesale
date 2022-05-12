@@ -44,11 +44,16 @@ def ads(request):
     for ad in all_ads:
         ad.max_bid = get_max_bid(ad)
 
+    try:
+        isNewMessage = request.user.userprofile.isNewMessage
+    except AttributeError:
+        isNewMessage = False
+
     return render(request, 'ads.html', {
         'categories': Category.objects.all(),
         'all_ads': all_ads,
         'filterby': filterby,
-        'isNewMessage': request.user.userprofile.isNewMessage
+        'isNewMessage': isNewMessage
     })
 
 
@@ -57,7 +62,7 @@ def get_ad_by_id(request, id):
     method = request.method
     seller = ad.seller.userprofile
     form = BidForm(ad=ad, user=request.user)
-    if request.method == 'POST':
+    if request.method == 'POST' and request.user.is_authenticated:
         form = BidForm(ad=ad, user=request.user, data=request.POST)
         if form.is_valid():
             bid = form.save(commit=False)
