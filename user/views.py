@@ -91,7 +91,7 @@ def salehistory(request, redirect_url='salehistory'):
     sold_ads = Advertisement.objects.filter(seller=request.user, isPaid=True).order_by("-creation_date")
     for ad in sold_ads:
         ad.max_bid = get_max_bid(ad)
-    return render(request,'user/salehistory.html', {
+    return render(request, 'user/salehistory.html', {
         'categories': Category.objects.all(),
         'sold_ads': sold_ads
     })
@@ -102,7 +102,7 @@ def purchases(request, redirect_url='purchases'):
     purchased_ads = Advertisement.objects.filter(buyer=request.user, isPaid=True).order_by("-creation_date")
     for ad in purchased_ads:
         ad.max_bid = get_max_bid(ad)
-    return render(request,'user/purchases.html', {
+    return render(request, 'user/purchases.html', {
         'categories': Category.objects.all(),
         'purchased_ads': purchased_ads
     })
@@ -113,7 +113,7 @@ def notifications(request, redirect_url='notifications'):
     messages = Messages.objects.filter(user=request.user).order_by('-date')
     request.user.userprofile.isNewMessage = False
     request.user.userprofile.save()
-    return render(request,'user/notifications.html', {
+    return render(request, 'user/notifications.html', {
         'categories': Category.objects.all(),
         'messages': messages
     })
