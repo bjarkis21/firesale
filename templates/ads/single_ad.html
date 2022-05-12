@@ -26,7 +26,8 @@
     <h3><p class="Seller">Seljandi:</p></h3>
     <p class="single-ad-seller-name">{{ seller.name }}</p>
     <div class="profile-image-wrapper">
-    <img class="profile-image" src="{{ seller.profile_image }}" alt="Image of seller">
+    <img class="profile-image" src="{{ seller.profile_image }}" alt="Image of seller"
+    onerror=this.src="https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg">
     </div>
     <p class="seller-rating">
         {% if seller.rating > 0.5 %}
