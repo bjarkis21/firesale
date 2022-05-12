@@ -42,7 +42,7 @@ class UserProfile(models.Model):
     bank = models.CharField(max_length=10, blank=True)
     hb = models.CharField(max_length=10, blank=True)
     account_no = models.CharField(max_length=20, blank=True)
-    profile_image = models.CharField(max_length=9999, blank=True)
+    profile_image = models.CharField(max_length=9999, blank=False, default='https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg')
     isNewMessage = models.BooleanField(default=False)
 
     def __str__(self):

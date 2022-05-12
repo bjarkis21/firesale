@@ -25,6 +25,7 @@ class ProfileForm(ModelForm):
         self.fields['gender'].label = "Kyn"
         self.fields['description'].label = "Lýsing"
         self.fields['profile_image'].label = "Prófílmynd"
+        self.fields['profile_image'].required = False
         self.fields['ssn'].label = "Kennitala"
         self.fields['bank'].label = "Banki"
         self.fields['hb'].label = "Höfuðbók"

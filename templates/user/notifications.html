@@ -2,7 +2,7 @@
 {% block content %}
     <div class="notificationsContainer">
         <h1>Tilkynningar</h1>
-        {% if user_ads %}
+        {% if messages %}
         {% for message in messages %}
             <div class="single-notification">
                 <p>{{ message.message }}</p>
