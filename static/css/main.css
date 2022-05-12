@@ -267,6 +267,12 @@ main {
     margin: 0 auto;
 }
 
+.profileContainer {
+    height: 550px;
+    width: 150px;
+    margin-left: 20%;
+}
+
 .logo-img {
     height: 100px;
     width: 400px;
