@@ -510,6 +510,9 @@ main {
 
 .rating {
     border: none;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
 }
 
 .rating > input {
@@ -517,7 +520,6 @@ main {
 }
 
 .rating > star-rating {
-    float: right;
 }
 
 .rating:not(:checked) > star-rating:hover,
@@ -531,4 +533,28 @@ main {
 .rating > input:checked ~ star-rating:hover ~ star-rating {
     color: orange;
     cursor: pointer;
+}
+
+.login-button {
+    background-color: lightblue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 25px;
+}
+
+.register-button {
+    background-color: blue;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 25px;
 }
