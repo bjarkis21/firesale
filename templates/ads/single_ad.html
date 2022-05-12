@@ -63,6 +63,11 @@
         {% else %}
             <span class="fa fa-star"></span>
         {% endif %}</p>
+
+        {% for ad in related_ads %}
+            {% include 'ads/ad_product_card.html' %}
+        {% endfor %}
+        </div>
 </div>
 
 

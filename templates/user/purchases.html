@@ -2,6 +2,7 @@
 {% block content %}
     <div class="purchasesContainer">
         <h1>Kaupsaga</h1>
+        {% if purchased_ads %}
         {% for ad in purchased_ads %}
             <div class="ad-button-container">
                 {% include 'ads/ad_product_card.html' %}
@@ -18,5 +19,8 @@
                 </div>
             </div>
         {% endfor %}
+        {% else %}
+            <p>Þú hefur ekki keypt neina vöru.</p>
+        {% endif %}
     </div>
 {% endblock %}
