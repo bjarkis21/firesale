@@ -69,6 +69,8 @@ def get_ad_by_id(request, id):
             print(form.errors)
 
     ad.max_bid = get_max_bid(ad)
+    for related_ad in related_ads:
+        related_ad.max_bid = get_max_bid(related_ad)
 
     return render(request, 'ads/single_ad.html', {
         'categories': Category.objects.all(),
