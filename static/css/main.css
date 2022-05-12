@@ -352,8 +352,12 @@ main {
     font-size: 10px;
 }
 
-.ad-anchor1, .ad-anchor1:visited, .ad-anchor1:hover, .ad-anchor1:active {
+.ad-anchor1, .ad-anchor1:visited, .ad-anchor1:active {
     color: inherit;
+}
+
+.ad-anchor1:hover {
+    background-color: #d4d3d3;
 }
 
 .input-group {
