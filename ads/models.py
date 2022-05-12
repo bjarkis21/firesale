@@ -25,7 +25,7 @@ class Advertisement(models.Model):
     #condition = models.CharField(max_length=255, default="", blank=True, null=True)
     condition = models.ForeignKey(Condition, on_delete=models.SET_DEFAULT, default=1)
     image = models.CharField(max_length=500, blank=True)
-    reserve = models.PositiveIntegerField(blank=True, null=True)
+    reserve = models.PositiveIntegerField(default=100)#blank=True, null=True)
     seller = models.ForeignKey(User, on_delete=models.CASCADE, related_name='seller')
     creation_date = models.DateTimeField(default=datetime.now)
     buyer = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, related_name='buyer', null=True)
