@@ -53,7 +53,8 @@ def ads(request):
 
 def get_ad_by_id(request, id):
     ad = get_object_or_404(Advertisement, pk=id)
-    method = request.method
+    ad_cat = ad.category
+    related_ads = Advertisement.objects.filter(category=ad_cat).exclude(ad).order_by('-creation_date')[:2]
     seller = ad.seller.userprofile
     form = BidForm(ad=ad, user=request.user)
     if request.method == 'POST' and request.user.is_authenticated:
@@ -73,7 +74,8 @@ def get_ad_by_id(request, id):
         'categories': Category.objects.all(),
         'ad': ad,
         'seller': seller,
-        'form': form
+        'form': form,
+        'related_ads': related_ads
     })
 
 
