@@ -11,13 +11,6 @@ from ads.functions import get_max_bid
 # Create your views here.
 from ads.models import Category, Advertisement
 
-adv = [
-    {'id': 1, 'title': 'First ad', 'price': '$100'},
-    {'id': 2, 'title': 'Second ad', 'price': '$200'},
-    {'id': 3, 'title': 'Third ad', 'price': '$300'}
-]
-
-
 def ads(request):
     filterby = None
     if 'filterby' in request.GET and 'search_filter' in request.GET:
@@ -187,11 +180,3 @@ def stop_bid(request, id):
         bid.save()
     return redirect('mybids')
 
-
-# def listing(request):
-# adslist = ads.objects.all()
-# paginator = Paginator(adslist)
-
-# page_number = request.GET.get('page')
-# page_obj = paginator.get_page(page_number)
-# return render(request, ads.html,{'page_obj': page_obj})
