@@ -542,19 +542,19 @@ main {
     display: none;
 }
 
-.rating > label {
+.rating > star-rating {
     float: right;
 }
 
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
+.rating:not(:checked) > star-rating:hover,
+.rating:not(:checked) > star-rating:hover ~ star-rating {
     color: orange;
     cursor: pointer;
 }
 
-.rating > input:checked + label:hover,
-.rating > label:hover ~ input:checked ~ label,
-.rating > input:checked ~ label:hover ~ label {
+.rating > input:checked + star-rating:hover,
+.rating > star-rating:hover ~ input:checked ~ star-rating,
+.rating > input:checked ~ star-rating:hover ~ star-rating {
     color: orange;
     cursor: pointer;
 }
