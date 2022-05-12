@@ -1,6 +1,5 @@
-from django.forms import ModelForm, widgets, EmailField
+from django.forms import ModelForm, widgets
 from django.contrib.auth.forms import UserCreationForm
-from django import forms
 from django.contrib.auth.models import User
 from user.models import UserProfile
 
