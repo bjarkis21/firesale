@@ -33,32 +33,6 @@ main {
     text-align: center;
 }
 
-/*.ads {
-    background-color: darkgray;
-    border: solid 4px green;
-}*/
-
-/*h1.ad-title1 {
-    float: right;
-    position: absolute;
-}*/
-
-/*p.ad-short-description {
-    font-size: 15px;
-}*/
-
-/*p.ad-highest-bid {
-    float:right;
-    color:orange;
-    font-size: 20px;
-    font-weight: bold;
-}*/
-
-/*p.ad-highest-bid-label {
-    margin-left: 20%;
-    float: right;
-}*/
-
 .container {
     /*display: flex;
     align-content: center;*/
