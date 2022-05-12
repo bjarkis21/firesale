@@ -1,5 +1,4 @@
 from django.db.models import Max
-import locale
 
 from ads.models import BidsOn
 
