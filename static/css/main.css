@@ -206,12 +206,6 @@ main {
     color: white;
 }
 
-.profileContainer {
-    margin: 0 auto;
-    height: 500px;
-    width: 200px;
-}
-
 .registerAdContainer {
     display: flex;
     color: white;
