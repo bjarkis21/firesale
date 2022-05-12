@@ -37,7 +37,8 @@
     </div>
     <div class="ads-container">
         {% for ad in all_ads %}
-            <a href="/ads/{{ ad.id }}" class="ad-anchor1">
+            {% include 'ads/ad_product_card.html' %}
+            {% comment %}<a href="/ads/{{ ad.id }}" class="ad-anchor1">
             <div class="ad">
                 <div class="ad-image-wrapper">
                     <img src="{{ ad.image }}" class="ad-image" alt="Image of product" />
@@ -57,7 +58,7 @@
                     {% endif %}
                 </div>
             </div>
-            </a>
+            </a>{% endcomment %}
         {% endfor %}
 </div>
 {% endblock %}
