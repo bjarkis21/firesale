@@ -1,5 +1,6 @@
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from ads.forms.ads_forms import AdsForm, BidForm, CheckoutForm
 from user.models import Messages
@@ -180,3 +181,7 @@ def stop_bid(request, id):
         bid.save()
     return redirect('mybids')
 
+#@login_required
+def rate_ad(request):
+    if request.method == 'GET':
+        return JsonResponse({'message': 'Good test'}, status=200)
