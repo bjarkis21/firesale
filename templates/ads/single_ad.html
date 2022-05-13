@@ -17,13 +17,13 @@
     <p class="single-ad-condition">Ástand: {{ ad.condition.name }}</p>
     <p class="single-ad-creation-date">{{ ad.creation_date }}</p>
     <img src="{{ ad.image }}" class="single-ad-image" alt="Image of product"/>
-    <h3><p class="single-ad-highest-bid-label">Hæsta boð: </p></h3>
+    <h3 class="single-ad-highest-bid-label">Hæsta boð:</h3>
     {% if ad.max_bid is not None %}
         <p class="ad-highest-bid">{{ ad.max_bid }} kr.</p>
     {% else %}
         <p class="ad-highest-bid">Ekkert boð enn.</p>
     {% endif %}
-    <h3><p class="Seller">Seljandi:</p></h3>
+    <h3 class="Seller">Seljandi:</h3>
     <p class="single-ad-seller-name">{{ seller.name }}</p>
     <div class="profile-image-wrapper">
     <img class="profile-image" src="{{ seller.profile_image }}" alt="Image of seller"
