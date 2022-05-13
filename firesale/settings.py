@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user.apps.UserConfig',
     'ads.apps.AdsConfig',
-    'corsheaders'
+    'corsheaders',
+    'django_countries'
 ]
 
 MIDDLEWARE = [

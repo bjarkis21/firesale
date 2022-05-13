@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_countries.fields import CountryField
 
 # Create your models here.
 from ads.models import Advertisement
@@ -9,8 +10,10 @@ class Checkout(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='checkout', default='')
     advertisement = models.OneToOneField(Advertisement, on_delete=models.CASCADE, related_name='checkout', default='')
     fullname = models.CharField(max_length=255)
-    country = models.CharField(max_length=255)
+    #country = models.CharField(max_length=255)
+    country = CountryField()
     city = models.CharField(max_length=255)
+    #city = CountryField(default=1)
     postcode = models.CharField(max_length=20)
     street = models.CharField(max_length=255)
     street_no = models.CharField(max_length=255)

@@ -86,7 +86,7 @@ class CheckoutForm(ModelForm):
             'street': widgets.TextInput(attrs={'class': 'form-control address-info'}),
             'street_no': widgets.TextInput(attrs={'class': 'form-control address-info'}),
             'city': widgets.TextInput(attrs={'class': 'form-control address-info'}),
-            'country': widgets.TextInput(attrs={'class': 'form-control address-info'}),
+            'country': widgets.Select(attrs={'class': 'form-control address-info'}),
             'postcode': widgets.TextInput(attrs={'class': 'form-control address-info'}),
             'credid_card_fullname': widgets.TextInput(attrs={'class': 'form-control cc-info'}),
             'credid_card_number': widgets.TextInput(attrs={'class': 'form-control cc-info'}),
