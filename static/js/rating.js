@@ -46,7 +46,7 @@ for (let star of star_elements) {
             sendRating(parent.dataset.adid, star_rating, parent);
         })
     } else {
-        let star_rating = parent.dataset.rating;
+        let star_rating = parent.dataset.rating.replace(",", ".");
         star_rating = Number(star_rating);
         fillStars(parent, star_rating);
     }
