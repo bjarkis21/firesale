@@ -179,10 +179,9 @@ def checkout(request, id):
 
 @login_required
 def stop_bid(request, id):
-    bid = get_object_or_404(Advertisement, pk=id)
-    if request.user == bid.buyer:
-        bid.isActive = False
-        bid.save()
+    bids = BidsOn.objects.filter(advertisement_id=id, user=request.user)
+    for bid in bids:
+        bid.delete()
     return redirect('mybids')
 
 
