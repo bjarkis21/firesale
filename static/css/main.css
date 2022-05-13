@@ -49,7 +49,7 @@ main {
     /*width: 700px;*/
     display: flex;
     flex-direction: column;
-    flex-gap: 15px;
+    row-gap: 20px;
 }
 
 .ad-anchor1 {
@@ -519,7 +519,7 @@ main {
     justify-content: flex-end;
 }
 
-.rating > input {
+/*.rating > input {
     display: none;
 }
 
@@ -537,7 +537,7 @@ main {
 .rating > input:checked ~ star-rating:hover ~ star-rating {
     color: orange;
     cursor: pointer;
-}
+}*/
 
 .login-button {
     background-color: lightblue;
@@ -549,6 +549,7 @@ main {
     display: inline-block;
     font-size: 12px;
     border-radius: 25px;
+    font-weight: bold;
 }
 
 .register-button {
@@ -561,4 +562,5 @@ main {
     display: inline-block;
     font-size: 12px;
     border-radius: 25px;
+    font-weight: bold;
 }
