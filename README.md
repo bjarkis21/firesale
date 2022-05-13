@@ -2,6 +2,8 @@
 
 <p>Python version: Python 3.9.12</p>
 
+<p>Hópanúmer: 26</p>
+
 <p>Hópameðlimir: bjarkis21@ru.is, viktoriarb20@ru.is, isakh21@ru.is
 , ragnark19@ru.is</p>
 
