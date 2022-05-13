@@ -30,27 +30,27 @@
     onerror=this.src="https://static.vecteezy.com/system/resources/previews/002/318/271/original/user-profile-icon-free-vector.jpg">
     </div>
     <p class="seller-rating">
-        {% if seller.rating > 0.5 %}
+        {% if seller.rating >= 0.5 %}
             <span class="fa fa-star gold"></span>
         {% else %}
             <span class="fa fa-star"></span>
         {% endif %}
-        {% if seller.rating > 1.5 %}
+        {% if seller.rating >= 1.5 %}
             <span class="fa fa-star gold"></span>
         {% else %}
             <span class="fa fa-star"></span>
         {% endif %}
-        {% if seller.rating > 2.5 %}
+        {% if seller.rating >= 2.5 %}
             <span class="fa fa-star gold"></span>
         {% else %}
             <span class="fa fa-star"></span>
         {% endif %}
-        {% if seller.rating > 3.5 %}
+        {% if seller.rating >= 3.5 %}
             <span class="fa fa-star gold"></span>
         {% else %}
             <span class="fa fa-star"></span>
         {% endif %}
-        {% if seller.rating > 4.5 %}
+        {% if seller.rating >= 4.5 %}
             <span class="fa fa-star gold"></span>
         {% else %}
             <span class="fa fa-star"></span>
