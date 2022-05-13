@@ -1,6 +1,6 @@
 from django.db.models import Max
 
-from ads.models import BidsOn
+from ads.models import BidsOn, Advertisement
 
 
 def get_max_bid(ad, user=None):
@@ -24,3 +24,19 @@ def get_minimum_bid(ad):
     else:
         min_bid = current_max_bid + 100
     return min_bid
+
+def update_user_rating(user):
+    all_ads = Advertisement.objects.filter(seller=user)
+    total = 0
+    count = 0
+    for ad in all_ads:
+        if ad.rating:
+            total += ad.rating
+            count += 1
+    try:
+        average = total / count
+    except ZeroDivisionError:
+        average = 0
+    profile = user.userprofile
+    profile.rating = average
+    profile.save()

@@ -24,11 +24,17 @@ function fillStars(star_container, star_count) {
     }
 }
 
-function sendRating(ad_id, star_count) {
-    axios.get('http://localhost:8000').then((res) => {console.log(res)})
+function sendRating(ad_id, star_count, star_container) {
+    axios.post('http://localhost:8000/ads/rate_ad', {
+        ad_id: ad_id,
+        rating: star_count
+    }).then((res) => {
+        star_container.classList.add('rated')
+    })
+
 }
 
-let star_elements = document.getElementsByClassName("fa-star");
+let star_elements = document.getElementsByClassName("dynamic-star");
 console.log(star_elements)
 for (let star of star_elements) {
     let parent = star.parentNode;
@@ -37,7 +43,7 @@ for (let star of star_elements) {
             let star_rating = star.dataset.rating;
             star_rating = Number(star_rating);
             fillStars(parent, star_rating);
-            sendRating();
+            sendRating(parent.dataset.adid, star_rating, parent);
         })
     } else {
         let star_rating = parent.dataset.rating;

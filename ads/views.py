@@ -1,13 +1,17 @@
+import json
+
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
+
 from ads.forms.ads_forms import AdsForm, BidForm, CheckoutForm
 from user.models import Messages
 from user.views import bank_info
 from ads.models import BidsOn
 from django.db.models import Max
-from ads.functions import get_max_bid
+from ads.functions import get_max_bid, update_user_rating
 
 # Create your views here.
 from ads.models import Category, Advertisement
@@ -181,7 +185,20 @@ def stop_bid(request, id):
         bid.save()
     return redirect('mybids')
 
-#@login_required
+
+@csrf_exempt
 def rate_ad(request):
-    if request.method == 'GET':
-        return JsonResponse({'message': 'Good test'}, status=200)
+    if request.method == 'POST':
+        body_unicode = request.body.decode('utf-8')
+        body = json.loads(body_unicode)
+        ad_id = body['ad_id']
+        rating = body['rating']
+        ad_id = int(ad_id)
+        rating = int(rating)
+        ad = get_object_or_404(Advertisement, pk=ad_id)
+        ad.rating = rating
+        ad.save()
+        update_user_rating(ad.seller)
+        return JsonResponse({'message': 'Rating updated'}, status=200)
+    else:
+        return JsonResponse({'message': 'Some error has occurred'}, status=400)
