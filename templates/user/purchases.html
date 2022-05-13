@@ -1,5 +1,6 @@
 {% extends "main.html" %}
 {% block content %}
+    {% csrf_token %}
     <div class="purchasesContainer">
         <h1>Kaupsaga</h1>
         {% if purchased_ads %}
@@ -9,13 +10,21 @@
 
                 <div class="buttons-container">
                     <p>Gefðu vörunni einkunn.</p>
-                    <fieldset class="rating">
-                        <input type="radio" id="star5" name="rating" value="5"><star-rating class="fa fa-star"></star-rating>
-                        <input type="radio" id="star4" name="rating" value="4"><star-rating class="fa fa-star"></star-rating>
-                        <input type="radio" id="star3" name="rating" value="3"><star-rating class="fa fa-star"></star-rating>
-                        <input type="radio" id="star2" name="rating" value="2"><star-rating class="fa fa-star"></star-rating>
-                        <input type="radio" id="star1" name="rating" value="1"><star-rating class="fa fa-star"></star-rating>
-                    </fieldset>
+{#                    <fieldset class="rating">#}
+{#                        <input type="radio" id="star5" name="rating" value="5"><star-rating class="fa fa-star"></star-rating>#}
+{#                        <input type="radio" id="star4" name="rating" value="4"><star-rating class="fa fa-star"></star-rating>#}
+{#                        <input type="radio" id="star3" name="rating" value="3"><star-rating class="fa fa-star"></star-rating>#}
+{#                        <input type="radio" id="star2" name="rating" value="2"><star-rating class="fa fa-star"></star-rating>#}
+{#                        <input type="radio" id="star1" name="rating" value="1"><star-rating class="fa fa-star"></star-rating>#}
+{#                    </fieldset>#}
+                    <div class="star-container {% if ad.rating %}rated{% endif %}" data-adid="{{ ad.id }}"
+                           {% if ad.rating %}data-rating="{{ ad.rating }}"{% endif %} >
+                        <span class="fa fa-star dynamic-star" data-rating="1"></span>
+                        <span class="fa fa-star dynamic-star" data-rating="2"></span>
+                        <span class="fa fa-star dynamic-star" data-rating="3"></span>
+                        <span class="fa fa-star dynamic-star" data-rating="4"></span>
+                        <span class="fa fa-star dynamic-star" data-rating="5"></span>
+                    </div>
                 </div>
             </div>
         {% endfor %}
@@ -23,4 +32,5 @@
             <p>Þú hefur ekki keypt neina vöru.</p>
         {% endif %}
     </div>
+
 {% endblock %}

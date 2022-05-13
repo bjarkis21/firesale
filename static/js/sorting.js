@@ -21,10 +21,14 @@ function sort_by_date(ads_container) {
         ads_array.push(ad)
     }
     ads_array.sort(function(a,b){
-        let time_a = a.querySelector(".ad-creation-date").dataset.timestamp.replaceAll(',','');
+        // "1651751353,352255"
+        let time_a = a.querySelector(".ad-creation-date").dataset.timestamp.replaceAll('.','').replaceAll(',','.');
+        /*time_a.replaceAll('.', '')
+        time_a.replace(',','.');*/
         time_a = Number(time_a)
         time_a = new Date(time_a)
-        let time_b = b.querySelector(".ad-creation-date").dataset.timestamp.replaceAll(',','');
+        let time_b = b.querySelector(".ad-creation-date").dataset.timestamp.replaceAll('.','').replaceAll(',', '.');
+        // time_b.replace(',','.');
         time_b = Number(time_b)
         time_b = new Date(time_b)
         if (time_a < time_b){
@@ -47,9 +51,9 @@ function sort_by_bid(ads_container) {
     ads_array.sort(function(a,b){
         let bid_a = a.querySelector(".ad-highest-bid-number");
         if (bid_a) {
-            bid_a = bid_a.textContent.replaceAll(",", "")
+            bid_a = bid_a.textContent.replaceAll(".", "")
         }else {
-            bid_a = a.querySelector(".ad-bid").dataset.reserve.replaceAll(",", "")
+            bid_a = a.querySelector(".ad-bid").dataset.reserve.replaceAll(".", "")
         }
         bid_a = Number(bid_a)
         if (Number.isNaN(bid_a)){
@@ -58,9 +62,9 @@ function sort_by_bid(ads_container) {
 
         let bid_b = b.querySelector(".ad-highest-bid-number");
         if (bid_b) {
-            bid_b = bid_b.textContent.replaceAll(",", "")
+            bid_b = bid_b.textContent.replaceAll(".", "")
         }else {
-            bid_b = b.querySelector(".ad-bid").dataset.reserve.replaceAll(",", "")
+            bid_b = b.querySelector(".ad-bid").dataset.reserve.replaceAll(".", "")
         }
         bid_b = Number(bid_b)
         if (Number.isNaN(bid_b)){
@@ -68,7 +72,7 @@ function sort_by_bid(ads_container) {
         }
 
         // let bid_b = b.querySelector(".ad-highest-bid").textContent;
-        // bid_b = bid_b.dataset.number.replaceAll(',','') === null ? 0 : bid_b;
+        // bid_b = bid_b.dataset.number.replaceAll('.','') === null ? 0 : bid_b;
         // bid_b = Number(bid_b);
         // bid_b = new Number(bid_b);
         if (bid_a < bid_b){
