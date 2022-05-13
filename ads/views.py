@@ -55,16 +55,19 @@ def get_ad_by_id(request, id):
     related_ads = Advertisement.objects.filter(category=ad_cat, isActive=True).exclude(id=ad.id).order_by('-creation_date')[:3]
     seller = ad.seller.userprofile
     form = BidForm(ad=ad, user=request.user)
-    if request.method == 'POST' and request.user.is_authenticated:
-        form = BidForm(ad=ad, user=request.user, data=request.POST)
-        if form.is_valid():
-            bid = form.save(commit=False)
-            bid.user = request.user
-            bid.advertisement = ad
-            bid.save()
-            return redirect(f'/ads/{id}')
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            form = BidForm(ad=ad, user=request.user, data=request.POST)
+            if form.is_valid():
+                bid = form.save(commit=False)
+                bid.user = request.user
+                bid.advertisement = ad
+                bid.save()
+                return redirect(f'/ads/{id}')
+            else:
+                print(form.errors)
         else:
-            print(form.errors)
+            return redirect('login')
 
     ad.max_bid = get_max_bid(ad)
     for related_ad in related_ads:
