@@ -133,7 +133,7 @@ def confirm_bid(request, id):
 
         send_mail("Ný skilaboð á Firesale",
                   f"Tilboð þitt í \"{ad.title}\" hefur verið samþykkt. Farðu í \"Mín boð\" til að ljúka greiðslu.",
-                  "firesale.is.the.best@gmail.com",
+                  "firesale.is.the.best1@gmail.com",
                   [max_bidder.email],
                   fail_silently=False)
 
@@ -167,7 +167,7 @@ def checkout(request, id):
 
             # send_mail("Ný skilaboð á Firesale",
             #           f"Tilboð þitt í \"{ad.title}\" hefur verið hafnað.",
-            #           "firesale.is.the.best@gmail.com",
+            #           "firesale.is.the.best1@gmail.com",
             #           [bid.user.email for bid in rejected_bidders],
             #           fail_silently=False)
 

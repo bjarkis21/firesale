@@ -146,7 +146,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'firesale.is.the.best@gmail.com'
+EMAIL_HOST_USER = 'firesale.is.the.best1@gmail.com'
 EMAIL_HOST_PASSWORD = 'abc.123!"#'
 
 CORS_ALLOW_ALL_ORIGINS = True
