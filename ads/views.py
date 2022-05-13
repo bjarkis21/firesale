@@ -165,11 +165,11 @@ def checkout(request, id):
                 bidder.userprofile.isNewMessage = True
                 bidder.userprofile.save()
 
-            send_mail("Ný skilaboð á Firesale",
-                      f"Tilboð þitt í \"{ad.title}\" hefur verið hafnað.",
-                      "firesale.is.the.best@gmail.com",
-                      [bid.user.email for bid in rejected_bidders],
-                      fail_silently=False)
+            # send_mail("Ný skilaboð á Firesale",
+            #           f"Tilboð þitt í \"{ad.title}\" hefur verið hafnað.",
+            #           "firesale.is.the.best@gmail.com",
+            #           [bid.user.email for bid in rejected_bidders],
+            #           fail_silently=False)
 
             return redirect('mybids')
     ad.max_bid = get_max_bid(ad)
